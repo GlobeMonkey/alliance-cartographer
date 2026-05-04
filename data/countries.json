@@ -724,7 +724,7 @@
     "region": "Northern Europe",
     "pib_usd": 7431257410.92713,
     "pib_par_hab": 88328.548125887,
-    "croissance_pct": null,
+    "croissance_pct": -4.16539345213232,
     "dep_militaire_pct_pib": null
   },
   {
@@ -1102,7 +1102,7 @@
     "acces_mer": true,
     "region": "Southeast Europe",
     "pib_usd": 382564217988.866,
-    "pib_par_hab": null,
+    "pib_par_hab": 20080.2096215595,
     "croissance_pct": 0.916003764382594,
     "dep_militaire_pct_pib": 2.29815245791591
   },
@@ -2365,7 +2365,7 @@
     "pib_usd": 43684254432.3609,
     "pib_par_hab": 23409.0845154775,
     "croissance_pct": -0.0461080109713521,
-    "dep_militaire_pct_pib": null
+    "dep_militaire_pct_pib": 3.25799154535171
   },
   {
     "id": "LTU",
@@ -3172,7 +3172,7 @@
     ],
     "acces_mer": true,
     "region": "Western Africa",
-    "pib_usd": null,
+    "pib_usd": 82308110386.4641,
     "pib_par_hab": 2390.77237652715,
     "croissance_pct": 5.59045469593266,
     "dep_militaire_pct_pib": 0.383994182354107
@@ -3674,7 +3674,7 @@
     "region": "Middle Africa",
     "pib_usd": 19518819751.283,
     "pib_par_hab": 961.55975562506,
-    "croissance_pct": null,
+    "croissance_pct": 4.19925854085865,
     "dep_militaire_pct_pib": 2.98484990097129
   },
   {
@@ -3797,7 +3797,7 @@
     "acces_mer": true,
     "region": "South-Eastern Asia",
     "pib_usd": 1865608515.41321,
-    "pib_par_hab": null,
+    "pib_par_hab": 1331.9705130185,
     "croissance_pct": -9.10069369772735,
     "dep_militaire_pct_pib": 2.66415662650602
   },
@@ -4338,7 +4338,7 @@
     "acces_mer": false,
     "region": "Eastern Africa",
     "pib_usd": 14251642235.0968,
-    "pib_par_hab": null,
+    "pib_par_hab": 999.65456165547,
     "croissance_pct": 8.89065529573114,
     "dep_militaire_pct_pib": 1.24772078121775
   },
