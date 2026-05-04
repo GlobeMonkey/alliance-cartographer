@@ -7,16 +7,25 @@ export let loadError = null;
 export async function loadData() {
   loadError = null;
   try {
-    const worldRes = await fetch('./data/world.json');
+    const [worldRes, topoRes] = await Promise.all([
+      fetch('./data/world.json'),
+      fetch('./data/countries-110m.json')
+    ]);
+
     if (!worldRes.ok) {
       loadError = `Impossible de charger world.json (HTTP ${worldRes.status}).`;
       throw new Error(loadError);
     }
-    let worldData;
+    if (!topoRes.ok) {
+      loadError = `Impossible de charger countries-110m.json (HTTP ${topoRes.status}).`;
+      throw new Error(loadError);
+    }
+
+    let worldData, topoData;
     try {
-      worldData = await worldRes.json();
+      [worldData, topoData] = await Promise.all([worldRes.json(), topoRes.json()]);
     } catch {
-      loadError = 'world.json contient du JSON invalide.';
+      loadError = 'JSON invalide dans world.json ou countries-110m.json.';
       throw new Error(loadError);
     }
 
@@ -29,12 +38,6 @@ export async function loadData() {
     state.nodes = worldData.nodes.map(n => sanitizeNode(n, n));
     state.links = worldData.edges.map(sanitizeLink);
 
-    const topoRes = await fetch('./data/countries-110m.json');
-    if (!topoRes.ok) {
-      loadError = `Impossible de charger countries-110m.json (HTTP ${topoRes.status}).`;
-      throw new Error(loadError);
-    }
-    const topoData = await topoRes.json();
     worldGeo = topojson.feature(topoData, topoData.objects.countries);
 
     return worldData;
