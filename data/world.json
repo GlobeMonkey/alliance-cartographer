@@ -1,0 +1,2453 @@
+{
+  "relationTypes": {
+    "alliance": {
+      "label": "Alliance",
+      "color": "#4cc9f0",
+      "dash": "0",
+      "weight": 5
+    },
+    "partnership": {
+      "label": "Partenariat",
+      "color": "#80ed99",
+      "dash": "10 5",
+      "weight": 4
+    },
+    "neutral": {
+      "label": "Neutralite",
+      "color": "#d9d9d9",
+      "dash": "2 6",
+      "weight": 2
+    },
+    "rivalry": {
+      "label": "Rivalite",
+      "color": "#ff9f1c",
+      "dash": "14 6 2 6",
+      "weight": -3
+    },
+    "conflict": {
+      "label": "Conflit",
+      "color": "#ff595e",
+      "dash": "18 8",
+      "weight": -5
+    }
+  },
+  "nodes": [
+    {
+      "id": "US",
+      "label": "États-Unis",
+      "type": "country",
+      "region": "Amerique du Nord",
+      "regime": "Republique federale presidentielle",
+      "population": "335 M",
+      "gdp": "29 200 Md$",
+      "lon": -77.0369,
+      "lat": 38.9072,
+      "name": "États-Unis"
+    },
+    {
+      "id": "CA",
+      "label": "Canada",
+      "type": "country",
+      "region": "Amerique du Nord",
+      "regime": "Monarchie constitutionnelle parlementaire",
+      "population": "41 M",
+      "gdp": "2 240 Md$",
+      "lon": -75.6972,
+      "lat": 45.4215,
+      "name": "Canada"
+    },
+    {
+      "id": "GB",
+      "label": "Royaume-Uni",
+      "type": "country",
+      "region": "Europe",
+      "regime": "Monarchie parlementaire",
+      "population": "68 M",
+      "gdp": "3 340 Md$",
+      "lon": -0.1276,
+      "lat": 51.5072,
+      "name": "Royaume-Uni"
+    },
+    {
+      "id": "FR",
+      "label": "France",
+      "type": "country",
+      "region": "Europe",
+      "regime": "Republique semi-presidentielle",
+      "population": "68 M",
+      "gdp": "3 050 Md$",
+      "lon": 2.3522,
+      "lat": 48.8566,
+      "name": "France"
+    },
+    {
+      "id": "DE",
+      "label": "Allemagne",
+      "type": "country",
+      "region": "Europe",
+      "regime": "Republique federale parlementaire",
+      "population": "84 M",
+      "gdp": "4 710 Md$",
+      "lon": 13.405,
+      "lat": 52.52,
+      "name": "Allemagne"
+    },
+    {
+      "id": "IT",
+      "label": "Italie",
+      "type": "country",
+      "region": "Europe",
+      "regime": "Republique parlementaire",
+      "population": "59 M",
+      "gdp": "2 300 Md$",
+      "lon": 12.4964,
+      "lat": 41.9028,
+      "name": "Italie"
+    },
+    {
+      "id": "ES",
+      "label": "Espagne",
+      "type": "country",
+      "region": "Europe",
+      "regime": "Monarchie parlementaire",
+      "population": "48 M",
+      "gdp": "1 620 Md$",
+      "lon": -3.7038,
+      "lat": 40.4168,
+      "name": "Espagne"
+    },
+    {
+      "id": "PL",
+      "label": "Pologne",
+      "type": "country",
+      "region": "Europe",
+      "regime": "Republique parlementaire",
+      "population": "38 M",
+      "gdp": "860 Md$",
+      "lon": 21.0122,
+      "lat": 52.2297,
+      "name": "Pologne"
+    },
+    {
+      "id": "TR",
+      "label": "Turquie",
+      "type": "country",
+      "region": "Moyen-Orient / Europe",
+      "regime": "Republique presidentielle",
+      "population": "86 M",
+      "gdp": "1 150 Md$",
+      "lon": 32.8597,
+      "lat": 39.9334,
+      "name": "Turquie"
+    },
+    {
+      "id": "UA",
+      "label": "Ukraine",
+      "type": "country",
+      "region": "Europe orientale",
+      "regime": "Republique semi-presidentielle",
+      "population": "37 M",
+      "gdp": "180 Md$",
+      "lon": 30.5234,
+      "lat": 50.4501,
+      "name": "Ukraine"
+    },
+    {
+      "id": "RU",
+      "label": "Russie",
+      "type": "country",
+      "region": "Eurasie",
+      "regime": "Federation presidentielle",
+      "population": "144 M",
+      "gdp": "2 020 Md$",
+      "lon": 37.6173,
+      "lat": 55.7558,
+      "name": "Russie"
+    },
+    {
+      "id": "CN",
+      "label": "Chine",
+      "type": "country",
+      "region": "Asie orientale",
+      "regime": "Etat a parti unique",
+      "population": "1,41 Md",
+      "gdp": "18 500 Md$",
+      "lon": 116.4074,
+      "lat": 39.9042,
+      "name": "Chine"
+    },
+    {
+      "id": "JP",
+      "label": "Japon",
+      "type": "country",
+      "region": "Asie orientale",
+      "regime": "Monarchie constitutionnelle parlementaire",
+      "population": "124 M",
+      "gdp": "4 200 Md$",
+      "lon": 139.6917,
+      "lat": 35.6895,
+      "name": "Japon"
+    },
+    {
+      "id": "KR",
+      "label": "Corée du Sud",
+      "type": "country",
+      "region": "Asie orientale",
+      "regime": "Republique presidentielle",
+      "population": "52 M",
+      "gdp": "1 760 Md$",
+      "lon": 126.978,
+      "lat": 37.5665,
+      "name": "Corée du Sud"
+    },
+    {
+      "id": "IN",
+      "label": "Inde",
+      "type": "country",
+      "region": "Asie du Sud",
+      "regime": "Republique federale parlementaire",
+      "population": "1,43 Md",
+      "gdp": "3 900 Md$",
+      "lon": 77.209,
+      "lat": 28.6139,
+      "name": "Inde"
+    },
+    {
+      "id": "AU",
+      "label": "Australie",
+      "type": "country",
+      "region": "Oceanie",
+      "regime": "Monarchie constitutionnelle parlementaire",
+      "population": "27 M",
+      "gdp": "1 760 Md$",
+      "lon": 149.13,
+      "lat": -35.2809,
+      "name": "Australie"
+    },
+    {
+      "id": "NZ",
+      "label": "Nouvelle-Zélande",
+      "type": "country",
+      "region": "Oceanie",
+      "regime": "Monarchie parlementaire",
+      "population": "5,3 M",
+      "gdp": "260 Md$",
+      "lon": 174.7772,
+      "lat": -41.2865,
+      "name": "Nouvelle-Zélande"
+    },
+    {
+      "id": "ID",
+      "label": "Indonésie",
+      "type": "country",
+      "region": "Asie du Sud-Est",
+      "regime": "Republique presidentielle",
+      "population": "281 M",
+      "gdp": "1 500 Md$",
+      "lon": 106.8456,
+      "lat": -6.2088,
+      "name": "Indonésie"
+    },
+    {
+      "id": "VN",
+      "label": "Viêt Nam",
+      "type": "country",
+      "region": "Asie du Sud-Est",
+      "regime": "Republique socialiste a parti unique",
+      "population": "101 M",
+      "gdp": "470 Md$",
+      "lon": 105.8342,
+      "lat": 21.0278,
+      "name": "Viêt Nam"
+    },
+    {
+      "id": "SA",
+      "label": "Arabie saoudite",
+      "type": "country",
+      "region": "Golfe",
+      "regime": "Monarchie absolue",
+      "population": "37 M",
+      "gdp": "1 100 Md$",
+      "lon": 46.6753,
+      "lat": 24.7136,
+      "name": "Arabie saoudite"
+    },
+    {
+      "id": "IR",
+      "label": "Iran",
+      "type": "country",
+      "region": "Moyen-Orient",
+      "regime": "Republique islamique",
+      "population": "89 M",
+      "gdp": "400 Md$",
+      "lon": 51.389,
+      "lat": 35.6892,
+      "name": "Iran"
+    },
+    {
+      "id": "IL",
+      "label": "Israël",
+      "type": "country",
+      "region": "Moyen-Orient",
+      "regime": "Democratie parlementaire",
+      "population": "10 M",
+      "gdp": "550 Md$",
+      "lon": 35.2137,
+      "lat": 31.7683,
+      "name": "Israël"
+    },
+    {
+      "id": "EG",
+      "label": "Égypte",
+      "type": "country",
+      "region": "Afrique du Nord",
+      "regime": "Republique presidentielle",
+      "population": "113 M",
+      "gdp": "400 Md$",
+      "lon": 31.2357,
+      "lat": 30.0444,
+      "name": "Égypte"
+    },
+    {
+      "id": "AE",
+      "label": "Émirats arabes unis",
+      "type": "country",
+      "region": "Golfe",
+      "regime": "Federation monarchique",
+      "population": "10 M",
+      "gdp": "540 Md$",
+      "lon": 54.3773,
+      "lat": 24.4539,
+      "name": "Émirats arabes unis"
+    },
+    {
+      "id": "QA",
+      "label": "Qatar",
+      "type": "country",
+      "region": "Golfe",
+      "regime": "Monarchie absolue",
+      "population": "3 M",
+      "gdp": "235 Md$",
+      "lon": 51.531,
+      "lat": 25.2854,
+      "name": "Qatar"
+    },
+    {
+      "id": "BR",
+      "label": "Brésil",
+      "type": "country",
+      "region": "Amerique du Sud",
+      "regime": "Republique federative presidentielle",
+      "population": "203 M",
+      "gdp": "2 170 Md$",
+      "lon": -47.8825,
+      "lat": -15.7942,
+      "name": "Brésil"
+    },
+    {
+      "id": "ZA",
+      "label": "Afrique du Sud",
+      "type": "country",
+      "region": "Afrique australe",
+      "regime": "Republique parlementaire",
+      "population": "63 M",
+      "gdp": "405 Md$",
+      "lon": 28.2293,
+      "lat": -25.7461,
+      "name": "Afrique du Sud"
+    },
+    {
+      "id": "ET",
+      "label": "Éthiopie",
+      "type": "country",
+      "region": "Corne de l'Afrique",
+      "regime": "Republique federale parlementaire",
+      "population": "128 M",
+      "gdp": "190 Md$",
+      "lon": 38.7578,
+      "lat": 8.9806,
+      "name": "Éthiopie"
+    },
+    {
+      "id": "AL",
+      "label": "Albanie",
+      "type": "country",
+      "region": "Balkans",
+      "regime": "Republique parlementaire",
+      "population": "2,8 M",
+      "gdp": "25 Md$",
+      "lon": 19.8187,
+      "lat": 41.3275,
+      "name": "Albanie"
+    },
+    {
+      "id": "BE",
+      "label": "Belgique",
+      "type": "country",
+      "region": "Europe",
+      "regime": "Monarchie parlementaire",
+      "population": "11,8 M",
+      "gdp": "650 Md$",
+      "lon": 4.3517,
+      "lat": 50.8503,
+      "name": "Belgique"
+    },
+    {
+      "id": "BG",
+      "label": "Bulgarie",
+      "type": "country",
+      "region": "Balkans",
+      "regime": "Republique parlementaire",
+      "population": "6,4 M",
+      "gdp": "110 Md$",
+      "lon": 23.3219,
+      "lat": 42.6977,
+      "name": "Bulgarie"
+    },
+    {
+      "id": "HR",
+      "label": "Croatie",
+      "type": "country",
+      "region": "Balkans",
+      "regime": "Republique parlementaire",
+      "population": "3,8 M",
+      "gdp": "90 Md$",
+      "lon": 15.9819,
+      "lat": 45.815,
+      "name": "Croatie"
+    },
+    {
+      "id": "CZ",
+      "label": "Tchéquie",
+      "type": "country",
+      "region": "Europe centrale",
+      "regime": "Republique parlementaire",
+      "population": "10,9 M",
+      "gdp": "340 Md$",
+      "lon": 14.4378,
+      "lat": 50.0755,
+      "name": "Tchéquie"
+    },
+    {
+      "id": "DK",
+      "label": "Danemark",
+      "type": "country",
+      "region": "Europe du Nord",
+      "regime": "Monarchie parlementaire",
+      "population": "5,9 M",
+      "gdp": "410 Md$",
+      "lon": 12.5683,
+      "lat": 55.6761,
+      "name": "Danemark"
+    },
+    {
+      "id": "EE",
+      "label": "Estonie",
+      "type": "country",
+      "region": "Baltique",
+      "regime": "Republique parlementaire",
+      "population": "1,4 M",
+      "gdp": "45 Md$",
+      "lon": 24.7536,
+      "lat": 59.437,
+      "name": "Estonie"
+    },
+    {
+      "id": "FI",
+      "label": "Finlande",
+      "type": "country",
+      "region": "Europe du Nord",
+      "regime": "Republique parlementaire",
+      "population": "5,6 M",
+      "gdp": "310 Md$",
+      "lon": 24.9384,
+      "lat": 60.1699,
+      "name": "Finlande"
+    },
+    {
+      "id": "GR",
+      "label": "Grèce",
+      "type": "country",
+      "region": "Mediterranee",
+      "regime": "Republique parlementaire",
+      "population": "10,4 M",
+      "gdp": "240 Md$",
+      "lon": 23.7275,
+      "lat": 37.9838,
+      "name": "Grèce"
+    },
+    {
+      "id": "HU",
+      "label": "Hongrie",
+      "type": "country",
+      "region": "Europe centrale",
+      "regime": "Republique parlementaire",
+      "population": "9,6 M",
+      "gdp": "210 Md$",
+      "lon": 19.0402,
+      "lat": 47.4979,
+      "name": "Hongrie"
+    },
+    {
+      "id": "IS",
+      "label": "IS",
+      "type": "country",
+      "region": "Atlantique Nord",
+      "regime": "Republique parlementaire",
+      "population": "0,39 M",
+      "gdp": "30 Md$",
+      "lon": -21.9426,
+      "lat": 64.1466,
+      "name": "IS"
+    },
+    {
+      "id": "LV",
+      "label": "Lettonie",
+      "type": "country",
+      "region": "Baltique",
+      "regime": "Republique parlementaire",
+      "population": "1,9 M",
+      "gdp": "45 Md$",
+      "lon": 24.1052,
+      "lat": 56.9496,
+      "name": "Lettonie"
+    },
+    {
+      "id": "LT",
+      "label": "Lituanie",
+      "type": "country",
+      "region": "Baltique",
+      "regime": "Republique parlementaire",
+      "population": "2,8 M",
+      "gdp": "80 Md$",
+      "lon": 25.2797,
+      "lat": 54.6872,
+      "name": "Lituanie"
+    },
+    {
+      "id": "LU",
+      "label": "LU",
+      "type": "country",
+      "region": "Europe",
+      "regime": "Monarchie constitutionnelle",
+      "population": "0,67 M",
+      "gdp": "90 Md$",
+      "lon": 6.1319,
+      "lat": 49.6116,
+      "name": "LU"
+    },
+    {
+      "id": "ME",
+      "label": "Monténégro",
+      "type": "country",
+      "region": "Balkans",
+      "regime": "Republique parlementaire",
+      "population": "0,62 M",
+      "gdp": "8 Md$",
+      "lon": 19.2627,
+      "lat": 42.4304,
+      "name": "Monténégro"
+    },
+    {
+      "id": "NL",
+      "label": "Pays-Bas",
+      "type": "country",
+      "region": "Europe",
+      "regime": "Monarchie parlementaire",
+      "population": "17,9 M",
+      "gdp": "1 150 Md$",
+      "lon": 4.9041,
+      "lat": 52.3676,
+      "name": "Pays-Bas"
+    },
+    {
+      "id": "MK",
+      "label": "Macédoine du Nord",
+      "type": "country",
+      "region": "Balkans",
+      "regime": "Republique parlementaire",
+      "population": "1,8 M",
+      "gdp": "16 Md$",
+      "lon": 21.4316,
+      "lat": 41.9981,
+      "name": "Macédoine du Nord"
+    },
+    {
+      "id": "NO",
+      "label": "Norvège",
+      "type": "country",
+      "region": "Europe du Nord",
+      "regime": "Monarchie parlementaire",
+      "population": "5,5 M",
+      "gdp": "580 Md$",
+      "lon": 10.7522,
+      "lat": 59.9139,
+      "name": "Norvège"
+    },
+    {
+      "id": "PT",
+      "label": "Portugal",
+      "type": "country",
+      "region": "Europe",
+      "regime": "Republique parlementaire",
+      "population": "10,4 M",
+      "gdp": "290 Md$",
+      "lon": -9.1393,
+      "lat": 38.7223,
+      "name": "Portugal"
+    },
+    {
+      "id": "RO",
+      "label": "Roumanie",
+      "type": "country",
+      "region": "Europe orientale",
+      "regime": "Republique semi-presidentielle",
+      "population": "19 M",
+      "gdp": "380 Md$",
+      "lon": 26.1025,
+      "lat": 44.4268,
+      "name": "Roumanie"
+    },
+    {
+      "id": "SK",
+      "label": "Slovaquie",
+      "type": "country",
+      "region": "Europe centrale",
+      "regime": "Republique parlementaire",
+      "population": "5,4 M",
+      "gdp": "145 Md$",
+      "lon": 17.1077,
+      "lat": 48.1486,
+      "name": "Slovaquie"
+    },
+    {
+      "id": "SI",
+      "label": "SI",
+      "type": "country",
+      "region": "Europe centrale",
+      "regime": "Republique parlementaire",
+      "population": "2,1 M",
+      "gdp": "70 Md$",
+      "lon": 14.5058,
+      "lat": 46.0569,
+      "name": "SI"
+    },
+    {
+      "id": "SE",
+      "label": "Suède",
+      "type": "country",
+      "region": "Europe du Nord",
+      "regime": "Monarchie parlementaire",
+      "population": "10,6 M",
+      "gdp": "610 Md$",
+      "lon": 18.0686,
+      "lat": 59.3293,
+      "name": "Suède"
+    },
+    {
+      "id": "AZ",
+      "label": "Azerbaïdjan",
+      "type": "country",
+      "region": "Caucase",
+      "regime": "Republique presidentielle",
+      "population": "10,2 M",
+      "gdp": "78 Md$",
+      "lon": 49.8671,
+      "lat": 40.4093,
+      "name": "Azerbaïdjan"
+    },
+    {
+      "id": "KZ",
+      "label": "Kazakhstan",
+      "type": "country",
+      "region": "Asie centrale",
+      "regime": "Republique presidentielle",
+      "population": "20 M",
+      "gdp": "290 Md$",
+      "lon": 71.4491,
+      "lat": 51.1694,
+      "name": "Kazakhstan"
+    },
+    {
+      "id": "KG",
+      "label": "Kirghizstan",
+      "type": "country",
+      "region": "Asie centrale",
+      "regime": "Republique presidentielle",
+      "population": "7,1 M",
+      "gdp": "14 Md$",
+      "lon": 74.5698,
+      "lat": 42.8746,
+      "name": "Kirghizstan"
+    },
+    {
+      "id": "UZ",
+      "label": "Ouzbékistan",
+      "type": "country",
+      "region": "Asie centrale",
+      "regime": "Republique presidentielle",
+      "population": "36 M",
+      "gdp": "115 Md$",
+      "lon": 69.2401,
+      "lat": 41.2995,
+      "name": "Ouzbékistan"
+    },
+    {
+      "id": "TM",
+      "label": "Turkménistan",
+      "type": "country",
+      "region": "Asie centrale",
+      "regime": "Republique presidentielle",
+      "population": "6,4 M",
+      "gdp": "60 Md$",
+      "lon": 58.3838,
+      "lat": 37.9601,
+      "name": "Turkménistan"
+    },
+    {
+      "id": "IE",
+      "label": "Irlande",
+      "type": "organization",
+      "lon": -6.2603,
+      "lat": 53.3498,
+      "name": "Irlande"
+    },
+    {
+      "id": "PH",
+      "label": "Philippines",
+      "type": "organization",
+      "lon": 120.9842,
+      "lat": 14.5995,
+      "name": "Philippines"
+    },
+    {
+      "id": "MX",
+      "label": "Mexique",
+      "type": "organization",
+      "lon": -99.1332,
+      "lat": 19.4326,
+      "name": "Mexique"
+    },
+    {
+      "id": "AR",
+      "label": "Argentine",
+      "type": "organization",
+      "lon": -58.3816,
+      "lat": -34.6037,
+      "name": "Argentine"
+    },
+    {
+      "id": "RS",
+      "label": "Serbie",
+      "type": "organization",
+      "lon": 20.4489,
+      "lat": 44.7866,
+      "name": "Serbie"
+    },
+    {
+      "id": "GE",
+      "label": "Géorgie",
+      "type": "organization",
+      "lon": 44.793,
+      "lat": 41.7151,
+      "name": "Géorgie"
+    },
+    {
+      "id": "AM",
+      "label": "Arménie",
+      "type": "organization",
+      "lon": 44.5152,
+      "lat": 40.1872,
+      "name": "Arménie"
+    },
+    {
+      "id": "PK",
+      "label": "Pakistan",
+      "type": "organization",
+      "lon": 73.0479,
+      "lat": 33.6844,
+      "name": "Pakistan"
+    },
+    {
+      "id": "JO",
+      "label": "Jordanie",
+      "type": "organization",
+      "lon": 35.9306,
+      "lat": 31.9539,
+      "name": "Jordanie"
+    },
+    {
+      "id": "IQ",
+      "label": "Irak",
+      "type": "organization",
+      "lon": 44.3661,
+      "lat": 33.3152,
+      "name": "Irak"
+    },
+    {
+      "id": "LB",
+      "label": "Liban",
+      "type": "organization",
+      "lon": 35.5018,
+      "lat": 33.8938,
+      "name": "Liban"
+    },
+    {
+      "id": "SY",
+      "label": "Syrie",
+      "type": "organization",
+      "lon": 36.2765,
+      "lat": 33.5138,
+      "name": "Syrie"
+    },
+    {
+      "id": "BH",
+      "label": "Bahrein",
+      "type": "organization",
+      "lon": 50.586,
+      "lat": 26.2285,
+      "name": "Bahrein"
+    },
+    {
+      "id": "TH",
+      "label": "Thaïlande",
+      "type": "organization",
+      "lon": 100.5018,
+      "lat": 13.7563,
+      "name": "Thaïlande"
+    },
+    {
+      "id": "LK",
+      "label": "Sri Lanka",
+      "type": "organization",
+      "lon": 79.8612,
+      "lat": 6.9271,
+      "name": "Sri Lanka"
+    },
+    {
+      "id": "MM",
+      "label": "Myanmar",
+      "type": "organization",
+      "lon": 96.1951,
+      "lat": 16.8661,
+      "name": "Myanmar"
+    },
+    {
+      "id": "BT",
+      "label": "Bhoutan",
+      "type": "organization",
+      "lon": 89.639,
+      "lat": 27.4728,
+      "name": "Bhoutan"
+    },
+    {
+      "id": "MN",
+      "label": "Mongolie",
+      "type": "organization",
+      "lon": 106.9057,
+      "lat": 47.8864,
+      "name": "Mongolie"
+    },
+    {
+      "id": "KH",
+      "label": "Cambodge",
+      "type": "organization",
+      "lon": 104.9282,
+      "lat": 11.5564,
+      "name": "Cambodge"
+    },
+    {
+      "id": "LA",
+      "label": "Laos",
+      "type": "organization",
+      "lon": 102.6331,
+      "lat": 17.9757,
+      "name": "Laos"
+    },
+    {
+      "id": "TW",
+      "label": "Taiwan",
+      "type": "organization",
+      "lon": 121.5654,
+      "lat": 25.033,
+      "name": "Taiwan"
+    },
+    {
+      "id": "NP",
+      "label": "Népal",
+      "type": "organization",
+      "lon": 85.324,
+      "lat": 27.7172,
+      "name": "Népal"
+    },
+    {
+      "id": "MU",
+      "label": "Maurice",
+      "type": "organization",
+      "lon": 57.5522,
+      "lat": -20.1609,
+      "name": "Maurice"
+    },
+    {
+      "id": "FJ",
+      "label": "Fidji",
+      "type": "organization",
+      "lon": 178.4419,
+      "lat": -18.1416,
+      "name": "Fidji"
+    },
+    {
+      "id": "SR",
+      "label": "Suriname",
+      "type": "organization",
+      "lon": -55.1679,
+      "lat": 5.852,
+      "name": "Suriname"
+    },
+    {
+      "id": "GY",
+      "label": "Guyana",
+      "type": "organization",
+      "lon": -58.1551,
+      "lat": 6.8013,
+      "name": "Guyana"
+    },
+    {
+      "id": "BD",
+      "label": "Bangladesh",
+      "type": "organization",
+      "lon": 90.4125,
+      "lat": 23.8103,
+      "name": "Bangladesh"
+    },
+    {
+      "id": "PS",
+      "label": "Palestine",
+      "type": "unrecognized",
+      "region": "Moyen-Orient",
+      "regime": "Autorite palestinienne (territoire conteste)",
+      "population": "5.4 M",
+      "gdp": "18 Md$",
+      "lon": 35.2137,
+      "lat": 31.9522,
+      "name": "Palestine"
+    },
+    {
+      "id": "XK",
+      "label": "Kosovo",
+      "type": "unrecognized",
+      "region": "Europe",
+      "regime": "Republique parlementaire (reconnaissance partielle)",
+      "population": "1.8 M",
+      "gdp": "10 Md$",
+      "lon": 21.1655,
+      "lat": 42.6629,
+      "name": "Kosovo"
+    },
+    {
+      "id": "TRNC",
+      "label": "Rep. turque de Chypre du Nord",
+      "type": "unrecognized",
+      "region": "Mediterranee",
+      "regime": "Etat autoproclamé (reconnu uniquement par la Turquie)",
+      "population": "0.4 M",
+      "gdp": "6 Md$",
+      "lon": 33.3642,
+      "lat": 35.1856,
+      "name": "Rep. turque de Chypre du Nord"
+    },
+    {
+      "id": "SO-LAND",
+      "label": "Somaliland",
+      "type": "unrecognized",
+      "region": "Afrique de l'Est",
+      "regime": "Republique presidentielle (non reconnue)",
+      "population": "5.7 M",
+      "gdp": "3 Md$",
+      "lon": 46.1996,
+      "lat": 9.559,
+      "name": "Somaliland"
+    },
+    {
+      "id": "AB",
+      "label": "Abkhazie",
+      "type": "unrecognized",
+      "region": "Caucase",
+      "regime": "Republique presidentielle (reconnue par la Russie)",
+      "population": "0.24 M",
+      "gdp": "0.5 Md$",
+      "lon": 41.026,
+      "lat": 43,
+      "name": "Abkhazie"
+    }
+  ],
+  "edges": [
+    {
+      "source": "US",
+      "target": "CA",
+      "type": "alliance",
+      "strength": 5,
+      "since": 1949,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "US",
+      "target": "GB",
+      "type": "alliance",
+      "strength": 5,
+      "since": 1949,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "US",
+      "target": "FR",
+      "type": "alliance",
+      "strength": 5,
+      "since": 1949,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "US",
+      "target": "DE",
+      "type": "alliance",
+      "strength": 5,
+      "since": 1955,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "US",
+      "target": "IT",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1949,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "US",
+      "target": "ES",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1982,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "US",
+      "target": "TR",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1952,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "US",
+      "target": "PL",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1999,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "US",
+      "target": "RO",
+      "type": "alliance",
+      "strength": 3,
+      "since": 2004,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "US",
+      "target": "FI",
+      "type": "alliance",
+      "strength": 3,
+      "since": 2023,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "US",
+      "target": "SE",
+      "type": "alliance",
+      "strength": 3,
+      "since": 2024,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "GB",
+      "target": "FR",
+      "type": "partnership",
+      "strength": 4,
+      "since": 2010,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "FR",
+      "target": "DE",
+      "type": "partnership",
+      "strength": 5,
+      "since": 1963,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "DE",
+      "target": "NL",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1955,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "BE",
+      "target": "NL",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1949,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "DK",
+      "target": "NO",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1949,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "EE",
+      "target": "LV",
+      "type": "alliance",
+      "strength": 4,
+      "since": 2004,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "LV",
+      "target": "LT",
+      "type": "alliance",
+      "strength": 4,
+      "since": 2004,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "PL",
+      "target": "LT",
+      "type": "partnership",
+      "strength": 3,
+      "since": 2004,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "CZ",
+      "target": "SK",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1999,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "HU",
+      "target": "RO",
+      "type": "partnership",
+      "strength": 3,
+      "since": 2004,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "BG",
+      "target": "RO",
+      "type": "partnership",
+      "strength": 4,
+      "since": 2004,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "HR",
+      "target": "SI",
+      "type": "partnership",
+      "strength": 3,
+      "since": 2009,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "AL",
+      "target": "MK",
+      "type": "partnership",
+      "strength": 3,
+      "since": 2020,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "ME",
+      "target": "HR",
+      "type": "partnership",
+      "strength": 3,
+      "since": 2017,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "GR",
+      "target": "TR",
+      "type": "neutral",
+      "strength": 2,
+      "since": 1952,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "PT",
+      "target": "ES",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1982,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "IT",
+      "target": "GR",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1952,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "FI",
+      "target": "SE",
+      "type": "alliance",
+      "strength": 4,
+      "since": 2024,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "IS",
+      "target": "NO",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1949,
+      "until": 2035,
+      "scenario": "OTAN etendue"
+    },
+    {
+      "source": "TR",
+      "target": "AZ",
+      "type": "alliance",
+      "strength": 5,
+      "since": 2009,
+      "until": 2035,
+      "scenario": "Organisation des Etats turciques"
+    },
+    {
+      "source": "TR",
+      "target": "KZ",
+      "type": "partnership",
+      "strength": 4,
+      "since": 2009,
+      "until": 2035,
+      "scenario": "Organisation des Etats turciques"
+    },
+    {
+      "source": "TR",
+      "target": "KG",
+      "type": "partnership",
+      "strength": 4,
+      "since": 2009,
+      "until": 2035,
+      "scenario": "Organisation des Etats turciques"
+    },
+    {
+      "source": "TR",
+      "target": "UZ",
+      "type": "partnership",
+      "strength": 4,
+      "since": 2009,
+      "until": 2035,
+      "scenario": "Organisation des Etats turciques"
+    },
+    {
+      "source": "AZ",
+      "target": "KZ",
+      "type": "partnership",
+      "strength": 4,
+      "since": 2009,
+      "until": 2035,
+      "scenario": "Organisation des Etats turciques"
+    },
+    {
+      "source": "KZ",
+      "target": "KG",
+      "type": "alliance",
+      "strength": 4,
+      "since": 2009,
+      "until": 2035,
+      "scenario": "Organisation des Etats turciques"
+    },
+    {
+      "source": "KZ",
+      "target": "UZ",
+      "type": "partnership",
+      "strength": 4,
+      "since": 2019,
+      "until": 2035,
+      "scenario": "Organisation des Etats turciques"
+    },
+    {
+      "source": "UZ",
+      "target": "KG",
+      "type": "partnership",
+      "strength": 3,
+      "since": 2009,
+      "until": 2035,
+      "scenario": "Organisation des Etats turciques"
+    },
+    {
+      "source": "TM",
+      "target": "TR",
+      "type": "neutral",
+      "strength": 2,
+      "since": 2021,
+      "until": 2035,
+      "scenario": "Organisation des Etats turciques"
+    },
+    {
+      "source": "HU",
+      "target": "TR",
+      "type": "partnership",
+      "strength": 3,
+      "since": 2018,
+      "until": 2035,
+      "scenario": "Organisation des Etats turciques"
+    },
+    {
+      "source": "US",
+      "target": "JP",
+      "type": "alliance",
+      "strength": 5,
+      "since": 1951,
+      "until": 2035,
+      "scenario": "Indo-Pacifique"
+    },
+    {
+      "source": "US",
+      "target": "KR",
+      "type": "alliance",
+      "strength": 5,
+      "since": 1953,
+      "until": 2035,
+      "scenario": "Indo-Pacifique"
+    },
+    {
+      "source": "US",
+      "target": "AU",
+      "type": "alliance",
+      "strength": 5,
+      "since": 1951,
+      "until": 2035,
+      "scenario": "Indo-Pacifique"
+    },
+    {
+      "source": "IN",
+      "target": "US",
+      "type": "partnership",
+      "strength": 4,
+      "since": 2005,
+      "until": 2035,
+      "scenario": "Indo-Pacifique"
+    },
+    {
+      "source": "IN",
+      "target": "AU",
+      "type": "partnership",
+      "strength": 3,
+      "since": 2020,
+      "until": 2035,
+      "scenario": "Indo-Pacifique"
+    },
+    {
+      "source": "JP",
+      "target": "AU",
+      "type": "partnership",
+      "strength": 4,
+      "since": 2022,
+      "until": 2035,
+      "scenario": "Indo-Pacifique"
+    },
+    {
+      "source": "VN",
+      "target": "US",
+      "type": "partnership",
+      "strength": 3,
+      "since": 2013,
+      "until": 2035,
+      "scenario": "Indo-Pacifique"
+    },
+    {
+      "source": "ID",
+      "target": "US",
+      "type": "neutral",
+      "strength": 2,
+      "since": 1990,
+      "until": 2035,
+      "scenario": "Indo-Pacifique"
+    },
+    {
+      "source": "CN",
+      "target": "US",
+      "type": "rivalry",
+      "strength": 5,
+      "since": 2018,
+      "until": 2035,
+      "scenario": "Indo-Pacifique"
+    },
+    {
+      "source": "CN",
+      "target": "JP",
+      "type": "rivalry",
+      "strength": 4,
+      "since": 2012,
+      "until": 2035,
+      "scenario": "Indo-Pacifique"
+    },
+    {
+      "source": "CN",
+      "target": "IN",
+      "type": "rivalry",
+      "strength": 4,
+      "since": 2020,
+      "until": 2035,
+      "scenario": "Indo-Pacifique"
+    },
+    {
+      "source": "VN",
+      "target": "CN",
+      "type": "rivalry",
+      "strength": 3,
+      "since": 2014,
+      "until": 2035,
+      "scenario": "Indo-Pacifique"
+    },
+    {
+      "source": "SA",
+      "target": "AE",
+      "type": "alliance",
+      "strength": 4,
+      "since": 2015,
+      "until": 2035,
+      "scenario": "Moyen-Orient"
+    },
+    {
+      "source": "SA",
+      "target": "US",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1945,
+      "until": 2035,
+      "scenario": "Moyen-Orient"
+    },
+    {
+      "source": "IL",
+      "target": "US",
+      "type": "alliance",
+      "strength": 5,
+      "since": 1967,
+      "until": 2035,
+      "scenario": "Moyen-Orient"
+    },
+    {
+      "source": "IL",
+      "target": "AE",
+      "type": "partnership",
+      "strength": 4,
+      "since": 2020,
+      "until": 2035,
+      "scenario": "Moyen-Orient"
+    },
+    {
+      "source": "IL",
+      "target": "EG",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1979,
+      "until": 2035,
+      "scenario": "Moyen-Orient"
+    },
+    {
+      "source": "IR",
+      "target": "SA",
+      "type": "rivalry",
+      "strength": 5,
+      "since": 1979,
+      "until": 2023,
+      "scenario": "Moyen-Orient"
+    },
+    {
+      "source": "IR",
+      "target": "IL",
+      "type": "conflict",
+      "strength": 5,
+      "since": 1979,
+      "until": 2035,
+      "scenario": "Moyen-Orient"
+    },
+    {
+      "source": "QA",
+      "target": "SA",
+      "type": "neutral",
+      "strength": 2,
+      "since": 2021,
+      "until": 2035,
+      "scenario": "Moyen-Orient"
+    },
+    {
+      "source": "TR",
+      "target": "QA",
+      "type": "partnership",
+      "strength": 3,
+      "since": 2017,
+      "until": 2035,
+      "scenario": "Moyen-Orient"
+    },
+    {
+      "source": "TR",
+      "target": "SA",
+      "type": "neutral",
+      "strength": 2,
+      "since": 2021,
+      "until": 2035,
+      "scenario": "Moyen-Orient"
+    },
+    {
+      "source": "BR",
+      "target": "IN",
+      "type": "partnership",
+      "strength": 3,
+      "since": 2009,
+      "until": 2035,
+      "scenario": "BRICS+"
+    },
+    {
+      "source": "BR",
+      "target": "CN",
+      "type": "partnership",
+      "strength": 4,
+      "since": 2009,
+      "until": 2035,
+      "scenario": "BRICS+"
+    },
+    {
+      "source": "RU",
+      "target": "CN",
+      "type": "alliance",
+      "strength": 4,
+      "since": 2014,
+      "until": 2035,
+      "scenario": "BRICS+"
+    },
+    {
+      "source": "RU",
+      "target": "IN",
+      "type": "partnership",
+      "strength": 4,
+      "since": 2000,
+      "until": 2035,
+      "scenario": "BRICS+"
+    },
+    {
+      "source": "CN",
+      "target": "ZA",
+      "type": "partnership",
+      "strength": 3,
+      "since": 2010,
+      "until": 2035,
+      "scenario": "BRICS+"
+    },
+    {
+      "source": "SA",
+      "target": "AE",
+      "type": "partnership",
+      "strength": 3,
+      "since": 2016,
+      "until": 2035,
+      "scenario": "BRICS+"
+    },
+    {
+      "source": "IR",
+      "target": "RU",
+      "type": "partnership",
+      "strength": 4,
+      "since": 2015,
+      "until": 2035,
+      "scenario": "BRICS+"
+    },
+    {
+      "source": "EG",
+      "target": "SA",
+      "type": "partnership",
+      "strength": 3,
+      "since": 2014,
+      "until": 2035,
+      "scenario": "BRICS+"
+    },
+    {
+      "source": "ET",
+      "target": "CN",
+      "type": "partnership",
+      "strength": 3,
+      "since": 2013,
+      "until": 2035,
+      "scenario": "BRICS+"
+    },
+    {
+      "source": "IN",
+      "target": "CN",
+      "type": "rivalry",
+      "strength": 4,
+      "since": 2020,
+      "until": 2035,
+      "scenario": "BRICS+"
+    },
+    {
+      "source": "FR",
+      "target": "DE",
+      "type": "alliance",
+      "strength": 5,
+      "since": 1957,
+      "until": 2035,
+      "scenario": "UE"
+    },
+    {
+      "source": "FR",
+      "target": "IT",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1957,
+      "until": 2035,
+      "scenario": "UE"
+    },
+    {
+      "source": "DE",
+      "target": "IT",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1957,
+      "until": 2035,
+      "scenario": "UE"
+    },
+    {
+      "source": "DE",
+      "target": "PL",
+      "type": "partnership",
+      "strength": 4,
+      "since": 2004,
+      "until": 2035,
+      "scenario": "UE"
+    },
+    {
+      "source": "FR",
+      "target": "ES",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1986,
+      "until": 2035,
+      "scenario": "UE"
+    },
+    {
+      "source": "FR",
+      "target": "BE",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1957,
+      "until": 2035,
+      "scenario": "UE"
+    },
+    {
+      "source": "DE",
+      "target": "NL",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1957,
+      "until": 2035,
+      "scenario": "UE"
+    },
+    {
+      "source": "BE",
+      "target": "NL",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1957,
+      "until": 2035,
+      "scenario": "UE"
+    },
+    {
+      "source": "SE",
+      "target": "FI",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1995,
+      "until": 2035,
+      "scenario": "UE"
+    },
+    {
+      "source": "DK",
+      "target": "SE",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1995,
+      "until": 2035,
+      "scenario": "UE"
+    },
+    {
+      "source": "PT",
+      "target": "ES",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1986,
+      "until": 2035,
+      "scenario": "UE"
+    },
+    {
+      "source": "IE",
+      "target": "FR",
+      "type": "neutral",
+      "strength": 2,
+      "since": 1973,
+      "until": 2035,
+      "scenario": "UE"
+    },
+    {
+      "source": "GR",
+      "target": "RO",
+      "type": "partnership",
+      "strength": 3,
+      "since": 2007,
+      "until": 2035,
+      "scenario": "UE"
+    },
+    {
+      "source": "CZ",
+      "target": "DE",
+      "type": "partnership",
+      "strength": 4,
+      "since": 2004,
+      "until": 2035,
+      "scenario": "UE"
+    },
+    {
+      "source": "PL",
+      "target": "RO",
+      "type": "partnership",
+      "strength": 3,
+      "since": 2007,
+      "until": 2035,
+      "scenario": "UE"
+    },
+    {
+      "source": "IT",
+      "target": "PL",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme"
+    },
+    {
+      "source": "US",
+      "target": "GB",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme"
+    },
+    {
+      "source": "BR",
+      "target": "IT",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme"
+    },
+    {
+      "source": "RU",
+      "target": "ET",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme"
+    },
+    {
+      "source": "PH",
+      "target": "US",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme"
+    },
+    {
+      "source": "PL",
+      "target": "GB",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme"
+    },
+    {
+      "source": "RU",
+      "target": "IT",
+      "type": "neutral",
+      "strength": 2,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme"
+    },
+    {
+      "source": "ET",
+      "target": "IT",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme"
+    },
+    {
+      "source": "IT",
+      "target": "ES",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Catholicisme"
+    },
+    {
+      "source": "ES",
+      "target": "PT",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Catholicisme"
+    },
+    {
+      "source": "PL",
+      "target": "IT",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Catholicisme"
+    },
+    {
+      "source": "BR",
+      "target": "PT",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Catholicisme"
+    },
+    {
+      "source": "MX",
+      "target": "ES",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Catholicisme"
+    },
+    {
+      "source": "AR",
+      "target": "IT",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Catholicisme"
+    },
+    {
+      "source": "PH",
+      "target": "ES",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Catholicisme"
+    },
+    {
+      "source": "RU",
+      "target": "GR",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Orthodoxie"
+    },
+    {
+      "source": "RO",
+      "target": "BG",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Orthodoxie"
+    },
+    {
+      "source": "RS",
+      "target": "RU",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Orthodoxie"
+    },
+    {
+      "source": "GE",
+      "target": "AM",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Orthodoxie"
+    },
+    {
+      "source": "UA",
+      "target": "RO",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Orthodoxie"
+    },
+    {
+      "source": "GR",
+      "target": "RS",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Orthodoxie"
+    },
+    {
+      "source": "US",
+      "target": "GB",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Protestantisme"
+    },
+    {
+      "source": "DE",
+      "target": "NL",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Protestantisme"
+    },
+    {
+      "source": "SE",
+      "target": "NO",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Protestantisme"
+    },
+    {
+      "source": "DK",
+      "target": "SE",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Protestantisme"
+    },
+    {
+      "source": "FI",
+      "target": "SE",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Protestantisme"
+    },
+    {
+      "source": "GB",
+      "target": "NL",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Protestantisme"
+    },
+    {
+      "source": "US",
+      "target": "DE",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Christianisme - Protestantisme"
+    },
+    {
+      "source": "SA",
+      "target": "AE",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Islam"
+    },
+    {
+      "source": "SA",
+      "target": "EG",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Islam"
+    },
+    {
+      "source": "TR",
+      "target": "PK",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Islam"
+    },
+    {
+      "source": "ID",
+      "target": "PK",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Islam"
+    },
+    {
+      "source": "IR",
+      "target": "TR",
+      "type": "rivalry",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Islam"
+    },
+    {
+      "source": "QA",
+      "target": "AE",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Islam"
+    },
+    {
+      "source": "TR",
+      "target": "QA",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Islam - Sunnisme"
+    },
+    {
+      "source": "JO",
+      "target": "SA",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Islam - Sunnisme"
+    },
+    {
+      "source": "AE",
+      "target": "QA",
+      "type": "neutral",
+      "strength": 2,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Islam - Sunnisme"
+    },
+    {
+      "source": "IR",
+      "target": "IQ",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Islam - Chiisme"
+    },
+    {
+      "source": "IR",
+      "target": "LB",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Islam - Chiisme"
+    },
+    {
+      "source": "IR",
+      "target": "SY",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Islam - Chiisme"
+    },
+    {
+      "source": "AZ",
+      "target": "IR",
+      "type": "neutral",
+      "strength": 2,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Islam - Chiisme"
+    },
+    {
+      "source": "BH",
+      "target": "IQ",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Islam - Chiisme"
+    },
+    {
+      "source": "TH",
+      "target": "LK",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Bouddhisme"
+    },
+    {
+      "source": "MM",
+      "target": "TH",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Bouddhisme"
+    },
+    {
+      "source": "JP",
+      "target": "KR",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Bouddhisme"
+    },
+    {
+      "source": "VN",
+      "target": "JP",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Bouddhisme"
+    },
+    {
+      "source": "BT",
+      "target": "MN",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Bouddhisme"
+    },
+    {
+      "source": "TH",
+      "target": "LK",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Bouddhisme - Theravada"
+    },
+    {
+      "source": "TH",
+      "target": "MM",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Bouddhisme - Theravada"
+    },
+    {
+      "source": "KH",
+      "target": "LA",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Bouddhisme - Theravada"
+    },
+    {
+      "source": "TH",
+      "target": "KH",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Bouddhisme - Theravada"
+    },
+    {
+      "source": "CN",
+      "target": "VN",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Bouddhisme - Mahayana"
+    },
+    {
+      "source": "TW",
+      "target": "JP",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Bouddhisme - Mahayana"
+    },
+    {
+      "source": "KR",
+      "target": "TW",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Bouddhisme - Mahayana"
+    },
+    {
+      "source": "BT",
+      "target": "NP",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Bouddhisme - Vajrayana"
+    },
+    {
+      "source": "BT",
+      "target": "IN",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Bouddhisme - Vajrayana"
+    },
+    {
+      "source": "MN",
+      "target": "NP",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Bouddhisme - Vajrayana"
+    },
+    {
+      "source": "IN",
+      "target": "NP",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Hindouisme"
+    },
+    {
+      "source": "IN",
+      "target": "MU",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Hindouisme"
+    },
+    {
+      "source": "IN",
+      "target": "FJ",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Hindouisme"
+    },
+    {
+      "source": "SR",
+      "target": "GY",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Hindouisme"
+    },
+    {
+      "source": "IN",
+      "target": "SR",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Hindouisme"
+    },
+    {
+      "source": "IN",
+      "target": "NP",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Hindouisme - Shaivisme"
+    },
+    {
+      "source": "IN",
+      "target": "LK",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Hindouisme - Shaivisme"
+    },
+    {
+      "source": "IN",
+      "target": "BD",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Hindouisme - Shaktisme"
+    },
+    {
+      "source": "IL",
+      "target": "US",
+      "type": "alliance",
+      "strength": 5,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Judaisme"
+    },
+    {
+      "source": "IL",
+      "target": "FR",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Judaisme"
+    },
+    {
+      "source": "US",
+      "target": "CA",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Judaisme"
+    },
+    {
+      "source": "GB",
+      "target": "FR",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Judaisme"
+    },
+    {
+      "source": "AR",
+      "target": "IL",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Judaisme"
+    },
+    {
+      "source": "IL",
+      "target": "GB",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Judaisme - Orthodoxe"
+    },
+    {
+      "source": "FR",
+      "target": "IL",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Judaisme - Orthodoxe"
+    },
+    {
+      "source": "US",
+      "target": "CA",
+      "type": "alliance",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Judaisme - Conservateur"
+    },
+    {
+      "source": "US",
+      "target": "IL",
+      "type": "partnership",
+      "strength": 4,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Judaisme - Conservateur"
+    },
+    {
+      "source": "AR",
+      "target": "US",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Judaisme - Conservateur"
+    },
+    {
+      "source": "GB",
+      "target": "DE",
+      "type": "partnership",
+      "strength": 3,
+      "since": 1900,
+      "until": 2035,
+      "scenario": "Judaisme - Reforme"
+    }
+  ]
+}

@@ -1,0 +1,5228 @@
+[
+  {
+    "id": "ALA",
+    "nom_officiel": "Ahvenanmaa",
+    "capitale": "Mariehamn",
+    "population": 30654,
+    "superficie_km2": 1580.0,
+    "langues": [
+      "Swedish"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Northern Europe",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "AIA",
+    "nom_officiel": "Anguilla",
+    "capitale": "The Valley",
+    "population": 16010,
+    "superficie_km2": 91.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "ATA",
+    "nom_officiel": "Antarctique",
+    "capitale": null,
+    "population": 1300,
+    "superficie_km2": 14000000.0,
+    "langues": [],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Antarctic",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "ATG",
+    "nom_officiel": "Antigua-et-Barbuda",
+    "capitale": "Saint John's",
+    "population": 103603,
+    "superficie_km2": 442.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 2207622874.07407,
+    "pib_par_hab": 23542.4526945578,
+    "croissance_pct": 3.65638765956977,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "ABW",
+    "nom_officiel": "Aruba",
+    "capitale": "Oranjestad",
+    "population": 107566,
+    "superficie_km2": 180.0,
+    "langues": [
+      "Dutch",
+      "Papiamento"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 4265650673.00236,
+    "pib_par_hab": 39498.5941293797,
+    "croissance_pct": 6.81077669324542,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "AUS",
+    "nom_officiel": "Australie",
+    "capitale": "Canberra",
+    "population": 27536874,
+    "superficie_km2": 7692024.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Australia and New Zealand",
+    "pib_usd": 1757022451652.83,
+    "pib_par_hab": 64603.9856308464,
+    "croissance_pct": 1.37340773365975,
+    "dep_militaire_pct_pib": 1.8837883329175
+  },
+  {
+    "id": "GGY",
+    "nom_officiel": "Bailliage de Guernesey",
+    "capitale": "St. Peter Port",
+    "population": 64781,
+    "superficie_km2": 78.0,
+    "langues": [
+      "English",
+      "French",
+      "Guernésiais"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Northern Europe",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "JEY",
+    "nom_officiel": "Bailliage de Jersey",
+    "capitale": "Saint Helier",
+    "population": 103267,
+    "superficie_km2": 116.0,
+    "langues": [
+      "English",
+      "French",
+      "Jèrriais"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Northern Europe",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "BRB",
+    "nom_officiel": "Barbade",
+    "capitale": "Bridgetown",
+    "population": 267800,
+    "superficie_km2": 430.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 7498050000,
+    "pib_par_hab": 26544.8707282621,
+    "croissance_pct": 2.4822621396186,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "BLZ",
+    "nom_officiel": "Belize",
+    "capitale": "Belmopan",
+    "population": 417634,
+    "superficie_km2": 22966.0,
+    "langues": [
+      "Belizean Creole",
+      "English",
+      "Spanish"
+    ],
+    "frontieres": [
+      "GTM",
+      "MEX"
+    ],
+    "acces_mer": true,
+    "region": "Central America",
+    "pib_usd": 3203631800,
+    "pib_par_hab": 7681.24400583113,
+    "croissance_pct": 3.50466435023895,
+    "dep_militaire_pct_pib": 0.898885869151742
+  },
+  {
+    "id": "BMU",
+    "nom_officiel": "Bermudes",
+    "capitale": "Hamilton",
+    "population": 64055,
+    "superficie_km2": 54.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "North America",
+    "pib_usd": 9233600000,
+    "pib_par_hab": 142855.374713782,
+    "croissance_pct": 5.97253260071749,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "BES",
+    "nom_officiel": "Bonaire, Saint-Eustache et Saba",
+    "capitale": "Kralendijk",
+    "population": 31980,
+    "superficie_km2": 328.0,
+    "langues": [
+      "English",
+      "Dutch",
+      "Papiamento"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "BIH",
+    "nom_officiel": "Bosnie-et-Herzégovine",
+    "capitale": "Sarajevo",
+    "population": 3422000,
+    "superficie_km2": 51209.0,
+    "langues": [
+      "Bosnian",
+      "Croatian",
+      "Serbian"
+    ],
+    "frontieres": [
+      "HRV",
+      "MNE",
+      "SRB"
+    ],
+    "acces_mer": true,
+    "region": "Southeast Europe",
+    "pib_usd": 29613572022.8993,
+    "pib_par_hab": 9358.78768951134,
+    "croissance_pct": 2.9715174617652,
+    "dep_militaire_pct_pib": 0.747079920408854
+  },
+  {
+    "id": "CAN",
+    "nom_officiel": "Canada",
+    "capitale": "Ottawa",
+    "population": 41651653,
+    "superficie_km2": 9984670.0,
+    "langues": [
+      "English",
+      "French"
+    ],
+    "frontieres": [
+      "USA"
+    ],
+    "acces_mer": true,
+    "region": "North America",
+    "pib_usd": 2243636826633.76,
+    "pib_par_hab": 54340.3477224733,
+    "croissance_pct": 1.55479521049516,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "VAT",
+    "nom_officiel": "Cité du Vatican",
+    "capitale": "Vatican City",
+    "population": 882,
+    "superficie_km2": 0.49,
+    "langues": [
+      "Italian",
+      "Latin"
+    ],
+    "frontieres": [
+      "ITA"
+    ],
+    "acces_mer": false,
+    "region": "Southern Europe",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "BLM",
+    "nom_officiel": "Collectivité de Saint-Barthélemy",
+    "capitale": "Gustavia",
+    "population": 10562,
+    "superficie_km2": 21.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "DMA",
+    "nom_officiel": "Commonwealth de la Dominique",
+    "capitale": "Roseau",
+    "population": 67408,
+    "superficie_km2": 751.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 688881481.481481,
+    "pib_par_hab": 10405.2787777582,
+    "croissance_pct": 2.052738472526,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "BHS",
+    "nom_officiel": "Commonwealth des Bahamas",
+    "capitale": "Nassau",
+    "population": 398165,
+    "superficie_km2": 13943.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 15832800000,
+    "pib_par_hab": 39455.4466548546,
+    "croissance_pct": 3.37866553336166,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "MNP",
+    "nom_officiel": "Commonwealth des îles Mariannes du Nord",
+    "capitale": "Saipan",
+    "population": 47329,
+    "superficie_km2": 464.0,
+    "langues": [
+      "Carolinian",
+      "Chamorro",
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Micronesia",
+    "pib_usd": 1096000000,
+    "pib_par_hab": 23785.754590043,
+    "croissance_pct": 16.6427546628408,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "CHE",
+    "nom_officiel": "Confédération suisse",
+    "capitale": "Bern",
+    "population": 9082848,
+    "superficie_km2": 41284.0,
+    "langues": [
+      "French",
+      "Swiss German",
+      "Italian",
+      "Romansh"
+    ],
+    "frontieres": [
+      "AUT",
+      "FRA",
+      "ITA",
+      "LIE",
+      "DEU"
+    ],
+    "acces_mer": false,
+    "region": "Western Europe",
+    "pib_usd": 936564198048.516,
+    "pib_par_hab": 103998.186685604,
+    "croissance_pct": 1.30233332541106,
+    "dep_militaire_pct_pib": 0.717812077671144
+  },
+  {
+    "id": "HMD",
+    "nom_officiel": "Des îles Heard et McDonald",
+    "capitale": null,
+    "population": 0,
+    "superficie_km2": 412.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Antarctic",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "MYT",
+    "nom_officiel": "Département de Mayotte",
+    "capitale": "Mamoudzou",
+    "population": 320901,
+    "superficie_km2": 374.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Eastern Africa",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "MYS",
+    "nom_officiel": "Fédération de Malaisie",
+    "capitale": "Kuala Lumpur",
+    "population": 34231700,
+    "superficie_km2": 330803.0,
+    "langues": [
+      "English",
+      "Malay"
+    ],
+    "frontieres": [
+      "BRN",
+      "IDN",
+      "THA"
+    ],
+    "acces_mer": true,
+    "region": "South-Eastern Asia",
+    "pib_usd": 422227005428.688,
+    "pib_par_hab": 11874.4273684245,
+    "croissance_pct": 5.10545921024041,
+    "dep_militaire_pct_pib": 0.987556748730683
+  },
+  {
+    "id": "RUS",
+    "nom_officiel": "Fédération de Russie",
+    "capitale": "Moscow",
+    "population": 146028325,
+    "superficie_km2": 17098246.0,
+    "langues": [
+      "Russian"
+    ],
+    "frontieres": [
+      "AZE",
+      "BLR",
+      "CHN",
+      "EST",
+      "FIN",
+      "GEO",
+      "KAZ",
+      "PRK",
+      "LVA",
+      "LTU",
+      "MNG",
+      "NOR",
+      "POL",
+      "UKR"
+    ],
+    "acces_mer": true,
+    "region": "Eastern Europe",
+    "pib_usd": 2173835806671.66,
+    "pib_par_hab": 14889.0185546875,
+    "croissance_pct": 4.34437475491529,
+    "dep_militaire_pct_pib": 7.05233864500366
+  },
+  {
+    "id": "KNA",
+    "nom_officiel": "Fédération de Saint-Christophe-et-Niévès",
+    "capitale": "Basseterre",
+    "population": 51320,
+    "superficie_km2": 261.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 1122388888.88889,
+    "pib_par_hab": 23960.6534357084,
+    "croissance_pct": 0.312226855858171,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "GIB",
+    "nom_officiel": "Gibraltar",
+    "capitale": "Gibraltar",
+    "population": 38000,
+    "superficie_km2": 6.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [
+      "ESP"
+    ],
+    "acces_mer": true,
+    "region": "Southern Europe",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "LUX",
+    "nom_officiel": "Grand-Duché de Luxembourg",
+    "capitale": "Luxembourg",
+    "population": 681973,
+    "superficie_km2": 2586.0,
+    "langues": [
+      "German",
+      "French",
+      "Luxembourgish"
+    ],
+    "frontieres": [
+      "BEL",
+      "FRA",
+      "DEU"
+    ],
+    "acces_mer": false,
+    "region": "Western Europe",
+    "pib_usd": 93279851863.4062,
+    "pib_par_hab": 137781.681659123,
+    "croissance_pct": 0.35861253942069,
+    "dep_militaire_pct_pib": 0.962679157025622
+  },
+  {
+    "id": "LBY",
+    "nom_officiel": "Grande République arabe libyenne populaire et socialiste",
+    "capitale": "Tripoli",
+    "population": 7459000,
+    "superficie_km2": 1759540.0,
+    "langues": [
+      "Arabic"
+    ],
+    "frontieres": [
+      "DZA",
+      "TCD",
+      "EGY",
+      "NER",
+      "SDN",
+      "TUN"
+    ],
+    "acces_mer": true,
+    "region": "Northern Africa",
+    "pib_usd": 48487151215.345,
+    "pib_par_hab": 6569.16408678648,
+    "croissance_pct": 1.89995052025442,
+    "dep_militaire_pct_pib": 5.28705130951195
+  },
+  {
+    "id": "GRD",
+    "nom_officiel": "Grenade",
+    "capitale": "St. George's",
+    "population": 109021,
+    "superficie_km2": 344.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 1371918518.51852,
+    "pib_par_hab": 11705.0902976658,
+    "croissance_pct": 3.96332516398188,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "GRL",
+    "nom_officiel": "Groenland",
+    "capitale": "Nuuk",
+    "population": 56542,
+    "superficie_km2": 2166086.0,
+    "langues": [
+      "Greenlandic"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "North America",
+    "pib_usd": 3326543974.39193,
+    "pib_par_hab": 58498.9707973609,
+    "croissance_pct": 0.865961986998158,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "PCN",
+    "nom_officiel": "Groupe d'îles Pitcairn",
+    "capitale": "Adamstown",
+    "population": 35,
+    "superficie_km2": 47.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Polynesia",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "GLP",
+    "nom_officiel": "Guadeloupe",
+    "capitale": "Basse-Terre",
+    "population": 378561,
+    "superficie_km2": 1628.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "GUM",
+    "nom_officiel": "Guam",
+    "capitale": "Hagåtña",
+    "population": 153836,
+    "superficie_km2": 549.0,
+    "langues": [
+      "Chamorro",
+      "English",
+      "Spanish"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Micronesia",
+    "pib_usd": 6910000000,
+    "pib_par_hab": 41833.1517132825,
+    "croissance_pct": 5.09986426216793,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "GUF",
+    "nom_officiel": "Guyane",
+    "capitale": "Cayenne",
+    "population": 292354,
+    "superficie_km2": 83534.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [
+      "BRA",
+      "SUR"
+    ],
+    "acces_mer": true,
+    "region": "South America",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "SGS",
+    "nom_officiel": "Géorgie du Sud et les îles Sandwich du Sud",
+    "capitale": "King Edward Point",
+    "population": 0,
+    "superficie_km2": 3903.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Antarctic",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "HUN",
+    "nom_officiel": "Hongrie",
+    "capitale": "Budapest",
+    "population": 9539502,
+    "superficie_km2": 93028.0,
+    "langues": [
+      "Hungarian"
+    ],
+    "frontieres": [
+      "AUT",
+      "HRV",
+      "ROU",
+      "SRB",
+      "SVK",
+      "SVN",
+      "UKR"
+    ],
+    "acces_mer": false,
+    "region": "Central Europe",
+    "pib_usd": 222722738925.641,
+    "pib_par_hab": 23292.3263882478,
+    "croissance_pct": 0.560117843140432,
+    "dep_militaire_pct_pib": 2.15630980446665
+  },
+  {
+    "id": "REU",
+    "nom_officiel": "Ile de la Réunion",
+    "capitale": "Saint-Denis",
+    "population": 896175,
+    "superficie_km2": 2511.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Eastern Africa",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "IMN",
+    "nom_officiel": "Isle of Man",
+    "capitale": "Douglas",
+    "population": 84530,
+    "superficie_km2": 572.0,
+    "langues": [
+      "English",
+      "Manx"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Northern Europe",
+    "pib_usd": 7431257410.92713,
+    "pib_par_hab": 88328.548125887,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "JAM",
+    "nom_officiel": "Jamaïque",
+    "capitale": "Kingston",
+    "population": 2825544,
+    "superficie_km2": 10991.0,
+    "langues": [
+      "English",
+      "Jamaican Patois"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 22014397089.7689,
+    "pib_par_hab": 7753.8006955432,
+    "croissance_pct": -0.535039063867487,
+    "dep_militaire_pct_pib": 1.27385736005958
+  },
+  {
+    "id": "SJM",
+    "nom_officiel": "Jan Mayen Svalbard",
+    "capitale": "Longyearbyen",
+    "population": 2530,
+    "superficie_km2": 61399.0,
+    "langues": [
+      "Norwegian"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Northern Europe",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "JPN",
+    "nom_officiel": "Japon",
+    "capitale": "Tokyo",
+    "population": 123210000,
+    "superficie_km2": 377930.0,
+    "langues": [
+      "Japanese"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Eastern Asia",
+    "pib_usd": 4027597523550.58,
+    "pib_par_hab": 32487.0778047567,
+    "croissance_pct": 0.104309021773304,
+    "dep_militaire_pct_pib": 1.37139689580634
+  },
+  {
+    "id": "BGD",
+    "nom_officiel": "La République populaire du Bangladesh",
+    "capitale": "Dhaka",
+    "population": 169828911,
+    "superficie_km2": 147570.0,
+    "langues": [
+      "Bengali"
+    ],
+    "frontieres": [
+      "MMR",
+      "IND"
+    ],
+    "acces_mer": true,
+    "region": "Southern Asia",
+    "pib_usd": 450119432068.852,
+    "pib_par_hab": 2593.41611680774,
+    "croissance_pct": 4.22325911250161,
+    "dep_militaire_pct_pib": 0.941321120606305
+  },
+  {
+    "id": "USA",
+    "nom_officiel": "Les états-unis d'Amérique",
+    "capitale": "Washington, D.C.",
+    "population": 340110988,
+    "superficie_km2": 9525067.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [
+      "CAN",
+      "MEX"
+    ],
+    "acces_mer": true,
+    "region": "North America",
+    "pib_usd": 28750956130731.2,
+    "pib_par_hab": 84534.0407841548,
+    "croissance_pct": 2.79300127716779,
+    "dep_militaire_pct_pib": 3.41921653228044
+  },
+  {
+    "id": "MTQ",
+    "nom_officiel": "Martinique",
+    "capitale": "Fort-de-France",
+    "population": 349925,
+    "superficie_km2": 1128.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "MNG",
+    "nom_officiel": "Mongolie",
+    "capitale": "Ulan Bator",
+    "population": 3544835,
+    "superficie_km2": 1564110.0,
+    "langues": [
+      "Mongolian"
+    ],
+    "frontieres": [
+      "CHN",
+      "RUS"
+    ],
+    "acces_mer": false,
+    "region": "Eastern Asia",
+    "pib_usd": 23794540024.5132,
+    "pib_par_hab": 6750.6301157724,
+    "croissance_pct": 5.12204539122661,
+    "dep_militaire_pct_pib": 0.742307300960191
+  },
+  {
+    "id": "MSR",
+    "nom_officiel": "Montserrat",
+    "capitale": "Plymouth",
+    "population": 4386,
+    "superficie_km2": 102.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "MNE",
+    "nom_officiel": "Monténégro",
+    "capitale": "Podgorica",
+    "population": 623327,
+    "superficie_km2": 13812.0,
+    "langues": [
+      "Montenegrin"
+    ],
+    "frontieres": [
+      "ALB",
+      "BIH",
+      "HRV",
+      "UNK",
+      "SRB"
+    ],
+    "acces_mer": true,
+    "region": "Southeast Europe",
+    "pib_usd": 8270016670.86774,
+    "pib_par_hab": 13263.3281277699,
+    "croissance_pct": 3.16409886329913,
+    "dep_militaire_pct_pib": 1.83253539270475
+  },
+  {
+    "id": "NIU",
+    "nom_officiel": "Niue",
+    "capitale": "Alofi",
+    "population": 1681,
+    "superficie_km2": 260.0,
+    "langues": [
+      "English",
+      "Niuean"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Polynesia",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "NCL",
+    "nom_officiel": "Nouvelle-Calédonie",
+    "capitale": "Nouméa",
+    "population": 264596,
+    "superficie_km2": 18575.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Melanesia",
+    "pib_usd": 8548919387.12607,
+    "pib_par_hab": 29213.1923192946,
+    "croissance_pct": -13.5,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "NZL",
+    "nom_officiel": "Nouvelle-Zélande",
+    "capitale": "Wellington",
+    "population": 5324700,
+    "superficie_km2": 268838.0,
+    "langues": [
+      "English",
+      "Māori",
+      "New Zealand Sign Language"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Australia and New Zealand",
+    "pib_usd": 260172385097.616,
+    "pib_par_hab": 49205.1792146792,
+    "croissance_pct": 1.28862004711685,
+    "dep_militaire_pct_pib": 1.19404695449297
+  },
+  {
+    "id": "CUW",
+    "nom_officiel": "Pays de Curaçao",
+    "capitale": "Willemstad",
+    "population": 156115,
+    "superficie_km2": 444.0,
+    "langues": [
+      "English",
+      "Dutch",
+      "Papiamento"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 3561178196.20713,
+    "pib_par_hab": 22832.8953958667,
+    "croissance_pct": 5.02690000000014,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "NLD",
+    "nom_officiel": "Pays-Bas",
+    "capitale": "Amsterdam",
+    "population": 18100436,
+    "superficie_km2": 41865.0,
+    "langues": [
+      "Dutch"
+    ],
+    "frontieres": [
+      "BEL",
+      "DEU"
+    ],
+    "acces_mer": true,
+    "region": "Western Europe",
+    "pib_usd": 1214927698572.66,
+    "pib_par_hab": 67520.4218956281,
+    "croissance_pct": 1.08100584845663,
+    "dep_militaire_pct_pib": 1.91642541759119
+  },
+  {
+    "id": "PYF",
+    "nom_officiel": "Polynésie française",
+    "capitale": "Papeetē",
+    "population": 279500,
+    "superficie_km2": 4167.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Polynesia",
+    "pib_usd": 6323716355.05009,
+    "pib_par_hab": 22439.8838746025,
+    "croissance_pct": 1.12638897730247,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "PRI",
+    "nom_officiel": "Porto Rico",
+    "capitale": "San Juan",
+    "population": 3203295,
+    "superficie_km2": 8870.0,
+    "langues": [
+      "English",
+      "Spanish"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 126029527033.705,
+    "pib_par_hab": 39343.7154660139,
+    "croissance_pct": 3.17707554784896,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "AND",
+    "nom_officiel": "Principauté d'Andorre",
+    "capitale": "Andorra la Vella",
+    "population": 88406,
+    "superficie_km2": 468.0,
+    "langues": [
+      "Catalan"
+    ],
+    "frontieres": [
+      "FRA",
+      "ESP"
+    ],
+    "acces_mer": false,
+    "region": "Southern Europe",
+    "pib_usd": 4039842405.48117,
+    "pib_par_hab": 49303.6491674336,
+    "croissance_pct": 3.37182032638998,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "MCO",
+    "nom_officiel": "Principauté de Monaco",
+    "capitale": "Monaco",
+    "population": 38423,
+    "superficie_km2": 2.02,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [
+      "FRA"
+    ],
+    "acces_mer": true,
+    "region": "Western Europe",
+    "pib_usd": 11125783372.4794,
+    "pib_par_hab": 288001.433369041,
+    "croissance_pct": 8.51053758860212,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "LIE",
+    "nom_officiel": "Principauté du Liechtenstein",
+    "capitale": "Vaduz",
+    "population": 40900,
+    "superficie_km2": 160.0,
+    "langues": [
+      "German"
+    ],
+    "frontieres": [
+      "AUT",
+      "CHE"
+    ],
+    "acces_mer": false,
+    "region": "Western Europe",
+    "pib_usd": 8239379403.22096,
+    "pib_par_hab": 206780.590353385,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "ROU",
+    "nom_officiel": "Roumanie",
+    "capitale": "Bucharest",
+    "population": 19036031,
+    "superficie_km2": 238391.0,
+    "langues": [
+      "Romanian"
+    ],
+    "frontieres": [
+      "BGR",
+      "HUN",
+      "MDA",
+      "SRB",
+      "UKR"
+    ],
+    "acces_mer": true,
+    "region": "Southeast Europe",
+    "pib_usd": 382564217988.866,
+    "pib_par_hab": null,
+    "croissance_pct": 0.916003764382594,
+    "dep_militaire_pct_pib": 2.29815245791591
+  },
+  {
+    "id": "SAU",
+    "nom_officiel": "Royaume d'Arabie Saoudite",
+    "capitale": "Riyadh",
+    "population": 35300280,
+    "superficie_km2": 2149690.0,
+    "langues": [
+      "Arabic"
+    ],
+    "frontieres": [
+      "IRQ",
+      "JOR",
+      "KWT",
+      "OMN",
+      "QAT",
+      "ARE",
+      "YEM"
+    ],
+    "acces_mer": true,
+    "region": "Western Asia",
+    "pib_usd": 1239804533333.33,
+    "pib_par_hab": 35121.6628687742,
+    "croissance_pct": 1.99650173436159,
+    "dep_militaire_pct_pib": 7.2981029390103
+  },
+  {
+    "id": "ESP",
+    "nom_officiel": "Royaume d'Espagne",
+    "capitale": "Madrid",
+    "population": 49315949,
+    "superficie_km2": 505992.0,
+    "langues": [
+      "Spanish",
+      "Catalan",
+      "Basque",
+      "Galician"
+    ],
+    "frontieres": [
+      "AND",
+      "FRA",
+      "GIB",
+      "PRT",
+      "MAR"
+    ],
+    "acces_mer": true,
+    "region": "Southern Europe",
+    "pib_usd": 1725671652742.19,
+    "pib_par_hab": 35326.7683069278,
+    "croissance_pct": 3.45525405630191,
+    "dep_militaire_pct_pib": 1.43210737406914
+  },
+  {
+    "id": "BHR",
+    "nom_officiel": "Royaume de Bahreïn",
+    "capitale": "Manama",
+    "population": 1594654,
+    "superficie_km2": 765.0,
+    "langues": [
+      "Arabic"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Western Asia",
+    "pib_usd": 47109734308.5106,
+    "pib_par_hab": 29653.5682731534,
+    "croissance_pct": 2.60379670648454,
+    "dep_militaire_pct_pib": 2.8946654057963
+  },
+  {
+    "id": "BEL",
+    "nom_officiel": "Royaume de Belgique",
+    "capitale": "Brussels",
+    "population": 11825551,
+    "superficie_km2": 30528.0,
+    "langues": [
+      "German",
+      "French",
+      "Dutch"
+    ],
+    "frontieres": [
+      "FRA",
+      "DEU",
+      "LUX",
+      "NLD"
+    ],
+    "acces_mer": true,
+    "region": "Western Europe",
+    "pib_usd": 671370081636.406,
+    "pib_par_hab": 56614.5679499036,
+    "croissance_pct": 1.07045413019414,
+    "dep_militaire_pct_pib": 1.2770531266155
+  },
+  {
+    "id": "NOR",
+    "nom_officiel": "Royaume de Norvège",
+    "capitale": "Oslo",
+    "population": 5606944,
+    "superficie_km2": 386224.0,
+    "langues": [
+      "Norwegian Nynorsk",
+      "Norwegian Bokmål",
+      "Sami"
+    ],
+    "frontieres": [
+      "FIN",
+      "SWE",
+      "RUS"
+    ],
+    "acces_mer": true,
+    "region": "Northern Europe",
+    "pib_usd": 483592648313.301,
+    "pib_par_hab": 86785.4334489176,
+    "croissance_pct": 2.09723059960317,
+    "dep_militaire_pct_pib": 2.09124111193175
+  },
+  {
+    "id": "SWE",
+    "nom_officiel": "Royaume de Suède",
+    "capitale": "Stockholm",
+    "population": 10605098,
+    "superficie_km2": 450295.0,
+    "langues": [
+      "Swedish"
+    ],
+    "frontieres": [
+      "FIN",
+      "NOR"
+    ],
+    "acces_mer": true,
+    "region": "Northern Europe",
+    "pib_usd": 603715224265.798,
+    "pib_par_hab": 57117.4877440616,
+    "croissance_pct": 0.820071806703865,
+    "dep_militaire_pct_pib": 1.99771738810168
+  },
+  {
+    "id": "THA",
+    "nom_officiel": "Royaume de Thaïlande",
+    "capitale": "Bangkok",
+    "population": 65859640,
+    "superficie_km2": 513120.0,
+    "langues": [
+      "Thai"
+    ],
+    "frontieres": [
+      "MMR",
+      "KHM",
+      "LAO",
+      "MYS"
+    ],
+    "acces_mer": true,
+    "region": "South-Eastern Asia",
+    "pib_usd": 526517658841.684,
+    "pib_par_hab": 7346.62022142185,
+    "croissance_pct": 2.54182067735289,
+    "dep_militaire_pct_pib": 1.07876078016919
+  },
+  {
+    "id": "TON",
+    "nom_officiel": "Royaume des Tonga",
+    "capitale": "Nuku'alofa",
+    "population": 100179,
+    "superficie_km2": 747.0,
+    "langues": [
+      "English",
+      "Tongan"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Polynesia",
+    "pib_usd": 591139749.44287,
+    "pib_par_hab": 5651.59373063157,
+    "croissance_pct": 2.79014366862668,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "BTN",
+    "nom_officiel": "Royaume du Bhoutan",
+    "capitale": "Thimphu",
+    "population": 784043,
+    "superficie_km2": 38394.0,
+    "langues": [
+      "Dzongkha"
+    ],
+    "frontieres": [
+      "CHN",
+      "IND"
+    ],
+    "acces_mer": false,
+    "region": "Southern Asia",
+    "pib_usd": 3012896789.24928,
+    "pib_par_hab": 3831.32535494609,
+    "croissance_pct": 4.63215704523927,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "KHM",
+    "nom_officiel": "Royaume du Cambodge",
+    "capitale": "Phnom Penh",
+    "population": 17577760,
+    "superficie_km2": 181035.0,
+    "langues": [
+      "Khmer"
+    ],
+    "frontieres": [
+      "LAO",
+      "THA",
+      "VNM"
+    ],
+    "acces_mer": true,
+    "region": "South-Eastern Asia",
+    "pib_usd": 46352647037.2406,
+    "pib_par_hab": 2627.87969756224,
+    "croissance_pct": 5.97510939607335,
+    "dep_militaire_pct_pib": 1.52066451977199
+  },
+  {
+    "id": "DNK",
+    "nom_officiel": "Royaume du Danemark",
+    "capitale": "Copenhagen",
+    "population": 6011488,
+    "superficie_km2": 43094.0,
+    "langues": [
+      "Danish"
+    ],
+    "frontieres": [
+      "DEU"
+    ],
+    "acces_mer": true,
+    "region": "Northern Europe",
+    "pib_usd": 424524722037.047,
+    "pib_par_hab": 71026.4832271897,
+    "croissance_pct": 3.47783593140312,
+    "dep_militaire_pct_pib": 2.41617454160591
+  },
+  {
+    "id": "LSO",
+    "nom_officiel": "Royaume du Lesotho",
+    "capitale": "Maseru",
+    "population": 2116427,
+    "superficie_km2": 30355.0,
+    "langues": [
+      "English",
+      "Sotho"
+    ],
+    "frontieres": [
+      "ZAF"
+    ],
+    "acces_mer": false,
+    "region": "Southern Africa",
+    "pib_usd": 2271759454.51107,
+    "pib_par_hab": 971.90771824829,
+    "croissance_pct": 2.85452253179545,
+    "dep_militaire_pct_pib": 1.56745014441231
+  },
+  {
+    "id": "MAR",
+    "nom_officiel": "Royaume du Maroc",
+    "capitale": "Rabat",
+    "population": 36828330,
+    "superficie_km2": 446550.0,
+    "langues": [
+      "Arabic",
+      "Berber"
+    ],
+    "frontieres": [
+      "DZA",
+      "ESH",
+      "ESP"
+    ],
+    "acces_mer": true,
+    "region": "Northern Africa",
+    "pib_usd": 160610994054.734,
+    "pib_par_hab": 4153.1943359375,
+    "croissance_pct": 3.79336515978963,
+    "dep_militaire_pct_pib": 3.51575374206256
+  },
+  {
+    "id": "SWZ",
+    "nom_officiel": "Royaume d’Eswatini",
+    "capitale": "Mbabane",
+    "population": 1235549,
+    "superficie_km2": 17364.0,
+    "langues": [
+      "English",
+      "Swazi"
+    ],
+    "frontieres": [
+      "MOZ",
+      "ZAF"
+    ],
+    "acces_mer": false,
+    "region": "Southern Africa",
+    "pib_usd": 4858885840.77236,
+    "pib_par_hab": 3909.55892378182,
+    "croissance_pct": 2.97391075973985,
+    "dep_militaire_pct_pib": 1.4440675502379
+  },
+  {
+    "id": "JOR",
+    "nom_officiel": "Royaume hachémite de Jordanie",
+    "capitale": "Amman",
+    "population": 11734000,
+    "superficie_km2": 89342.0,
+    "langues": [
+      "Arabic"
+    ],
+    "frontieres": [
+      "IRQ",
+      "ISR",
+      "PSE",
+      "SAU",
+      "SYR"
+    ],
+    "acces_mer": true,
+    "region": "Western Asia",
+    "pib_usd": 53352289577.4648,
+    "pib_par_hab": 4618.09592498567,
+    "croissance_pct": 2.48889409603647,
+    "dep_militaire_pct_pib": 4.80018703722722
+  },
+  {
+    "id": "GBR",
+    "nom_officiel": "Royaume-Uni de Grande-Bretagne et d'Irlande du Nord",
+    "capitale": "London",
+    "population": 69281437,
+    "superficie_km2": 244376.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [
+      "IRL"
+    ],
+    "acces_mer": true,
+    "region": "Northern Europe",
+    "pib_usd": 3686033044482.13,
+    "pib_par_hab": 53246.3676145108,
+    "croissance_pct": 1.1264226705118,
+    "dep_militaire_pct_pib": 2.2786177901127
+  },
+  {
+    "id": "HKG",
+    "nom_officiel": "Région administrative spéciale de Hong Kong de la République populaire de Chine",
+    "capitale": "City of Victoria",
+    "population": 7527500,
+    "superficie_km2": 1104.0,
+    "langues": [
+      "English",
+      "Chinese"
+    ],
+    "frontieres": [
+      "CHN"
+    ],
+    "acces_mer": true,
+    "region": "Eastern Asia",
+    "pib_usd": 406863396487.342,
+    "pib_par_hab": 54074.6928519479,
+    "croissance_pct": 2.50498758466826,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "MAC",
+    "nom_officiel": "Région administrative spéciale de Macao de la République populaire de Chine",
+    "capitale": null,
+    "population": 685900,
+    "superficie_km2": 30.0,
+    "langues": [
+      "Portuguese",
+      "Chinese"
+    ],
+    "frontieres": [
+      "CHN"
+    ],
+    "acces_mer": true,
+    "region": "Eastern Asia",
+    "pib_usd": 49467258923.3244,
+    "pib_par_hab": 72004.7437020733,
+    "croissance_pct": 7.84960207010525,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "TZA",
+    "nom_officiel": "République -Unie de Tanzanie",
+    "capitale": "Dodoma",
+    "population": 68153004,
+    "superficie_km2": 947303.0,
+    "langues": [
+      "English",
+      "Swahili"
+    ],
+    "frontieres": [
+      "BDI",
+      "COD",
+      "KEN",
+      "MWI",
+      "MOZ",
+      "RWA",
+      "UGA",
+      "ZMB"
+    ],
+    "acces_mer": true,
+    "region": "Eastern Africa",
+    "pib_usd": 78844405385.2195,
+    "pib_par_hab": 1186.71691894531,
+    "croissance_pct": 5.5263138305945,
+    "dep_militaire_pct_pib": 1.154617473534
+  },
+  {
+    "id": "DOM",
+    "nom_officiel": "République Dominicaine",
+    "capitale": "Santo Domingo",
+    "population": 10771504,
+    "superficie_km2": 48671.0,
+    "langues": [
+      "Spanish"
+    ],
+    "frontieres": [
+      "HTI"
+    ],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 124282245638.568,
+    "pib_par_hab": 10875.6618443092,
+    "croissance_pct": 4.95352204492849,
+    "dep_militaire_pct_pib": 0.782420068931067
+  },
+  {
+    "id": "EGY",
+    "nom_officiel": "République arabe d'Égypte",
+    "capitale": "Cairo",
+    "population": 107271260,
+    "superficie_km2": 1002450.0,
+    "langues": [
+      "Arabic"
+    ],
+    "frontieres": [
+      "ISR",
+      "LBY",
+      "PSE",
+      "SDN"
+    ],
+    "acces_mer": true,
+    "region": "Northern Africa",
+    "pib_usd": 389059911003.566,
+    "pib_par_hab": 3338.47371395895,
+    "croissance_pct": 2.3991692678251,
+    "dep_militaire_pct_pib": 0.665263620234986
+  },
+  {
+    "id": "ESH",
+    "nom_officiel": "République arabe sahraouie démocratique",
+    "capitale": "El Aaiún",
+    "population": 600904,
+    "superficie_km2": 266000.0,
+    "langues": [
+      "Berber",
+      "Hassaniya",
+      "Spanish"
+    ],
+    "frontieres": [
+      "DZA",
+      "MRT",
+      "MAR"
+    ],
+    "acces_mer": true,
+    "region": "Northern Africa",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "SYR",
+    "nom_officiel": "République arabe syrienne",
+    "capitale": "Damascus",
+    "population": 25620000,
+    "superficie_km2": 185180.0,
+    "langues": [
+      "Arabic"
+    ],
+    "frontieres": [
+      "IRQ",
+      "ISR",
+      "JOR",
+      "LBN",
+      "TUR"
+    ],
+    "acces_mer": true,
+    "region": "Western Asia",
+    "pib_usd": 23622827079.5047,
+    "pib_par_hab": 1051.67149587463,
+    "croissance_pct": 0.732781301861365,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "ARG",
+    "nom_officiel": "République argentine",
+    "capitale": "Buenos Aires",
+    "population": 46735004,
+    "superficie_km2": 2780400.0,
+    "langues": [
+      "Guaraní",
+      "Spanish"
+    ],
+    "frontieres": [
+      "BOL",
+      "BRA",
+      "CHL",
+      "PRY",
+      "URY"
+    ],
+    "acces_mer": true,
+    "region": "South America",
+    "pib_usd": 638365455340.04,
+    "pib_par_hab": 13969.7836603737,
+    "croissance_pct": -1.34293072157739,
+    "dep_militaire_pct_pib": 0.618350391157195
+  },
+  {
+    "id": "VEN",
+    "nom_officiel": "République bolivarienne du Venezuela",
+    "capitale": "Caracas",
+    "population": 28517000,
+    "superficie_km2": 916445.0,
+    "langues": [
+      "Spanish"
+    ],
+    "frontieres": [
+      "BRA",
+      "COL",
+      "GUY"
+    ],
+    "acces_mer": true,
+    "region": "South America",
+    "pib_usd": 119802963257.783,
+    "pib_par_hab": 4217.59102643391,
+    "croissance_pct": 5.29999999999984,
+    "dep_militaire_pct_pib": 0.500704497643446
+  },
+  {
+    "id": "CAF",
+    "nom_officiel": "République centrafricaine",
+    "capitale": "Bangui",
+    "population": 6470307,
+    "superficie_km2": 622984.0,
+    "langues": [
+      "French",
+      "Sango"
+    ],
+    "frontieres": [
+      "CMR",
+      "TCD",
+      "COD",
+      "COG",
+      "SSD",
+      "SDN"
+    ],
+    "acces_mer": false,
+    "region": "Middle Africa",
+    "pib_usd": 2751494281.06887,
+    "pib_par_hab": 516.160999996036,
+    "croissance_pct": 1.49999999847535,
+    "dep_militaire_pct_pib": 2.51969119903231
+  },
+  {
+    "id": "GUY",
+    "nom_officiel": "République coopérative de Guyana",
+    "capitale": "Georgetown",
+    "population": 772975,
+    "superficie_km2": 214969.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [
+      "BRA",
+      "SUR",
+      "VEN"
+    ],
+    "acces_mer": true,
+    "region": "South America",
+    "pib_usd": 24662709832.1343,
+    "pib_par_hab": 29675.2443873316,
+    "croissance_pct": 43.8193108024355,
+    "dep_militaire_pct_pib": 0.868162254451279
+  },
+  {
+    "id": "ZAF",
+    "nom_officiel": "République d'Afrique du Sud",
+    "capitale": "Pretoria",
+    "population": 63100945,
+    "superficie_km2": 1221037.0,
+    "langues": [
+      "Afrikaans",
+      "English",
+      "Southern Ndebele",
+      "Northern Sotho",
+      "Southern Sotho",
+      "Swazi",
+      "Tswana",
+      "Tsonga",
+      "Venda",
+      "Xhosa",
+      "Zulu"
+    ],
+    "frontieres": [
+      "BWA",
+      "LSO",
+      "MOZ",
+      "NAM",
+      "SWZ",
+      "ZWE"
+    ],
+    "acces_mer": true,
+    "region": "Southern Africa",
+    "pib_usd": 401144998373.585,
+    "pib_par_hab": 6267.186814093,
+    "croissance_pct": 0.534843531905139,
+    "dep_militaire_pct_pib": 0.700150834276412
+  },
+  {
+    "id": "ALB",
+    "nom_officiel": "République d'Albanie",
+    "capitale": "Tirana",
+    "population": 2363314,
+    "superficie_km2": 28748.0,
+    "langues": [
+      "Albanian"
+    ],
+    "frontieres": [
+      "MNE",
+      "GRC",
+      "MKD",
+      "UNK"
+    ],
+    "acces_mer": true,
+    "region": "Southeast Europe",
+    "pib_usd": 27046429296.6673,
+    "pib_par_hab": 11377.7757431099,
+    "croissance_pct": 4.04592845095348,
+    "dep_militaire_pct_pib": 2.03786228936679
+  },
+  {
+    "id": "AGO",
+    "nom_officiel": "République d'Angola",
+    "capitale": "Luanda",
+    "population": 36170961,
+    "superficie_km2": 1246700.0,
+    "langues": [
+      "Portuguese"
+    ],
+    "frontieres": [
+      "COG",
+      "COD",
+      "ZMB",
+      "NAM"
+    ],
+    "acces_mer": true,
+    "region": "Middle Africa",
+    "pib_usd": 100998916781.079,
+    "pib_par_hab": 2665.87444776753,
+    "croissance_pct": 4.42390664406875,
+    "dep_militaire_pct_pib": 1.00049213337543
+  },
+  {
+    "id": "ARM",
+    "nom_officiel": "République d'Arménie",
+    "capitale": "Yerevan",
+    "population": 3076200,
+    "superficie_km2": 29743.0,
+    "langues": [
+      "Armenian"
+    ],
+    "frontieres": [
+      "AZE",
+      "GEO",
+      "IRN",
+      "TUR"
+    ],
+    "acces_mer": false,
+    "region": "Western Asia",
+    "pib_usd": 25955275380.0321,
+    "pib_par_hab": 8556.21406956719,
+    "croissance_pct": 5.90000000046228,
+    "dep_militaire_pct_pib": 5.48174920349075
+  },
+  {
+    "id": "AUT",
+    "nom_officiel": "République d'Autriche",
+    "capitale": "Vienna",
+    "population": 9200931,
+    "superficie_km2": 83871.0,
+    "langues": [
+      "German"
+    ],
+    "frontieres": [
+      "CZE",
+      "DEU",
+      "HUN",
+      "ITA",
+      "LIE",
+      "SVK",
+      "SVN",
+      "CHE"
+    ],
+    "acces_mer": false,
+    "region": "Central Europe",
+    "pib_usd": 534790720466.822,
+    "pib_par_hab": 58268.8787651601,
+    "croissance_pct": -0.659089573171372,
+    "dep_militaire_pct_pib": 0.999843177036641
+  },
+  {
+    "id": "AZE",
+    "nom_officiel": "République d'Azerbaïdjan",
+    "capitale": "Baku",
+    "population": 10241722,
+    "superficie_km2": 86600.0,
+    "langues": [
+      "Azerbaijani"
+    ],
+    "frontieres": [
+      "ARM",
+      "GEO",
+      "IRN",
+      "RUS",
+      "TUR"
+    ],
+    "acces_mer": false,
+    "region": "Western Asia",
+    "pib_usd": 74315882352.9412,
+    "pib_par_hab": 7283.8499076179,
+    "croissance_pct": 4.07140205008956,
+    "dep_militaire_pct_pib": 4.99292395978321
+  },
+  {
+    "id": "EST",
+    "nom_officiel": "République d'Estonie",
+    "capitale": "Tallinn",
+    "population": 1369995,
+    "superficie_km2": 45227.0,
+    "langues": [
+      "Estonian"
+    ],
+    "frontieres": [
+      "LVA",
+      "RUS"
+    ],
+    "acces_mer": true,
+    "region": "Northern Europe",
+    "pib_usd": 43130419829.35,
+    "pib_par_hab": 31428.3547816104,
+    "croissance_pct": -0.0900428648493801,
+    "dep_militaire_pct_pib": 3.37400221824601
+  },
+  {
+    "id": "HTI",
+    "nom_officiel": "République d'Haïti",
+    "capitale": "Port-au-Prince",
+    "population": 11867032,
+    "superficie_km2": 27750.0,
+    "langues": [
+      "French",
+      "Haitian Creole"
+    ],
+    "frontieres": [
+      "DOM"
+    ],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 25224154990.7946,
+    "pib_par_hab": 2142.62330526788,
+    "croissance_pct": -4.16963395808132,
+    "dep_militaire_pct_pib": 0.068443100204951
+  },
+  {
+    "id": "IDN",
+    "nom_officiel": "République d'Indonésie",
+    "capitale": "Jakarta",
+    "population": 284438782,
+    "superficie_km2": 1904569.0,
+    "langues": [
+      "Indonesian"
+    ],
+    "frontieres": [
+      "TLS",
+      "MYS",
+      "PNG"
+    ],
+    "acces_mer": true,
+    "region": "South-Eastern Asia",
+    "pib_usd": 1396300098190.97,
+    "pib_par_hab": 4925.43048751861,
+    "croissance_pct": 5.03034469419038,
+    "dep_militaire_pct_pib": 0.779216788275608
+  },
+  {
+    "id": "IRQ",
+    "nom_officiel": "République d'Irak",
+    "capitale": "Baghdad",
+    "population": 46118793,
+    "superficie_km2": 438317.0,
+    "langues": [
+      "Arabic",
+      "Aramaic",
+      "Sorani"
+    ],
+    "frontieres": [
+      "IRN",
+      "JOR",
+      "KWT",
+      "SAU",
+      "SYR",
+      "TUR"
+    ],
+    "acces_mer": true,
+    "region": "Western Asia",
+    "pib_usd": 279641257615.385,
+    "pib_par_hab": 6073.61032342708,
+    "croissance_pct": -1.54525198318304,
+    "dep_militaire_pct_pib": 2.35714058035714
+  },
+  {
+    "id": "IRL",
+    "nom_officiel": "République d'Irlande",
+    "capitale": "Dublin",
+    "population": 5458600,
+    "superficie_km2": 70273.0,
+    "langues": [
+      "English",
+      "Irish"
+    ],
+    "frontieres": [
+      "GBR"
+    ],
+    "acces_mer": true,
+    "region": "Northern Europe",
+    "pib_usd": 609157459747.205,
+    "pib_par_hab": 112894.953240805,
+    "croissance_pct": 2.59946721553708,
+    "dep_militaire_pct_pib": 0.239096332495524
+  },
+  {
+    "id": "ISL",
+    "nom_officiel": "République d'Islande",
+    "capitale": "Reykjavik",
+    "population": 391810,
+    "superficie_km2": 103000.0,
+    "langues": [
+      "Icelandic"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Northern Europe",
+    "pib_usd": 33255181468.9382,
+    "pib_par_hab": 86040.5309851288,
+    "croissance_pct": -0.970676468918384,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "UZB",
+    "nom_officiel": "République d'Ouzbékistan",
+    "capitale": "Tashkent",
+    "population": 37859698,
+    "superficie_km2": 447400.0,
+    "langues": [
+      "Russian",
+      "Uzbek"
+    ],
+    "frontieres": [
+      "AFG",
+      "KAZ",
+      "KGZ",
+      "TJK",
+      "TKM"
+    ],
+    "acces_mer": false,
+    "region": "Central Asia",
+    "pib_usd": 114965293466.611,
+    "pib_par_hab": 3161.70010632875,
+    "croissance_pct": 6.49999999997677,
+    "dep_militaire_pct_pib": 2.86661981035524
+  },
+  {
+    "id": "BLR",
+    "nom_officiel": "République de Biélorussie",
+    "capitale": "Minsk",
+    "population": 9109280,
+    "superficie_km2": 207600.0,
+    "langues": [
+      "Belarusian",
+      "Russian"
+    ],
+    "frontieres": [
+      "LVA",
+      "LTU",
+      "POL",
+      "RUS",
+      "UKR"
+    ],
+    "acces_mer": false,
+    "region": "Eastern Europe",
+    "pib_usd": 75961865471.9129,
+    "pib_par_hab": 8317.63399913792,
+    "croissance_pct": 4.00984852465452,
+    "dep_militaire_pct_pib": 2.07364910790144
+  },
+  {
+    "id": "BGR",
+    "nom_officiel": "République de Bulgarie",
+    "capitale": "Sofia",
+    "population": 6437360,
+    "superficie_km2": 110879.0,
+    "langues": [
+      "Bulgarian"
+    ],
+    "frontieres": [
+      "GRC",
+      "MKD",
+      "ROU",
+      "SRB",
+      "TUR"
+    ],
+    "acces_mer": true,
+    "region": "Southeast Europe",
+    "pib_usd": 113343355779.985,
+    "pib_par_hab": 17596.0173663521,
+    "croissance_pct": 3.38709063847314,
+    "dep_militaire_pct_pib": 2.14947328244853
+  },
+  {
+    "id": "TWN",
+    "nom_officiel": "République de Chine (Taïwan)",
+    "capitale": "Taipei",
+    "population": 23317031,
+    "superficie_km2": 36197.0,
+    "langues": [
+      "Chinese"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Eastern Asia",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "CYP",
+    "nom_officiel": "République de Chypre",
+    "capitale": "Nicosia",
+    "population": 1442614,
+    "superficie_km2": 9251.0,
+    "langues": [
+      "Greek",
+      "Turkish"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Southern Europe",
+    "pib_usd": 37634533331.8902,
+    "pib_par_hab": 38674.29296875,
+    "croissance_pct": 3.94077381708404,
+    "dep_militaire_pct_pib": 1.64735214954921
+  },
+  {
+    "id": "COL",
+    "nom_officiel": "République de Colombie",
+    "capitale": "Bogotá",
+    "population": 53057212,
+    "superficie_km2": 1141748.0,
+    "langues": [
+      "Spanish"
+    ],
+    "frontieres": [
+      "BRA",
+      "ECU",
+      "PAN",
+      "PER",
+      "VEN"
+    ],
+    "acces_mer": true,
+    "region": "South America",
+    "pib_usd": 418818154879.271,
+    "pib_par_hab": 7919.20886825345,
+    "croissance_pct": 1.5983315366523,
+    "dep_militaire_pct_pib": 3.35903368303836
+  },
+  {
+    "id": "KOR",
+    "nom_officiel": "République de Corée",
+    "capitale": "Seoul",
+    "population": 51159889,
+    "superficie_km2": 100210.0,
+    "langues": [
+      "Korean"
+    ],
+    "frontieres": [
+      "PRK"
+    ],
+    "acces_mer": true,
+    "region": "Eastern Asia",
+    "pib_usd": 1875388209406.8,
+    "pib_par_hab": 36238.639908315,
+    "croissance_pct": 2.00361101838986,
+    "dep_militaire_pct_pib": 2.56205259386748
+  },
+  {
+    "id": "HRV",
+    "nom_officiel": "République de Croatie",
+    "capitale": "Zagreb",
+    "population": 3866233,
+    "superficie_km2": 56594.0,
+    "langues": [
+      "Croatian"
+    ],
+    "frontieres": [
+      "BIH",
+      "HUN",
+      "MNE",
+      "SRB",
+      "SVN"
+    ],
+    "acces_mer": true,
+    "region": "Southeast Europe",
+    "pib_usd": 92983810328.9088,
+    "pib_par_hab": 24050.4397933135,
+    "croissance_pct": 3.82688702890739,
+    "dep_militaire_pct_pib": 1.79323424509814
+  },
+  {
+    "id": "CUB",
+    "nom_officiel": "République de Cuba",
+    "capitale": "Havana",
+    "population": 9748007,
+    "superficie_km2": 109884.0,
+    "langues": [
+      "Spanish"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 107352000000,
+    "pib_par_hab": 9605.27914559614,
+    "croissance_pct": -1.06173273220524,
+    "dep_militaire_pct_pib": 2.87620737245072
+  },
+  {
+    "id": "CIV",
+    "nom_officiel": "République de Côte d' Ivoire",
+    "capitale": "Yamoussoukro",
+    "population": 31719275,
+    "superficie_km2": 322463.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [
+      "BFA",
+      "GHA",
+      "GIN",
+      "LBR",
+      "MLI"
+    ],
+    "acces_mer": true,
+    "region": "Western Africa",
+    "pib_usd": 87113179149.284,
+    "pib_par_hab": 2727.8935220697,
+    "croissance_pct": 6.01953461940062,
+    "dep_militaire_pct_pib": 0.762358993041457
+  },
+  {
+    "id": "DJI",
+    "nom_officiel": "République de Djibouti",
+    "capitale": "Djibouti",
+    "population": 1066809,
+    "superficie_km2": 23200.0,
+    "langues": [
+      "Arabic",
+      "French"
+    ],
+    "frontieres": [
+      "ERI",
+      "ETH",
+      "SOM"
+    ],
+    "acces_mer": true,
+    "region": "Eastern Africa",
+    "pib_usd": 4152145939.98458,
+    "pib_par_hab": 3552.72335079222,
+    "croissance_pct": 6.98048467276334,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "FIN",
+    "nom_officiel": "République de Finlande",
+    "capitale": "Helsinki",
+    "population": 5650325,
+    "superficie_km2": 338455.0,
+    "langues": [
+      "Finnish",
+      "Swedish"
+    ],
+    "frontieres": [
+      "NOR",
+      "SWE",
+      "RUS"
+    ],
+    "acces_mer": true,
+    "region": "Northern Europe",
+    "pib_usd": 298696961297.656,
+    "pib_par_hab": 53149.7671934051,
+    "croissance_pct": 0.416171964862073,
+    "dep_militaire_pct_pib": 2.29979173712597
+  },
+  {
+    "id": "GMB",
+    "nom_officiel": "République de Gambie",
+    "capitale": "Banjul",
+    "population": 2422712,
+    "superficie_km2": 10689.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [
+      "SEN"
+    ],
+    "acces_mer": true,
+    "region": "Western Africa",
+    "pib_usd": 2404888749.21907,
+    "pib_par_hab": 871.340291776294,
+    "croissance_pct": 5.55126069510321,
+    "dep_militaire_pct_pib": 0.574440350261863
+  },
+  {
+    "id": "GIN",
+    "nom_officiel": "République de Guinée",
+    "capitale": "Conakry",
+    "population": 14363931,
+    "superficie_km2": 245857.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [
+      "CIV",
+      "GNB",
+      "LBR",
+      "MLI",
+      "SEN",
+      "SLE"
+    ],
+    "acces_mer": true,
+    "region": "Western Africa",
+    "pib_usd": 25008678293.4084,
+    "pib_par_hab": 1694.95375862193,
+    "croissance_pct": 5.35004659051708,
+    "dep_militaire_pct_pib": 2.05370337042453
+  },
+  {
+    "id": "GNQ",
+    "nom_officiel": "République de Guinée équatoriale",
+    "capitale": "Ciudad de la Paz",
+    "population": 1668768,
+    "superficie_km2": 28051.0,
+    "langues": [
+      "French",
+      "Portuguese",
+      "Spanish"
+    ],
+    "frontieres": [
+      "CMR",
+      "GAB"
+    ],
+    "acces_mer": true,
+    "region": "Middle Africa",
+    "pib_usd": 12765777677.0622,
+    "pib_par_hab": 6745.40013244916,
+    "croissance_pct": 0.907248245986736,
+    "dep_militaire_pct_pib": 0.982185856511218
+  },
+  {
+    "id": "GNB",
+    "nom_officiel": "République de Guinée-Bissau",
+    "capitale": "Bissau",
+    "population": 1781308,
+    "superficie_km2": 36125.0,
+    "langues": [
+      "Portuguese",
+      "Upper Guinea Creole"
+    ],
+    "frontieres": [
+      "GIN",
+      "SEN"
+    ],
+    "acces_mer": true,
+    "region": "Western Africa",
+    "pib_usd": 2218393804.54798,
+    "pib_par_hab": 1007.74151728028,
+    "croissance_pct": 4.14631137217332,
+    "dep_militaire_pct_pib": 1.2348847572106
+  },
+  {
+    "id": "GEO",
+    "nom_officiel": "République de Géorgie",
+    "capitale": "Tbilisi",
+    "population": 4000921,
+    "superficie_km2": 69700.0,
+    "langues": [
+      "Georgian"
+    ],
+    "frontieres": [
+      "ARM",
+      "AZE",
+      "RUS",
+      "TUR"
+    ],
+    "acces_mer": true,
+    "region": "Western Asia",
+    "pib_usd": 34189423544.9955,
+    "pib_par_hab": 9241.49122313713,
+    "croissance_pct": 9.67979387500691,
+    "dep_militaire_pct_pib": 1.86402941794564
+  },
+  {
+    "id": "KIR",
+    "nom_officiel": "République de Kiribati",
+    "capitale": "South Tarawa",
+    "population": 120740,
+    "superficie_km2": 811.0,
+    "langues": [
+      "English",
+      "Gilbertese"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Micronesia",
+    "pib_usd": 307862564.489711,
+    "pib_par_hab": 2288.63471423684,
+    "croissance_pct": 5.26689747917099,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "LVA",
+    "nom_officiel": "République de Lettonie",
+    "capitale": "Riga",
+    "population": 1829000,
+    "superficie_km2": 64559.0,
+    "langues": [
+      "Latvian"
+    ],
+    "frontieres": [
+      "BLR",
+      "EST",
+      "LTU",
+      "RUS"
+    ],
+    "acces_mer": true,
+    "region": "Northern Europe",
+    "pib_usd": 43684254432.3609,
+    "pib_par_hab": 23409.0845154775,
+    "croissance_pct": -0.0461080109713521,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "LTU",
+    "nom_officiel": "République de Lituanie",
+    "capitale": "Vilnius",
+    "population": 2894886,
+    "superficie_km2": 65300.0,
+    "langues": [
+      "Lithuanian"
+    ],
+    "frontieres": [
+      "BLR",
+      "LVA",
+      "POL",
+      "RUS"
+    ],
+    "acces_mer": true,
+    "region": "Northern Europe",
+    "pib_usd": 84869215513.3648,
+    "pib_par_hab": 29384.0189598663,
+    "croissance_pct": 2.77263124530285,
+    "dep_militaire_pct_pib": 3.11817486440289
+  },
+  {
+    "id": "MKD",
+    "nom_officiel": "République de Macédoine du Nord",
+    "capitale": "Skopje",
+    "population": 1822612,
+    "superficie_km2": 25713.0,
+    "langues": [
+      "Macedonian"
+    ],
+    "frontieres": [
+      "ALB",
+      "BGR",
+      "GRC",
+      "UNK",
+      "SRB"
+    ],
+    "acces_mer": false,
+    "region": "Southeast Europe",
+    "pib_usd": 16951682245.4202,
+    "pib_par_hab": 9291.85661671864,
+    "croissance_pct": 2.99373536567732,
+    "dep_militaire_pct_pib": 2.10352863426818
+  },
+  {
+    "id": "MDG",
+    "nom_officiel": "République de Madagascar",
+    "capitale": "Antananarivo",
+    "population": 31727042,
+    "superficie_km2": 587041.0,
+    "langues": [
+      "French",
+      "Malagasy"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Eastern Africa",
+    "pib_usd": 17420501490.1231,
+    "pib_par_hab": 544.987501003384,
+    "croissance_pct": 4.19999999988647,
+    "dep_militaire_pct_pib": 0.708648145396825
+  },
+  {
+    "id": "MLT",
+    "nom_officiel": "République de Malte",
+    "capitale": "Valletta",
+    "population": 574250,
+    "superficie_km2": 316.0,
+    "langues": [
+      "English",
+      "Maltese"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Southern Europe",
+    "pib_usd": 24971574502.4475,
+    "pib_par_hab": 43898.5781808597,
+    "croissance_pct": 6.79990300224401,
+    "dep_militaire_pct_pib": 0.451123319487248
+  },
+  {
+    "id": "MUS",
+    "nom_officiel": "République de Maurice",
+    "capitale": "Port Louis",
+    "population": 1243741,
+    "superficie_km2": 2040.0,
+    "langues": [
+      "English",
+      "French",
+      "Mauritian Creole"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Eastern Africa",
+    "pib_usd": 14937861786.17,
+    "pib_par_hab": 11990.7798944837,
+    "croissance_pct": 4.92512304864294,
+    "dep_militaire_pct_pib": 0.149590857574221
+  },
+  {
+    "id": "MDA",
+    "nom_officiel": "République de Moldavie",
+    "capitale": "Chișinău",
+    "population": 2749076,
+    "superficie_km2": 33847.0,
+    "langues": [
+      "Romanian"
+    ],
+    "frontieres": [
+      "ROU",
+      "UKR"
+    ],
+    "acces_mer": false,
+    "region": "Eastern Europe",
+    "pib_usd": 18200340853.6517,
+    "pib_par_hab": 7576.19589413326,
+    "croissance_pct": 0.103059364371205,
+    "dep_militaire_pct_pib": 0.597780838491135
+  },
+  {
+    "id": "NAM",
+    "nom_officiel": "République de Namibie",
+    "capitale": "Windhoek",
+    "population": 3022401,
+    "superficie_km2": 825615.0,
+    "langues": [
+      "Afrikaans",
+      "German",
+      "English",
+      "Herero",
+      "Khoekhoe",
+      "Kwangali",
+      "Lozi",
+      "Ndonga",
+      "Tswana"
+    ],
+    "frontieres": [
+      "AGO",
+      "BWA",
+      "ZAF",
+      "ZMB"
+    ],
+    "acces_mer": true,
+    "region": "Southern Africa",
+    "pib_usd": 13372354511.716,
+    "pib_par_hab": 4413.12752211572,
+    "croissance_pct": 3.71154502416731,
+    "dep_militaire_pct_pib": 2.73490195432496
+  },
+  {
+    "id": "NRU",
+    "nom_officiel": "République de Nauru",
+    "capitale": "Yaren",
+    "population": 11680,
+    "superficie_km2": 21.0,
+    "langues": [
+      "English",
+      "Nauru"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Micronesia",
+    "pib_usd": 162588620.632234,
+    "pib_par_hab": 13609.158837552,
+    "croissance_pct": 1.38888888888904,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "POL",
+    "nom_officiel": "République de Pologne",
+    "capitale": "Warsaw",
+    "population": 37392000,
+    "superficie_km2": 312679.0,
+    "langues": [
+      "Polish"
+    ],
+    "frontieres": [
+      "BLR",
+      "CZE",
+      "DEU",
+      "LTU",
+      "RUS",
+      "SVK",
+      "UKR"
+    ],
+    "acces_mer": true,
+    "region": "Central Europe",
+    "pib_usd": 917767106146.761,
+    "pib_par_hab": 25103.565661423,
+    "croissance_pct": 3.02841630700273,
+    "dep_militaire_pct_pib": 4.15439387975356
+  },
+  {
+    "id": "SMR",
+    "nom_officiel": "République de Saint-Marin",
+    "capitale": "City of San Marino",
+    "population": 34132,
+    "superficie_km2": 61.0,
+    "langues": [
+      "Italian"
+    ],
+    "frontieres": [
+      "ITA"
+    ],
+    "acces_mer": false,
+    "region": "Southern Europe",
+    "pib_usd": 2027527227.831,
+    "pib_par_hab": 59879.7173015651,
+    "croissance_pct": 0.401934896977224,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "SRB",
+    "nom_officiel": "République de Serbie",
+    "capitale": "Belgrade",
+    "population": 6567783,
+    "superficie_km2": 77589.0,
+    "langues": [
+      "Serbian"
+    ],
+    "frontieres": [
+      "BIH",
+      "BGR",
+      "HRV",
+      "HUN",
+      "UNK",
+      "MKD",
+      "MNE",
+      "ROU"
+    ],
+    "acces_mer": false,
+    "region": "Southeast Europe",
+    "pib_usd": 90097765959.1114,
+    "pib_par_hab": 13679.2065983557,
+    "croissance_pct": 3.94992622592932,
+    "dep_militaire_pct_pib": 2.59513983105714
+  },
+  {
+    "id": "SLE",
+    "nom_officiel": "République de Sierra Leone",
+    "capitale": "Freetown",
+    "population": 9077691,
+    "superficie_km2": 71740.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [
+      "GIN",
+      "LBR"
+    ],
+    "acces_mer": true,
+    "region": "Western Africa",
+    "pib_usd": 6971127235.3123,
+    "pib_par_hab": 806.654650417726,
+    "croissance_pct": 4.29322336690163,
+    "dep_militaire_pct_pib": 0.462539633893509
+  },
+  {
+    "id": "SGP",
+    "nom_officiel": "République de Singapour",
+    "capitale": "Singapore",
+    "population": 6110200,
+    "superficie_km2": 710.0,
+    "langues": [
+      "English",
+      "Chinese",
+      "Malay",
+      "Tamil"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "South-Eastern Asia",
+    "pib_usd": 547386645891.847,
+    "pib_par_hab": 90674.066632628,
+    "croissance_pct": 4.38802362461865,
+    "dep_militaire_pct_pib": 2.8417655746547
+  },
+  {
+    "id": "SVN",
+    "nom_officiel": "République de Slovénie",
+    "capitale": "Ljubljana",
+    "population": 2130638,
+    "superficie_km2": 20273.0,
+    "langues": [
+      "Slovene"
+    ],
+    "frontieres": [
+      "AUT",
+      "HRV",
+      "ITA",
+      "HUN"
+    ],
+    "acces_mer": true,
+    "region": "Central Europe",
+    "pib_usd": 72972015197.3859,
+    "pib_par_hab": 34301.0318686594,
+    "croissance_pct": 1.73139722479493,
+    "dep_militaire_pct_pib": 1.31001116486788
+  },
+  {
+    "id": "TTO",
+    "nom_officiel": "République de Trinité-et-Tobago",
+    "capitale": "Port of Spain",
+    "population": 1367764,
+    "superficie_km2": 5130.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 25633544529.4849,
+    "pib_par_hab": 18733.4110406494,
+    "croissance_pct": 2.50920813979569,
+    "dep_militaire_pct_pib": 0.921416388185832
+  },
+  {
+    "id": "TUR",
+    "nom_officiel": "République de Turquie",
+    "capitale": "Ankara",
+    "population": 85664944,
+    "superficie_km2": 783562.0,
+    "langues": [
+      "Turkish"
+    ],
+    "frontieres": [
+      "ARM",
+      "AZE",
+      "BGR",
+      "GEO",
+      "GRC",
+      "IRN",
+      "IRQ",
+      "SYR"
+    ],
+    "acces_mer": true,
+    "region": "Western Asia",
+    "pib_usd": 1359123768774.12,
+    "pib_par_hab": 15892.7157287241,
+    "croissance_pct": 3.3276230893799,
+    "dep_militaire_pct_pib": 1.92255231276371
+  },
+  {
+    "id": "VUT",
+    "nom_officiel": "République de Vanuatu",
+    "capitale": "Port Vila",
+    "population": 321409,
+    "superficie_km2": 12189.0,
+    "langues": [
+      "Bislama",
+      "English",
+      "French"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Melanesia",
+    "pib_usd": 1117972034.22642,
+    "pib_par_hab": 3410.77023167097,
+    "croissance_pct": 0.942185362275907,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "ZMB",
+    "nom_officiel": "République de Zambie",
+    "capitale": "Lusaka",
+    "population": 19693423,
+    "superficie_km2": 752612.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [
+      "AGO",
+      "BWA",
+      "COD",
+      "MWI",
+      "MOZ",
+      "NAM",
+      "TZA",
+      "ZWE"
+    ],
+    "acces_mer": false,
+    "region": "Eastern Africa",
+    "pib_usd": 25303185342.2511,
+    "pib_par_hab": 1187.10943350064,
+    "croissance_pct": 3.82004825518591,
+    "dep_militaire_pct_pib": 1.33268361976463
+  },
+  {
+    "id": "IND",
+    "nom_officiel": "République de l'Inde",
+    "capitale": "New Delhi",
+    "population": 1417492000,
+    "superficie_km2": 3287263.0,
+    "langues": [
+      "English",
+      "Hindi",
+      "Tamil"
+    ],
+    "frontieres": [
+      "BGD",
+      "BTN",
+      "MMR",
+      "CHN",
+      "NPL",
+      "PAK"
+    ],
+    "acces_mer": true,
+    "region": "Southern Asia",
+    "pib_usd": 3909891533858.08,
+    "pib_par_hab": 2694.73780859961,
+    "croissance_pct": 6.49476552383821,
+    "dep_militaire_pct_pib": 2.2712033218142
+  },
+  {
+    "id": "UGA",
+    "nom_officiel": "République de l'Ouganda",
+    "capitale": "Kampala",
+    "population": 45905417,
+    "superficie_km2": 241550.0,
+    "langues": [
+      "English",
+      "Swahili"
+    ],
+    "frontieres": [
+      "COD",
+      "KEN",
+      "RWA",
+      "SSD",
+      "TZA"
+    ],
+    "acces_mer": false,
+    "region": "Eastern Africa",
+    "pib_usd": 53911907086.1525,
+    "pib_par_hab": 1077.91278452817,
+    "croissance_pct": 6.05558075875589,
+    "dep_militaire_pct_pib": 1.88159798311992
+  },
+  {
+    "id": "MMR",
+    "nom_officiel": "République de l'Union du Myanmar",
+    "capitale": "Naypyidaw",
+    "population": 51316756,
+    "superficie_km2": 676578.0,
+    "langues": [
+      "Burmese"
+    ],
+    "frontieres": [
+      "BGD",
+      "CHN",
+      "IND",
+      "LAO",
+      "THA"
+    ],
+    "acces_mer": true,
+    "region": "South-Eastern Asia",
+    "pib_usd": 74068349523.8095,
+    "pib_par_hab": 1359.05001560107,
+    "croissance_pct": -0.97204641363362,
+    "dep_militaire_pct_pib": 6.79452485229039
+  },
+  {
+    "id": "ECU",
+    "nom_officiel": "République de l'Équateur",
+    "capitale": "Quito",
+    "population": 18103660,
+    "superficie_km2": 276841.0,
+    "langues": [
+      "Spanish"
+    ],
+    "frontieres": [
+      "COL",
+      "PER"
+    ],
+    "acces_mer": true,
+    "region": "South America",
+    "pib_usd": 124676074700,
+    "pib_par_hab": 6874.705739766,
+    "croissance_pct": -2.00125476341026,
+    "dep_militaire_pct_pib": 2.22194770434425
+  },
+  {
+    "id": "FJI",
+    "nom_officiel": "République des Fidji",
+    "capitale": "Suva",
+    "population": 900869,
+    "superficie_km2": 18272.0,
+    "langues": [
+      "English",
+      "Fijian",
+      "Fiji Hindi"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Melanesia",
+    "pib_usd": 5968125909.27126,
+    "pib_par_hab": 6425.74151715712,
+    "croissance_pct": 3.53085896076352,
+    "dep_militaire_pct_pib": 1.3128793789726
+  },
+  {
+    "id": "MDV",
+    "nom_officiel": "République des Maldives",
+    "capitale": "Malé",
+    "population": 515132,
+    "superficie_km2": 300.0,
+    "langues": [
+      "Maldivian"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Southern Asia",
+    "pib_usd": 7061608267.25451,
+    "pib_par_hab": 13379.3513577224,
+    "croissance_pct": 3.49440422654285,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "PLW",
+    "nom_officiel": "République des Palaos (Palau)",
+    "capitale": "Ngerulmud",
+    "population": 16733,
+    "superficie_km2": 459.0,
+    "langues": [
+      "English",
+      "Palauan"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Micronesia",
+    "pib_usd": 276733062.744141,
+    "pib_par_hab": 15610.8231931032,
+    "croissance_pct": 2.21599800170485,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "PHL",
+    "nom_officiel": "République des Philippines",
+    "capitale": "Manila",
+    "population": 114123600,
+    "superficie_km2": 342353.0,
+    "langues": [
+      "English",
+      "Filipino"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "South-Eastern Asia",
+    "pib_usd": 461617509782.355,
+    "pib_par_hab": 3984.8315387656,
+    "croissance_pct": 5.69201612823412,
+    "dep_militaire_pct_pib": 1.32426895346612
+  },
+  {
+    "id": "SYC",
+    "nom_officiel": "République des Seychelles",
+    "capitale": "Victoria",
+    "population": 122729,
+    "superficie_km2": 452.0,
+    "langues": [
+      "Seychellois Creole",
+      "English",
+      "French"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Eastern Africa",
+    "pib_usd": 2167239562.46013,
+    "pib_par_hab": 17858.8226383978,
+    "croissance_pct": 3.46568066415341,
+    "dep_militaire_pct_pib": 1.17906851761683
+  },
+  {
+    "id": "MHL",
+    "nom_officiel": "République des Îles Marshall",
+    "capitale": "Majuro",
+    "population": 42418,
+    "superficie_km2": 181.0,
+    "langues": [
+      "English",
+      "Marshallese"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Micronesia",
+    "pib_usd": 290108489.990234,
+    "pib_par_hab": 7726.33668877794,
+    "croissance_pct": 2.50192717852873,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "BWA",
+    "nom_officiel": "République du Botswana",
+    "capitale": "Gaborone",
+    "population": 2359609,
+    "superficie_km2": 582000.0,
+    "langues": [
+      "English",
+      "Tswana"
+    ],
+    "frontieres": [
+      "NAM",
+      "ZAF",
+      "ZMB",
+      "ZWE"
+    ],
+    "acces_mer": false,
+    "region": "Southern Africa",
+    "pib_usd": 19402063512.9066,
+    "pib_par_hab": 7695.75319445165,
+    "croissance_pct": -2.98986879467928,
+    "dep_militaire_pct_pib": 2.83392800595041
+  },
+  {
+    "id": "BFA",
+    "nom_officiel": "République du Burkina",
+    "capitale": "Ouagadougou",
+    "population": 24070553,
+    "superficie_km2": 272967.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [
+      "BEN",
+      "CIV",
+      "GHA",
+      "MLI",
+      "NER",
+      "TGO"
+    ],
+    "acces_mer": false,
+    "region": "Western Africa",
+    "pib_usd": 23124729853.0218,
+    "pib_par_hab": 981.992649769081,
+    "croissance_pct": 4.79980951667159,
+    "dep_militaire_pct_pib": 4.67973196943363
+  },
+  {
+    "id": "BDI",
+    "nom_officiel": "République du Burundi",
+    "capitale": "Gitega",
+    "population": 12332788,
+    "superficie_km2": 27834.0,
+    "langues": [
+      "French",
+      "Kirundi"
+    ],
+    "frontieres": [
+      "COD",
+      "RWA",
+      "TZA"
+    ],
+    "acces_mer": false,
+    "region": "Eastern Africa",
+    "pib_usd": 3082433067.32634,
+    "pib_par_hab": 219.424830882698,
+    "croissance_pct": 4.11227376264944,
+    "dep_militaire_pct_pib": 3.80127919699841
+  },
+  {
+    "id": "BEN",
+    "nom_officiel": "République du Bénin",
+    "capitale": "Porto-Novo",
+    "population": 13224860,
+    "superficie_km2": 112622.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [
+      "BFA",
+      "NER",
+      "NGA",
+      "TGO"
+    ],
+    "acces_mer": true,
+    "region": "Western Africa",
+    "pib_usd": 21482643706.4249,
+    "pib_par_hab": 1485.38018885134,
+    "croissance_pct": 7.45311566226201,
+    "dep_militaire_pct_pib": 0.720549619940377
+  },
+  {
+    "id": "CMR",
+    "nom_officiel": "République du Cameroun",
+    "capitale": "Yaoundé",
+    "population": 29442327,
+    "superficie_km2": 475442.0,
+    "langues": [
+      "English",
+      "French"
+    ],
+    "frontieres": [
+      "CAF",
+      "TCD",
+      "COG",
+      "GNQ",
+      "GAB",
+      "NGA"
+    ],
+    "acces_mer": true,
+    "region": "Middle Africa",
+    "pib_usd": 53296694320.2057,
+    "pib_par_hab": 1830.00833684727,
+    "croissance_pct": 3.52472308052245,
+    "dep_militaire_pct_pib": 1.00912763032385
+  },
+  {
+    "id": "CPV",
+    "nom_officiel": "République du Cap-Vert",
+    "capitale": "Praia",
+    "population": 491233,
+    "superficie_km2": 4033.0,
+    "langues": [
+      "Portuguese"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Western Africa",
+    "pib_usd": 2725414150.72735,
+    "pib_par_hab": 5192.48157325878,
+    "croissance_pct": 7.24388538990945,
+    "dep_militaire_pct_pib": 0.623903407592831
+  },
+  {
+    "id": "CHL",
+    "nom_officiel": "République du Chili",
+    "capitale": "Santiago",
+    "population": 20206953,
+    "superficie_km2": 756102.0,
+    "langues": [
+      "Spanish"
+    ],
+    "frontieres": [
+      "ARG",
+      "BOL",
+      "PER"
+    ],
+    "acces_mer": true,
+    "region": "South America",
+    "pib_usd": 330267137371.592,
+    "pib_par_hab": 16709.8893972307,
+    "croissance_pct": 2.64431154871538,
+    "dep_militaire_pct_pib": 1.57780388625485
+  },
+  {
+    "id": "COG",
+    "nom_officiel": "République du Congo",
+    "capitale": "Brazzaville",
+    "population": 6142180,
+    "superficie_km2": 342000.0,
+    "langues": [
+      "French",
+      "Kikongo",
+      "Lingala"
+    ],
+    "frontieres": [
+      "AGO",
+      "CMR",
+      "CAF",
+      "COD",
+      "GAB"
+    ],
+    "acces_mer": true,
+    "region": "Middle Africa",
+    "pib_usd": 15719986076.6464,
+    "pib_par_hab": 2482.2489948456,
+    "croissance_pct": 2.57966943921721,
+    "dep_militaire_pct_pib": 1.18596121569308
+  },
+  {
+    "id": "CRI",
+    "nom_officiel": "République du Costa Rica",
+    "capitale": "San José",
+    "population": 5309625,
+    "superficie_km2": 51100.0,
+    "langues": [
+      "Spanish"
+    ],
+    "frontieres": [
+      "NIC",
+      "PAN"
+    ],
+    "acces_mer": true,
+    "region": "Central America",
+    "pib_usd": 95350423176.5962,
+    "pib_par_hab": 18587.1532203482,
+    "croissance_pct": 4.32122429646145,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "GHA",
+    "nom_officiel": "République du Ghana",
+    "capitale": "Accra",
+    "population": 33742380,
+    "superficie_km2": 238533.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [
+      "BFA",
+      "CIV",
+      "TGO"
+    ],
+    "acces_mer": true,
+    "region": "Western Africa",
+    "pib_usd": null,
+    "pib_par_hab": 2390.77237652715,
+    "croissance_pct": 5.59045469593266,
+    "dep_militaire_pct_pib": 0.383994182354107
+  },
+  {
+    "id": "GTM",
+    "nom_officiel": "République du Guatemala",
+    "capitale": "Guatemala City",
+    "population": 18079810,
+    "superficie_km2": 108889.0,
+    "langues": [
+      "Spanish"
+    ],
+    "frontieres": [
+      "BLZ",
+      "SLV",
+      "HND",
+      "MEX"
+    ],
+    "acces_mer": true,
+    "region": "Central America",
+    "pib_usd": 113199581158.203,
+    "pib_par_hab": 6150.02571438505,
+    "croissance_pct": 3.65186382894819,
+    "dep_militaire_pct_pib": 0.367622067360881
+  },
+  {
+    "id": "HND",
+    "nom_officiel": "République du Honduras",
+    "capitale": "Tegucigalpa",
+    "population": 9892632,
+    "superficie_km2": 112492.0,
+    "langues": [
+      "Spanish"
+    ],
+    "frontieres": [
+      "GTM",
+      "SLV",
+      "NIC"
+    ],
+    "acces_mer": true,
+    "region": "Central America",
+    "pib_usd": 37093565854.0437,
+    "pib_par_hab": 3426.43483328923,
+    "croissance_pct": 3.55397003296669,
+    "dep_militaire_pct_pib": 1.57536270602411
+  },
+  {
+    "id": "KAZ",
+    "nom_officiel": "République du Kazakhstan",
+    "capitale": "Astana",
+    "population": 20426568,
+    "superficie_km2": 2724900.0,
+    "langues": [
+      "Kazakh",
+      "Russian"
+    ],
+    "frontieres": [
+      "CHN",
+      "KGZ",
+      "RUS",
+      "TKM",
+      "UZB"
+    ],
+    "acces_mer": false,
+    "region": "Central Asia",
+    "pib_usd": 291480274648.826,
+    "pib_par_hab": 14154.6324958076,
+    "croissance_pct": 4.99999999996936,
+    "dep_militaire_pct_pib": 0.42842846956594
+  },
+  {
+    "id": "KEN",
+    "nom_officiel": "République du Kenya",
+    "capitale": "Nairobi",
+    "population": 53330978,
+    "superficie_km2": 580367.0,
+    "langues": [
+      "English",
+      "Swahili"
+    ],
+    "frontieres": [
+      "ETH",
+      "SOM",
+      "SSD",
+      "TZA",
+      "UGA"
+    ],
+    "acces_mer": true,
+    "region": "Eastern Africa",
+    "pib_usd": 120339557905.932,
+    "pib_par_hab": 2132.43452097647,
+    "croissance_pct": 4.72473994710138,
+    "dep_militaire_pct_pib": 0.999546585264659
+  },
+  {
+    "id": "UNK",
+    "nom_officiel": "République du Kosovo",
+    "capitale": "Pristina",
+    "population": 1585566,
+    "superficie_km2": 10908.0,
+    "langues": [
+      "Albanian",
+      "Serbian"
+    ],
+    "frontieres": [
+      "ALB",
+      "MKD",
+      "MNE",
+      "SRB"
+    ],
+    "acces_mer": false,
+    "region": "Southeast Europe",
+    "pib_usd": 11197246322.588,
+    "pib_par_hab": 7023.06598512878,
+    "croissance_pct": 4.5730971681166,
+    "dep_militaire_pct_pib": 1.47659639574127
+  },
+  {
+    "id": "LBR",
+    "nom_officiel": "République du Libéria",
+    "capitale": "Monrovia",
+    "population": 5248621,
+    "superficie_km2": 111369.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [
+      "GIN",
+      "CIV",
+      "SLE"
+    ],
+    "acces_mer": true,
+    "region": "Western Africa",
+    "pib_usd": 4779300900,
+    "pib_par_hab": 851.497723870206,
+    "croissance_pct": 4.02185464964835,
+    "dep_militaire_pct_pib": 0.711206896551724
+  },
+  {
+    "id": "MWI",
+    "nom_officiel": "République du Malawi",
+    "capitale": "Lilongwe",
+    "population": 20734262,
+    "superficie_km2": 118484.0,
+    "langues": [
+      "English",
+      "Chewa"
+    ],
+    "frontieres": [
+      "MOZ",
+      "TZA",
+      "ZMB"
+    ],
+    "acces_mer": false,
+    "region": "Eastern Africa",
+    "pib_usd": 11316411329.4619,
+    "pib_par_hab": 522.570393642547,
+    "croissance_pct": 1.6734340852915,
+    "dep_militaire_pct_pib": 1.02496048269861
+  },
+  {
+    "id": "MLI",
+    "nom_officiel": "République du Mali",
+    "capitale": "Bamako",
+    "population": 22395489,
+    "superficie_km2": 1240192.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [
+      "DZA",
+      "BFA",
+      "GIN",
+      "CIV",
+      "MRT",
+      "NER",
+      "SEN"
+    ],
+    "acces_mer": false,
+    "region": "Western Africa",
+    "pib_usd": 26794747239.8805,
+    "pib_par_hab": 1094.61949265799,
+    "croissance_pct": 4.99226917482922,
+    "dep_militaire_pct_pib": 4.1981465701254
+  },
+  {
+    "id": "MOZ",
+    "nom_officiel": "République du Mozambique",
+    "capitale": "Maputo",
+    "population": 34090466,
+    "superficie_km2": 801590.0,
+    "langues": [
+      "Portuguese"
+    ],
+    "frontieres": [
+      "MWI",
+      "ZAF",
+      "SWZ",
+      "TZA",
+      "ZMB",
+      "ZWE"
+    ],
+    "acces_mer": true,
+    "region": "Eastern Africa",
+    "pib_usd": 22745341305.0622,
+    "pib_par_hab": 656.776824637306,
+    "croissance_pct": 2.14854964610538,
+    "dep_militaire_pct_pib": 1.99330115632931
+  },
+  {
+    "id": "NIC",
+    "nom_officiel": "République du Nicaragua",
+    "capitale": "Managua",
+    "population": 6803886,
+    "superficie_km2": 130373.0,
+    "langues": [
+      "Spanish"
+    ],
+    "frontieres": [
+      "CRI",
+      "HND"
+    ],
+    "acces_mer": true,
+    "region": "Central America",
+    "pib_usd": 19693982967.5926,
+    "pib_par_hab": 2847.53966339498,
+    "croissance_pct": 3.5878302292345,
+    "dep_militaire_pct_pib": 0.545131278321867
+  },
+  {
+    "id": "NER",
+    "nom_officiel": "République du Niger",
+    "capitale": "Niamey",
+    "population": 26312034,
+    "superficie_km2": 1267000.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [
+      "DZA",
+      "BEN",
+      "BFA",
+      "TCD",
+      "LBY",
+      "MLI",
+      "NGA"
+    ],
+    "acces_mer": false,
+    "region": "Western Africa",
+    "pib_usd": 19876128485.7857,
+    "pib_par_hab": 735.270255787226,
+    "croissance_pct": 10.3000000007793,
+    "dep_militaire_pct_pib": 2.24177586841643
+  },
+  {
+    "id": "NPL",
+    "nom_officiel": "République du Népal",
+    "capitale": "Kathmandu",
+    "population": 29911840,
+    "superficie_km2": 147181.0,
+    "langues": [
+      "Nepali"
+    ],
+    "frontieres": [
+      "CHN",
+      "IND"
+    ],
+    "acces_mer": false,
+    "region": "Southern Asia",
+    "pib_usd": 42914268286.7109,
+    "pib_par_hab": 1447.31004458428,
+    "croissance_pct": 3.66537430744967,
+    "dep_militaire_pct_pib": 0.979452474186084
+  },
+  {
+    "id": "PAN",
+    "nom_officiel": "République du Panama",
+    "capitale": "Panama City",
+    "population": 4064780,
+    "superficie_km2": 75417.0,
+    "langues": [
+      "Spanish"
+    ],
+    "frontieres": [
+      "COL",
+      "CRI"
+    ],
+    "acces_mer": true,
+    "region": "Central America",
+    "pib_usd": 86523959131.7472,
+    "pib_par_hab": 19161.2188501596,
+    "croissance_pct": 2.74788545546916,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "PRY",
+    "nom_officiel": "République du Paraguay",
+    "capitale": "Asunción",
+    "population": 6109644,
+    "superficie_km2": 406752.0,
+    "langues": [
+      "Guaraní",
+      "Spanish"
+    ],
+    "frontieres": [
+      "ARG",
+      "BOL",
+      "BRA"
+    ],
+    "acces_mer": false,
+    "region": "South America",
+    "pib_usd": 44458118397.4445,
+    "pib_par_hab": 6416.09708970845,
+    "croissance_pct": 4.24996010464072,
+    "dep_militaire_pct_pib": 0.933106143624753
+  },
+  {
+    "id": "PER",
+    "nom_officiel": "République du Pérou",
+    "capitale": "Lima",
+    "population": 34350244,
+    "superficie_km2": 1285216.0,
+    "langues": [
+      "Aymara",
+      "Quechua",
+      "Spanish"
+    ],
+    "frontieres": [
+      "BOL",
+      "BRA",
+      "CHL",
+      "COL",
+      "ECU"
+    ],
+    "acces_mer": true,
+    "region": "South America",
+    "pib_usd": 289221969062.941,
+    "pib_par_hab": 8452.37167056621,
+    "croissance_pct": 3.30394098171516,
+    "dep_militaire_pct_pib": 0.909288680359786
+  },
+  {
+    "id": "SLV",
+    "nom_officiel": "République du Salvador",
+    "capitale": "San Salvador",
+    "population": 6029976,
+    "superficie_km2": 21041.0,
+    "langues": [
+      "Spanish"
+    ],
+    "frontieres": [
+      "GTM",
+      "HND"
+    ],
+    "acces_mer": true,
+    "region": "Central America",
+    "pib_usd": 35364960000,
+    "pib_par_hab": 5579.65969165029,
+    "croissance_pct": 2.60202016121069,
+    "dep_militaire_pct_pib": 1.18611916982816
+  },
+  {
+    "id": "SDN",
+    "nom_officiel": "République du Soudan",
+    "capitale": "Khartoum",
+    "population": 51662000,
+    "superficie_km2": 1886068.0,
+    "langues": [
+      "Arabic",
+      "English"
+    ],
+    "frontieres": [
+      "CAF",
+      "TCD",
+      "EGY",
+      "ERI",
+      "ETH",
+      "LBY",
+      "SSD"
+    ],
+    "acces_mer": true,
+    "region": "Northern Africa",
+    "pib_usd": 49672435513.1126,
+    "pib_par_hab": 984.607666015625,
+    "croissance_pct": -13.9643375197179,
+    "dep_militaire_pct_pib": 0.925377247984565
+  },
+  {
+    "id": "SSD",
+    "nom_officiel": "République du Soudan du Sud",
+    "capitale": "Juba",
+    "population": 15786898,
+    "superficie_km2": 619745.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [
+      "CAF",
+      "COD",
+      "ETH",
+      "KEN",
+      "SDN",
+      "UGA"
+    ],
+    "acces_mer": false,
+    "region": "Middle Africa",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": 1.9617070809135
+  },
+  {
+    "id": "SUR",
+    "nom_officiel": "République du Suriname",
+    "capitale": "Paramaribo",
+    "population": 616500,
+    "superficie_km2": 163820.0,
+    "langues": [
+      "Dutch"
+    ],
+    "frontieres": [
+      "BRA",
+      "GUF",
+      "GUY"
+    ],
+    "acces_mer": true,
+    "region": "South America",
+    "pib_usd": 4416775112.09627,
+    "pib_par_hab": 6961.78955961526,
+    "croissance_pct": 1.72095737011739,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "SEN",
+    "nom_officiel": "République du Sénégal",
+    "capitale": "Dakar",
+    "population": 18593258,
+    "superficie_km2": 196722.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [
+      "GMB",
+      "GIN",
+      "GNB",
+      "MLI",
+      "MRT"
+    ],
+    "acces_mer": true,
+    "region": "Western Africa",
+    "pib_usd": 32808056600.9436,
+    "pib_par_hab": 1773.21829923448,
+    "croissance_pct": 6.06055141198976,
+    "dep_militaire_pct_pib": 1.56647768181405
+  },
+  {
+    "id": "TJK",
+    "nom_officiel": "République du Tadjikistan",
+    "capitale": "Dushanbe",
+    "population": 10499000,
+    "superficie_km2": 143100.0,
+    "langues": [
+      "Russian",
+      "Tajik"
+    ],
+    "frontieres": [
+      "AFG",
+      "CHN",
+      "KGZ",
+      "UZB"
+    ],
+    "acces_mer": false,
+    "region": "Central Asia",
+    "pib_usd": 14204575548.5536,
+    "pib_par_hab": 1341.20229027672,
+    "croissance_pct": 8.39999980983981,
+    "dep_militaire_pct_pib": 1.84774975839365
+  },
+  {
+    "id": "TCD",
+    "nom_officiel": "République du Tchad",
+    "capitale": "N'Djamena",
+    "population": 19340757,
+    "superficie_km2": 1284000.0,
+    "langues": [
+      "Arabic",
+      "French"
+    ],
+    "frontieres": [
+      "CMR",
+      "CAF",
+      "LBY",
+      "NER",
+      "NGA",
+      "SDN"
+    ],
+    "acces_mer": false,
+    "region": "Middle Africa",
+    "pib_usd": 19518819751.283,
+    "pib_par_hab": 961.55975562506,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": 2.98484990097129
+  },
+  {
+    "id": "YEM",
+    "nom_officiel": "République du Yémen",
+    "capitale": "Sana'a",
+    "population": 32684503,
+    "superficie_km2": 527968.0,
+    "langues": [
+      "Arabic"
+    ],
+    "frontieres": [
+      "OMN",
+      "SAU"
+    ],
+    "acces_mer": true,
+    "region": "Western Asia",
+    "pib_usd": 21606160663.0318,
+    "pib_par_hab": 633.887202451545,
+    "croissance_pct": 0.752447592962554,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "ZWE",
+    "nom_officiel": "République du Zimbabwe",
+    "capitale": "Harare",
+    "population": 17073087,
+    "superficie_km2": 390757.0,
+    "langues": [
+      "Chibarwe",
+      "English",
+      "Kalanga",
+      "Khoisan",
+      "Ndau",
+      "Northern Ndebele",
+      "Chewa",
+      "Shona",
+      "Sotho",
+      "Tonga",
+      "Tswana",
+      "Tsonga",
+      "Venda",
+      "Xhosa",
+      "Zimbabwean Sign Language"
+    ],
+    "frontieres": [
+      "BWA",
+      "MOZ",
+      "ZAF",
+      "ZMB"
+    ],
+    "acces_mer": false,
+    "region": "Southern Africa",
+    "pib_usd": 41539411516.4448,
+    "pib_par_hab": 2497.20332208763,
+    "croissance_pct": 1.74239524880791,
+    "dep_militaire_pct_pib": 0.351195023855751
+  },
+  {
+    "id": "STP",
+    "nom_officiel": "République démocratique de São Tomé et Príncipe",
+    "capitale": "São Tomé",
+    "population": 209607,
+    "superficie_km2": 964.0,
+    "langues": [
+      "Portuguese"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Middle Africa",
+    "pib_usd": 822154621.088897,
+    "pib_par_hab": 3490.56883486557,
+    "croissance_pct": 1.09999940100751,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "COD",
+    "nom_officiel": "République démocratique du Congo",
+    "capitale": "Kinshasa",
+    "population": 112832000,
+    "superficie_km2": 2344858.0,
+    "langues": [
+      "French",
+      "Kikongo",
+      "Lingala",
+      "Tshiluba",
+      "Swahili"
+    ],
+    "frontieres": [
+      "AGO",
+      "BDI",
+      "CAF",
+      "COG",
+      "RWA",
+      "SSD",
+      "TZA",
+      "UGA",
+      "ZMB"
+    ],
+    "acces_mer": true,
+    "region": "Middle Africa",
+    "pib_usd": 70962185790.7094,
+    "pib_par_hab": 649.383338556725,
+    "croissance_pct": 6.12675551779212,
+    "dep_militaire_pct_pib": 1.22855267131451
+  },
+  {
+    "id": "TLS",
+    "nom_officiel": "République démocratique du Timor oriental",
+    "capitale": "Dili",
+    "population": 1391221,
+    "superficie_km2": 14874.0,
+    "langues": [
+      "Portuguese",
+      "Tetum"
+    ],
+    "frontieres": [
+      "IDN"
+    ],
+    "acces_mer": true,
+    "region": "South-Eastern Asia",
+    "pib_usd": 1865608515.41321,
+    "pib_par_hab": null,
+    "croissance_pct": -9.10069369772735,
+    "dep_militaire_pct_pib": 2.66415662650602
+  },
+  {
+    "id": "DZA",
+    "nom_officiel": "République démocratique et populaire d'Algérie",
+    "capitale": "Algiers",
+    "population": 47400000,
+    "superficie_km2": 2381741.0,
+    "langues": [
+      "Arabic"
+    ],
+    "frontieres": [
+      "TUN",
+      "LBY",
+      "NER",
+      "ESH",
+      "MRT",
+      "MLI",
+      "MAR"
+    ],
+    "acces_mer": true,
+    "region": "Northern Africa",
+    "pib_usd": 269322281664.773,
+    "pib_par_hab": 5752.99076651465,
+    "croissance_pct": 3.69999999907979,
+    "dep_militaire_pct_pib": 7.97145723551219
+  },
+  {
+    "id": "LAO",
+    "nom_officiel": "République démocratique populaire lao",
+    "capitale": "Vientiane",
+    "population": 7647000,
+    "superficie_km2": 236800.0,
+    "langues": [
+      "Lao"
+    ],
+    "frontieres": [
+      "MMR",
+      "KHM",
+      "CHN",
+      "THA",
+      "VNM"
+    ],
+    "acces_mer": false,
+    "region": "South-Eastern Asia",
+    "pib_usd": 16502933121.3379,
+    "pib_par_hab": 2123.97909415109,
+    "croissance_pct": 4.13019264436937,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "LKA",
+    "nom_officiel": "République démocratique socialiste du Sri Lanka",
+    "capitale": "Sri Jayawardenepura Kotte",
+    "population": 21763170,
+    "superficie_km2": 65610.0,
+    "langues": [
+      "Sinhala",
+      "Tamil"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Southern Asia",
+    "pib_usd": 98963185509.6499,
+    "pib_par_hab": 4515.56787322732,
+    "croissance_pct": 5.00871930957159,
+    "dep_militaire_pct_pib": 1.42539087177796
+  },
+  {
+    "id": "FRA",
+    "nom_officiel": "République française",
+    "capitale": "Paris",
+    "population": 66351959,
+    "superficie_km2": 543908.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [
+      "AND",
+      "BEL",
+      "DEU",
+      "ITA",
+      "LUX",
+      "MCO",
+      "ESP",
+      "CHE"
+    ],
+    "acces_mer": true,
+    "region": "Western Europe",
+    "pib_usd": 3160442622465.08,
+    "pib_par_hab": 46103.0840855884,
+    "croissance_pct": 1.19046798275883,
+    "dep_militaire_pct_pib": 2.05257687860637
+  },
+  {
+    "id": "DEU",
+    "nom_officiel": "République fédérale d'Allemagne",
+    "capitale": "Berlin",
+    "population": 83491249,
+    "superficie_km2": 357114.0,
+    "langues": [
+      "German"
+    ],
+    "frontieres": [
+      "AUT",
+      "BEL",
+      "CZE",
+      "DNK",
+      "FRA",
+      "LUX",
+      "NLD",
+      "POL",
+      "CHE"
+    ],
+    "acces_mer": true,
+    "region": "Western Europe",
+    "pib_usd": 4685592577804.69,
+    "pib_par_hab": 56103.7323182554,
+    "croissance_pct": -0.495851897260366,
+    "dep_militaire_pct_pib": 1.89190377205494
+  },
+  {
+    "id": "SOM",
+    "nom_officiel": "République fédérale de Somalie",
+    "capitale": "Mogadishu",
+    "population": 19655000,
+    "superficie_km2": 637657.0,
+    "langues": [
+      "Arabic",
+      "Somali"
+    ],
+    "frontieres": [
+      "DJI",
+      "ETH",
+      "KEN"
+    ],
+    "acces_mer": true,
+    "region": "Eastern Africa",
+    "pib_usd": 11967000000,
+    "pib_par_hab": 629.538899449007,
+    "croissance_pct": 4.11139335779471,
+    "dep_militaire_pct_pib": 1.58578050121769
+  },
+  {
+    "id": "NGA",
+    "nom_officiel": "République fédérale du Nigeria",
+    "capitale": "Abuja",
+    "population": 223800000,
+    "superficie_km2": 923768.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [
+      "BEN",
+      "CMR",
+      "TCD",
+      "NER"
+    ],
+    "acces_mer": true,
+    "region": "Western Africa",
+    "pib_usd": 252261880141.151,
+    "pib_par_hab": 1084.16041805436,
+    "croissance_pct": 4.06236408888319,
+    "dep_militaire_pct_pib": 0.555429367236392
+  },
+  {
+    "id": "ETH",
+    "nom_officiel": "République fédérale démocratique d'Éthiopie",
+    "capitale": "Addis Ababa",
+    "population": 111652998,
+    "superficie_km2": 1104300.0,
+    "langues": [
+      "Amharic"
+    ],
+    "frontieres": [
+      "DJI",
+      "ERI",
+      "KEN",
+      "SOM",
+      "SSD",
+      "SDN"
+    ],
+    "acces_mer": false,
+    "region": "Eastern Africa",
+    "pib_usd": 149740297952.986,
+    "pib_par_hab": 1133.88279681719,
+    "croissance_pct": 7.61277447511073,
+    "dep_militaire_pct_pib": 0.650506448320295
+  },
+  {
+    "id": "BRA",
+    "nom_officiel": "République fédérative du Brésil",
+    "capitale": "Brasília",
+    "population": 213421037,
+    "superficie_km2": 8515767.0,
+    "langues": [
+      "Portuguese"
+    ],
+    "frontieres": [
+      "ARG",
+      "BOL",
+      "COL",
+      "GUF",
+      "GUY",
+      "PRY",
+      "PER",
+      "SUR",
+      "URY",
+      "VEN"
+    ],
+    "acces_mer": true,
+    "region": "South America",
+    "pib_usd": 2185821648943.86,
+    "pib_par_hab": 10310.5488778166,
+    "croissance_pct": 3.41931516597739,
+    "dep_militaire_pct_pib": 0.972774559040702
+  },
+  {
+    "id": "GAB",
+    "nom_officiel": "République gabonaise",
+    "capitale": "Libreville",
+    "population": 2469296,
+    "superficie_km2": 267668.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [
+      "CMR",
+      "COG",
+      "GNQ"
+    ],
+    "acces_mer": true,
+    "region": "Middle Africa",
+    "pib_usd": 20895684425.6752,
+    "pib_par_hab": 8230.04311451151,
+    "croissance_pct": 3.39403899592401,
+    "dep_militaire_pct_pib": 1.538206793748
+  },
+  {
+    "id": "GRC",
+    "nom_officiel": "République hellénique",
+    "capitale": "Athens",
+    "population": 10400720,
+    "superficie_km2": 131990.0,
+    "langues": [
+      "Greek"
+    ],
+    "frontieres": [
+      "ALB",
+      "BGR",
+      "TUR",
+      "MKD"
+    ],
+    "acces_mer": true,
+    "region": "Southern Europe",
+    "pib_usd": 256238371778.118,
+    "pib_par_hab": 24626.1481858973,
+    "croissance_pct": 2.0865743380603,
+    "dep_militaire_pct_pib": 3.12797536550149
+  },
+  {
+    "id": "AFG",
+    "nom_officiel": "République islamique d'Afghanistan",
+    "capitale": "Kabul",
+    "population": 43844000,
+    "superficie_km2": 652230.0,
+    "langues": [
+      "Dari",
+      "Pashto",
+      "Turkmen"
+    ],
+    "frontieres": [
+      "IRN",
+      "PAK",
+      "TKM",
+      "UZB",
+      "TJK",
+      "CHN"
+    ],
+    "acces_mer": false,
+    "region": "Southern Asia",
+    "pib_usd": 17152234636.8715,
+    "pib_par_hab": 413.757894705303,
+    "croissance_pct": 2.26694373649188,
+    "dep_militaire_pct_pib": 1.827933856217
+  },
+  {
+    "id": "IRN",
+    "nom_officiel": "République islamique d'Iran",
+    "capitale": "Tehran",
+    "population": 85961000,
+    "superficie_km2": 1648195.0,
+    "langues": [
+      "Persian (Farsi)"
+    ],
+    "frontieres": [
+      "AFG",
+      "ARM",
+      "AZE",
+      "IRQ",
+      "PAK",
+      "TUR",
+      "TKM"
+    ],
+    "acces_mer": true,
+    "region": "Southern Asia",
+    "pib_usd": 475252089215.416,
+    "pib_par_hab": 5190.16959024821,
+    "croissance_pct": 3.66312056830718,
+    "dep_militaire_pct_pib": 2.01043175751636
+  },
+  {
+    "id": "MRT",
+    "nom_officiel": "République islamique de Mauritanie",
+    "capitale": "Nouakchott",
+    "population": 4927532,
+    "superficie_km2": 1030700.0,
+    "langues": [
+      "Arabic"
+    ],
+    "frontieres": [
+      "DZA",
+      "MLI",
+      "SEN",
+      "ESH"
+    ],
+    "acces_mer": true,
+    "region": "Western Africa",
+    "pib_usd": 10908045686.8808,
+    "pib_par_hab": 2110.12036938187,
+    "croissance_pct": 6.30760213290844,
+    "dep_militaire_pct_pib": 2.15504682070845
+  },
+  {
+    "id": "PAK",
+    "nom_officiel": "République islamique du Pakistan",
+    "capitale": "Islamabad",
+    "population": 241499431,
+    "superficie_km2": 796095.0,
+    "langues": [
+      "English",
+      "Urdu"
+    ],
+    "frontieres": [
+      "AFG",
+      "CHN",
+      "IND",
+      "IRN"
+    ],
+    "acces_mer": true,
+    "region": "Southern Asia",
+    "pib_usd": 371570000121.266,
+    "pib_par_hab": 1478.77277977996,
+    "croissance_pct": 3.04898287335465,
+    "dep_militaire_pct_pib": 2.66760037007452
+  },
+  {
+    "id": "ITA",
+    "nom_officiel": "République italienne",
+    "capitale": "Rome",
+    "population": 58927633,
+    "superficie_km2": 301336.0,
+    "langues": [
+      "Italian",
+      "Catalan"
+    ],
+    "frontieres": [
+      "AUT",
+      "FRA",
+      "SMR",
+      "SVN",
+      "CHE",
+      "VAT"
+    ],
+    "acces_mer": true,
+    "region": "Southern Europe",
+    "pib_usd": 2380825077243.59,
+    "pib_par_hab": 40385.3413957669,
+    "croissance_pct": 0.692676948440536,
+    "dep_militaire_pct_pib": 1.60924561245844
+  },
+  {
+    "id": "KGZ",
+    "nom_officiel": "République kirghize",
+    "capitale": "Bishkek",
+    "population": 7281800,
+    "superficie_km2": 199951.0,
+    "langues": [
+      "Kyrgyz",
+      "Russian"
+    ],
+    "frontieres": [
+      "CHN",
+      "KAZ",
+      "TJK",
+      "UZB"
+    ],
+    "acces_mer": false,
+    "region": "Central Asia",
+    "pib_usd": 17478259659.2625,
+    "pib_par_hab": 2420.18542283831,
+    "croissance_pct": 9.04013556120012,
+    "dep_militaire_pct_pib": 2.96620373701758
+  },
+  {
+    "id": "LBN",
+    "nom_officiel": "République libanaise",
+    "capitale": "Beirut",
+    "population": 5490000,
+    "superficie_km2": 10452.0,
+    "langues": [
+      "Arabic",
+      "French"
+    ],
+    "frontieres": [
+      "ISR",
+      "SYR"
+    ],
+    "acces_mer": true,
+    "region": "Western Asia",
+    "pib_usd": 20078620356.9931,
+    "pib_par_hab": 3477.72489842684,
+    "croissance_pct": -0.760584470257314,
+    "dep_militaire_pct_pib": 2.58828538225203
+  },
+  {
+    "id": "URY",
+    "nom_officiel": "République orientale de l'Uruguay",
+    "capitale": "Montevideo",
+    "population": 3499451,
+    "superficie_km2": 181034.0,
+    "langues": [
+      "Spanish"
+    ],
+    "frontieres": [
+      "ARG",
+      "BRA"
+    ],
+    "acces_mer": true,
+    "region": "South America",
+    "pib_usd": 80961511073.5797,
+    "pib_par_hab": 23906.5133029408,
+    "croissance_pct": 3.10825478066172,
+    "dep_militaire_pct_pib": 2.31053827798919
+  },
+  {
+    "id": "CHN",
+    "nom_officiel": "République populaire de Chine",
+    "capitale": "Beijing",
+    "population": 1408280000,
+    "superficie_km2": 9706961.0,
+    "langues": [
+      "Chinese"
+    ],
+    "frontieres": [
+      "AFG",
+      "BTN",
+      "MMR",
+      "HKG",
+      "IND",
+      "KAZ",
+      "NPL",
+      "PRK",
+      "KGZ",
+      "LAO",
+      "MAC",
+      "MNG",
+      "PAK",
+      "RUS",
+      "TJK",
+      "VNM"
+    ],
+    "acces_mer": true,
+    "region": "Eastern Asia",
+    "pib_usd": 18743803170827.2,
+    "pib_par_hab": 13303.1481543868,
+    "croissance_pct": 4.9773565917572,
+    "dep_militaire_pct_pib": 1.71129740345228
+  },
+  {
+    "id": "PRK",
+    "nom_officiel": "République populaire démocratique de Corée",
+    "capitale": "Pyongyang",
+    "population": 25950000,
+    "superficie_km2": 120538.0,
+    "langues": [
+      "Korean"
+    ],
+    "frontieres": [
+      "CHN",
+      "KOR",
+      "RUS"
+    ],
+    "acces_mer": true,
+    "region": "Eastern Asia",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "PRT",
+    "nom_officiel": "République portugaise",
+    "capitale": "Lisbon",
+    "population": 10749635,
+    "superficie_km2": 92090.0,
+    "langues": [
+      "Portuguese"
+    ],
+    "frontieres": [
+      "ESP"
+    ],
+    "acces_mer": true,
+    "region": "Southern Europe",
+    "pib_usd": 313271185085.102,
+    "pib_par_hab": 29292.242104753,
+    "croissance_pct": 2.13967177177636,
+    "dep_militaire_pct_pib": 1.53226822745255
+  },
+  {
+    "id": "RWA",
+    "nom_officiel": "République rwandaise",
+    "capitale": "Kigali",
+    "population": 14104969,
+    "superficie_km2": 26338.0,
+    "langues": [
+      "English",
+      "French",
+      "Kinyarwanda"
+    ],
+    "frontieres": [
+      "BDI",
+      "COD",
+      "TZA",
+      "UGA"
+    ],
+    "acces_mer": false,
+    "region": "Eastern Africa",
+    "pib_usd": 14251642235.0968,
+    "pib_par_hab": null,
+    "croissance_pct": 8.89065529573114,
+    "dep_militaire_pct_pib": 1.24772078121775
+  },
+  {
+    "id": "SVK",
+    "nom_officiel": "République slovaque",
+    "capitale": "Bratislava",
+    "population": 5413813,
+    "superficie_km2": 49037.0,
+    "langues": [
+      "Slovak"
+    ],
+    "frontieres": [
+      "AUT",
+      "CZE",
+      "HUN",
+      "POL",
+      "UKR"
+    ],
+    "acces_mer": false,
+    "region": "Central Europe",
+    "pib_usd": 140934076532.375,
+    "pib_par_hab": 25992.6748502048,
+    "croissance_pct": 1.93867445549446,
+    "dep_militaire_pct_pib": 2.01078152849676
+  },
+  {
+    "id": "VNM",
+    "nom_officiel": "République socialiste du Viêt Nam",
+    "capitale": "Hanoi",
+    "population": 101343800,
+    "superficie_km2": 331212.0,
+    "langues": [
+      "Vietnamese"
+    ],
+    "frontieres": [
+      "KHM",
+      "CHN",
+      "LAO"
+    ],
+    "acces_mer": true,
+    "region": "South-Eastern Asia",
+    "pib_usd": 476388230307.175,
+    "pib_par_hab": 4717.29028732449,
+    "croissance_pct": 7.09118746633975,
+    "dep_militaire_pct_pib": 1.80650138874311
+  },
+  {
+    "id": "CZE",
+    "nom_officiel": "République tchèque",
+    "capitale": "Prague",
+    "population": 10882341,
+    "superficie_km2": 78865.0,
+    "langues": [
+      "Czech",
+      "Slovak"
+    ],
+    "frontieres": [
+      "AUT",
+      "DEU",
+      "POL",
+      "SVK"
+    ],
+    "acces_mer": false,
+    "region": "Central Europe",
+    "pib_usd": 347034062928.479,
+    "pib_par_hab": 31823.3078290564,
+    "croissance_pct": 1.23308611983484,
+    "dep_militaire_pct_pib": 1.91680849222604
+  },
+  {
+    "id": "TGO",
+    "nom_officiel": "République togolaise",
+    "capitale": "Lomé",
+    "population": 8095498,
+    "superficie_km2": 56785.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [
+      "BEN",
+      "BFA",
+      "GHA"
+    ],
+    "acces_mer": true,
+    "region": "Western Africa",
+    "pib_usd": 10651180146.531,
+    "pib_par_hab": 1119.38160509429,
+    "croissance_pct": 6.53204505563791,
+    "dep_militaire_pct_pib": 1.99877193389434
+  },
+  {
+    "id": "TUN",
+    "nom_officiel": "République tunisienne",
+    "capitale": "Tunis",
+    "population": 11972169,
+    "superficie_km2": 163610.0,
+    "langues": [
+      "Arabic"
+    ],
+    "frontieres": [
+      "DZA",
+      "LBY"
+    ],
+    "acces_mer": true,
+    "region": "Northern Africa",
+    "pib_usd": 51332285656.5422,
+    "pib_par_hab": 4181.13789301228,
+    "croissance_pct": 1.61444564976986,
+    "dep_militaire_pct_pib": 2.50636792573464
+  },
+  {
+    "id": "MAF",
+    "nom_officiel": "Saint-Martin",
+    "capitale": "Marigot",
+    "population": 31496,
+    "superficie_km2": 53.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [
+      "SXM"
+    ],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 649206262.847519,
+    "pib_par_hab": 21668.3776525323,
+    "croissance_pct": 4.89999967133534,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "SPM",
+    "nom_officiel": "Saint-Pierre-et-Miquelon",
+    "capitale": "Saint-Pierre",
+    "population": 5819,
+    "superficie_km2": 242.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "North America",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "VCT",
+    "nom_officiel": "Saint-Vincent-et-les Grenadines",
+    "capitale": "Kingstown",
+    "population": 110872,
+    "superficie_km2": 389.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 1157207407.40741,
+    "pib_par_hab": 11501.2265187188,
+    "croissance_pct": 4.06183490050209,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "SHN",
+    "nom_officiel": "Sainte-Hélène, Ascension et Tristan da Cunha",
+    "capitale": "Jamestown",
+    "population": 5651,
+    "superficie_km2": 394.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Western Africa",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "LCA",
+    "nom_officiel": "Sainte-Lucie",
+    "capitale": "Castries",
+    "population": 184100,
+    "superficie_km2": 616.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 2549062962.96296,
+    "pib_par_hab": 14181.6303351598,
+    "croissance_pct": 3.89175024218898,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "WSM",
+    "nom_officiel": "Samoa",
+    "capitale": "Apia",
+    "population": 205557,
+    "superficie_km2": 2842.0,
+    "langues": [
+      "English",
+      "Samoan"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Polynesia",
+    "pib_usd": 1175749785.65113,
+    "pib_par_hab": 5392.87761915762,
+    "croissance_pct": 4.74838445564714,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "ASM",
+    "nom_officiel": "Samoa américaines",
+    "capitale": "Pago Pago",
+    "population": 49710,
+    "superficie_km2": 199.0,
+    "langues": [
+      "English",
+      "Samoan"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Polynesia",
+    "pib_usd": 871000000,
+    "pib_par_hab": 18017.4589383973,
+    "croissance_pct": 1.73501577287065,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "SXM",
+    "nom_officiel": "Sint Maarten",
+    "capitale": "Philipsburg",
+    "population": 41349,
+    "superficie_km2": 34.0,
+    "langues": [
+      "English",
+      "French",
+      "Dutch"
+    ],
+    "frontieres": [
+      "MAF"
+    ],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 1797836665.95136,
+    "pib_par_hab": 41472.5874498583,
+    "croissance_pct": 3.00000000000014,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "OMN",
+    "nom_officiel": "Sultanat d'Oman",
+    "capitale": "Muscat",
+    "population": 5343630,
+    "superficie_km2": 309500.0,
+    "langues": [
+      "Arabic"
+    ],
+    "frontieres": [
+      "SAU",
+      "ARE",
+      "YEM"
+    ],
+    "acces_mer": true,
+    "region": "Western Asia",
+    "pib_usd": 107137198769.386,
+    "pib_par_hab": 20285.2272897377,
+    "croissance_pct": 1.63163221127449,
+    "dep_militaire_pct_pib": 5.59419531945284
+  },
+  {
+    "id": "IOT",
+    "nom_officiel": "Territoire britannique de l' océan Indien",
+    "capitale": "Diego Garcia",
+    "population": 0,
+    "superficie_km2": 60.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Eastern Africa",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "CXR",
+    "nom_officiel": "Territoire de l'île Christmas",
+    "capitale": "Flying Fish Cove",
+    "population": 1692,
+    "superficie_km2": 135.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Australia and New Zealand",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "NFK",
+    "nom_officiel": "Territoire de l'île Norfolk",
+    "capitale": "Kingston",
+    "population": 2188,
+    "superficie_km2": 36.0,
+    "langues": [
+      "English",
+      "Norfuk"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Australia and New Zealand",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "ATF",
+    "nom_officiel": "Territoire des Terres australes et antarctiques françaises",
+    "capitale": "Port-aux-Français",
+    "population": 400,
+    "superficie_km2": 7747.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Antarctic",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "CCK",
+    "nom_officiel": "Territoire des îles Cocos (Keeling)",
+    "capitale": "West Island",
+    "population": 593,
+    "superficie_km2": 14.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Australia and New Zealand",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "WLF",
+    "nom_officiel": "Territoire des îles Wallis et Futuna",
+    "capitale": "Mata-Utu",
+    "population": 11620,
+    "superficie_km2": 142.0,
+    "langues": [
+      "French"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Polynesia",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "TKM",
+    "nom_officiel": "Turkménistan",
+    "capitale": "Ashgabat",
+    "population": 7057841,
+    "superficie_km2": 488100.0,
+    "langues": [
+      "Russian",
+      "Turkmen"
+    ],
+    "frontieres": [
+      "AFG",
+      "IRN",
+      "KAZ",
+      "UZB"
+    ],
+    "acces_mer": false,
+    "region": "Central Asia",
+    "pib_usd": 51387209872.2994,
+    "pib_par_hab": 6856.65802730208,
+    "croissance_pct": 6.2994265836889,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "TUV",
+    "nom_officiel": "Tuvalu",
+    "capitale": "Funafuti",
+    "population": 10643,
+    "superficie_km2": 26.0,
+    "langues": [
+      "English",
+      "Tuvaluan"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Polynesia",
+    "pib_usd": 62280311.5852172,
+    "pib_par_hab": 6344.7750188689,
+    "croissance_pct": 3.85280919517032,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "UKR",
+    "nom_officiel": "Ukraine",
+    "capitale": "Kyiv",
+    "population": 32862000,
+    "superficie_km2": 603550.0,
+    "langues": [
+      "Ukrainian"
+    ],
+    "frontieres": [
+      "BLR",
+      "HUN",
+      "MDA",
+      "POL",
+      "ROU",
+      "RUS",
+      "SVK"
+    ],
+    "acces_mer": true,
+    "region": "Eastern Europe",
+    "pib_usd": 190741262414.705,
+    "pib_par_hab": 5389.47314453125,
+    "croissance_pct": 2.9138222142611,
+    "dep_militaire_pct_pib": 34.4815297701892
+  },
+  {
+    "id": "COM",
+    "nom_officiel": "Union des Comores",
+    "capitale": "Moroni",
+    "population": 919901,
+    "superficie_km2": 1862.0,
+    "langues": [
+      "Arabic",
+      "French",
+      "Comorian"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Eastern Africa",
+    "pib_usd": 1440991455.45188,
+    "pib_par_hab": 1662.75663312504,
+    "croissance_pct": 3.3381010943571,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "ARE",
+    "nom_officiel": "Émirats arabes unis",
+    "capitale": "Abu Dhabi",
+    "population": 11294243,
+    "superficie_km2": 83600.0,
+    "langues": [
+      "Arabic"
+    ],
+    "frontieres": [
+      "OMN",
+      "SAU"
+    ],
+    "acces_mer": true,
+    "region": "Western Asia",
+    "pib_usd": 552324846834.581,
+    "pib_par_hab": 50273.5060469837,
+    "croissance_pct": 3.99180705485398,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "ISR",
+    "nom_officiel": "État d'Israël",
+    "capitale": "Jerusalem",
+    "population": 10134800,
+    "superficie_km2": 21937.0,
+    "langues": [
+      "Arabic",
+      "Hebrew"
+    ],
+    "frontieres": [
+      "EGY",
+      "JOR",
+      "LBN",
+      "PSE",
+      "SYR"
+    ],
+    "acces_mer": true,
+    "region": "Western Asia",
+    "pib_usd": 540379921261.681,
+    "pib_par_hab": 54176.6844383302,
+    "croissance_pct": 0.871968424377442,
+    "dep_militaire_pct_pib": 8.77671668977531
+  },
+  {
+    "id": "ERI",
+    "nom_officiel": "État d'Érythrée",
+    "capitale": "Asmara",
+    "population": 3607000,
+    "superficie_km2": 117600.0,
+    "langues": [
+      "Arabic",
+      "English",
+      "Tigrinya"
+    ],
+    "frontieres": [
+      "DJI",
+      "ETH",
+      "SDN"
+    ],
+    "acces_mer": true,
+    "region": "Eastern Africa",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "BRN",
+    "nom_officiel": "État de Brunei Darussalam",
+    "capitale": "Bandar Seri Begawan",
+    "population": 455500,
+    "superficie_km2": 5765.0,
+    "langues": [
+      "Malay"
+    ],
+    "frontieres": [
+      "MYS"
+    ],
+    "acces_mer": true,
+    "region": "South-Eastern Asia",
+    "pib_usd": 15340808592.48,
+    "pib_par_hab": 33153.4738913513,
+    "croissance_pct": 4.05251709306727,
+    "dep_militaire_pct_pib": 3.57781609529419
+  },
+  {
+    "id": "PSE",
+    "nom_officiel": "État de Palestine",
+    "capitale": "Ramallah",
+    "population": 5483450,
+    "superficie_km2": 6220.0,
+    "langues": [
+      "Arabic"
+    ],
+    "frontieres": [
+      "ISR",
+      "EGY",
+      "JOR"
+    ],
+    "acces_mer": true,
+    "region": "Western Asia",
+    "pib_usd": 13711100000,
+    "pib_par_hab": 2592.30591217647,
+    "croissance_pct": -26.5575264529877,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "KWT",
+    "nom_officiel": "État du Koweït",
+    "capitale": "Kuwait City",
+    "population": 4881254,
+    "superficie_km2": 17818.0,
+    "langues": [
+      "Arabic"
+    ],
+    "frontieres": [
+      "IRQ",
+      "SAU"
+    ],
+    "acces_mer": true,
+    "region": "Western Asia",
+    "pib_usd": 160227273053.334,
+    "pib_par_hab": 32717.7186631255,
+    "croissance_pct": -2.56011099967517,
+    "dep_militaire_pct_pib": 4.84093247384389
+  },
+  {
+    "id": "QAT",
+    "nom_officiel": "État du Qatar",
+    "capitale": "Doha",
+    "population": 3173024,
+    "superficie_km2": 11586.0,
+    "langues": [
+      "Arabic"
+    ],
+    "frontieres": [
+      "SAU"
+    ],
+    "acces_mer": true,
+    "region": "Western Asia",
+    "pib_usd": 219162637362.637,
+    "pib_par_hab": 76688.6941743178,
+    "croissance_pct": 2.35970586926597,
+    "dep_militaire_pct_pib": 6.50020565272303
+  },
+  {
+    "id": "PNG",
+    "nom_officiel": "État indépendant de Papouasie-Nouvelle-Guinée",
+    "capitale": "Port Moresby",
+    "population": 11781559,
+    "superficie_km2": 462840.0,
+    "langues": [
+      "English",
+      "Hiri Motu",
+      "Tok Pisin"
+    ],
+    "frontieres": [
+      "IDN"
+    ],
+    "acces_mer": true,
+    "region": "Melanesia",
+    "pib_usd": 31800428265.5246,
+    "pib_par_hab": 3006.70564478923,
+    "croissance_pct": 3.79979560086888,
+    "dep_militaire_pct_pib": 0.307995782327758
+  },
+  {
+    "id": "BOL",
+    "nom_officiel": "État plurinational de Bolivie",
+    "capitale": "Sucre",
+    "population": 11365333,
+    "superficie_km2": 1098581.0,
+    "langues": [
+      "Aymara",
+      "Guaraní",
+      "Quechua",
+      "Spanish"
+    ],
+    "frontieres": [
+      "ARG",
+      "BRA",
+      "CHL",
+      "PRY",
+      "PER"
+    ],
+    "acces_mer": false,
+    "region": "South America",
+    "pib_usd": 54881327452.9667,
+    "pib_par_hab": 4421.16609889999,
+    "croissance_pct": -1.12335595517212,
+    "dep_militaire_pct_pib": 1.37066364312669
+  },
+  {
+    "id": "FSM",
+    "nom_officiel": "États fédérés de Micronésie",
+    "capitale": "Palikir",
+    "population": 105564,
+    "superficie_km2": 702.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Micronesia",
+    "pib_usd": 471425099.488675,
+    "pib_par_hab": 4166.00476748564,
+    "croissance_pct": 0.718990177344025,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "MEX",
+    "nom_officiel": "États-Unis du Mexique",
+    "capitale": "Mexico City",
+    "population": 130575786,
+    "superficie_km2": 1964375.0,
+    "langues": [
+      "Spanish"
+    ],
+    "frontieres": [
+      "BLZ",
+      "GTM",
+      "USA"
+    ],
+    "acces_mer": true,
+    "region": "North America",
+    "pib_usd": 1856365616165.94,
+    "pib_par_hab": 14185.7812248529,
+    "croissance_pct": 1.42742769080466,
+    "dep_militaire_pct_pib": 0.893257529320534
+  },
+  {
+    "id": "BVT",
+    "nom_officiel": "Île Bouvet",
+    "capitale": null,
+    "population": 0,
+    "superficie_km2": 49.0,
+    "langues": [
+      "Norwegian"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Antarctic",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "CYM",
+    "nom_officiel": "Îles Caïmans",
+    "capitale": "George Town",
+    "population": 84738,
+    "superficie_km2": 264.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 7241244269.45972,
+    "pib_par_hab": 99143.5180243123,
+    "croissance_pct": 5.8155918263088,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "COK",
+    "nom_officiel": "Îles Cook",
+    "capitale": "Avarua",
+    "population": 15040,
+    "superficie_km2": 236.0,
+    "langues": [
+      "English",
+      "Cook Islands Māori"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Polynesia",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "FRO",
+    "nom_officiel": "Îles Féroé",
+    "capitale": "Tórshavn",
+    "population": 54885,
+    "superficie_km2": 1393.0,
+    "langues": [
+      "Danish",
+      "Faroese"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Northern Europe",
+    "pib_usd": 4052937169.76536,
+    "pib_par_hab": 74119.6607553879,
+    "croissance_pct": 0.843716851362103,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "FLK",
+    "nom_officiel": "Îles Malouines",
+    "capitale": "Stanley",
+    "population": 3662,
+    "superficie_km2": 12173.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "South America",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "SLB",
+    "nom_officiel": "Îles Salomon",
+    "capitale": "Honiara",
+    "population": 750325,
+    "superficie_km2": 28896.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Melanesia",
+    "pib_usd": 1583964703.75061,
+    "pib_par_hab": 1933.55538435227,
+    "croissance_pct": 2.99755987604104,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "TKL",
+    "nom_officiel": "Îles Tokelau",
+    "capitale": "Fakaofo",
+    "population": 2608,
+    "superficie_km2": 12.0,
+    "langues": [
+      "English",
+      "Samoan",
+      "Tokelauan"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Polynesia",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "TCA",
+    "nom_officiel": "Îles Turques et Caïques",
+    "capitale": "Cockburn Town",
+    "population": 50828,
+    "superficie_km2": 948.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 1745378000,
+    "pib_par_hab": 37506.7798431288,
+    "croissance_pct": 5.63682517443362,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "VIR",
+    "nom_officiel": "Îles Vierges des États-Unis",
+    "capitale": "Charlotte Amalie",
+    "population": 87146,
+    "superficie_km2": 347.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": 4672000000,
+    "pib_par_hab": 44320.909185774,
+    "croissance_pct": -1.31123206333498,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "UMI",
+    "nom_officiel": "Îles mineures éloignées des États-Unis",
+    "capitale": "Washington DC",
+    "population": 0,
+    "superficie_km2": 34.2,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "North America",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  },
+  {
+    "id": "VGB",
+    "nom_officiel": "îles Vierges",
+    "capitale": "Road Town",
+    "population": 39471,
+    "superficie_km2": 151.0,
+    "langues": [
+      "English"
+    ],
+    "frontieres": [],
+    "acces_mer": true,
+    "region": "Caribbean",
+    "pib_usd": null,
+    "pib_par_hab": null,
+    "croissance_pct": null,
+    "dep_militaire_pct_pib": null
+  }
+]

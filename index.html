@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alliance Cartographer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-brand">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+        </div>
+        <h1 class="brand-title">Alliance Cartographer</h1>
+      </div>
+      
+      <div class="header-search">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="Rechercher un pays (ex: France, Japon...)">
+          <button id="clearSearch" class="clear-search" aria-label="Effacer la recherche" hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="app-main">
+      <!-- Cards Grid Section -->
+      <section class="countries-section">
+        <div class="section-header">
+          <h2 class="section-title">Nations (<span id="countriesCount">0</span>)</h2>
+        </div>
+        <div class="countries-grid" id="countriesGrid">
+          <!-- Loading State -->
+          <div class="loading-state">
+            <div class="spinner"></div>
+            <p>Chargement des données géopolitiques...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Side Detail Panel -->
+      <aside class="detail-panel hidden" id="detailPanel">
+        <button class="close-panel-btn" id="closePanelBtn" aria-label="Fermer le panneau">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        
+        <div class="panel-content" id="panelContent">
+          <!-- The country details will be injected here via JS -->
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="./js/app.js" type="module"></script>
+</body>
+</html>
