@@ -2,7 +2,7 @@ import { state, getColor, RELATION_TYPES, getVisibleGraph, getNeighborLinks } fr
 import { worldGeo } from './data-loader.js';
 import { getFlagUrl } from './utils.js';
 
-let svg, mainLayer, mapLayer, territoryLayer, linkLayer, clusterLayer, nodeLayer, labelLayer;
+let svg, mainLayer, mapLayer, territoryLayer, linkLayer, clusterLayer, nodeLayer, labelLayer, badgeLayer;
 let minimapSvg, zoomBehavior, projection, geoPath;
 let graphWidth = 0, graphHeight = 0;
 let worldWrapWidth = 0;
@@ -62,29 +62,24 @@ export function initGraph() {
   linkLayer = mainLayer.append("g").attr("class", "link-layer");
   clusterLayer = mainLayer.append("g").attr("class", "cluster-layer");
   nodeLayer = mainLayer.append("g").attr("class", "node-layer");
+  badgeLayer = mainLayer.append("g").attr("class", "badge-layer").style("pointer-events", "none");
   labelLayer = mainLayer.append("g").attr("class", "label-layer");
 
   // Build numeric → alpha-2 map for quick lookups on territory hover
   numericToAlpha = new Map(Object.entries(ISO_NUMERIC_TO_ALPHA2));
 
   zoomBehavior = d3.zoom()
-    .scaleExtent([1, 12]) // min scale 1 = can't zoom out past full world
+    .scaleExtent([0.5, 12])
     .on("zoom", (event) => {
-      let t = event.transform;
-      // Infinite horizontal panning modulo
+      const t = event.transform;
+      let displayX = t.x;
       if (worldWrapWidth && t.k) {
         const period = worldWrapWidth * t.k;
-        let shift = 0;
-        if (t.x > period / 2) shift = -period;
-        else if (t.x < -period / 2) shift = period;
-
-        if (shift !== 0) {
-          t.x += shift;
-          if (svg && svg.node() && svg.node().__zoom) svg.node().__zoom.x += shift;
-        }
+        displayX = ((t.x % period) + period) % period;
+        if (displayX > period / 2) displayX -= period;
       }
       state.transform = t;
-      mainLayer.attr("transform", t);
+      mainLayer.attr("transform", d3.zoomIdentity.translate(displayX, t.y).scale(t.k));
       applyZoomResponsiveStyles();
     });
 
@@ -154,7 +149,7 @@ export function renderGraph() {
   lastRenderCache = { nodes, links, clusters, projectedByCode };
 
   renderBaseMap();
-  renderTerritories(new Set(nodes.map(n => n.code).filter(Boolean)), links, projectedByCode);
+  renderTerritories(new Set(nodes.map(n => n.code).filter(Boolean)), links, projectedByCode, nodes);
 
   const clusterData = clusters.map((memberIds, index) => ({ memberIds, color: CLUSTER_COLORS[index % CLUSTER_COLORS.length] }));
   const repeatedLinkData = [-1, 0, 1].flatMap((copyIndex) =>
@@ -275,6 +270,13 @@ export function renderGraph() {
     .attr("transform", (d) => `translate(${d.drawX}, ${d.drawY})`)
     .attr("aria-label", (d) => `Pays ${d.name || d.label}`)
     .on("click", (_, d) => {
+      if (d.copyIndex !== 0) return;
+      if (state.compareMode) {
+        const ids = state.compareIds.filter(id => id !== d.id);
+        state.compareIds = [...ids.slice(-1), d.id];
+        window.dispatchEvent(new CustomEvent('compareUpdated'));
+        return;
+      }
       state.focusId = state.focusId === d.id ? null : d.id;
       state.infoId = d.id;
       renderGraph();
@@ -314,6 +316,7 @@ export function renderGraph() {
     .attr("transform", (d) => `translate(${d.drawX}, ${d.drawY})`);
   // Labels start hidden — updateInteractionStyles controls them
 
+  renderConflictBadges(nodes, links);
   applyZoomResponsiveStyles();
   lastSelections = { linkSelection, nodeSelection, labelSelection, clusterSelection };
   updateInteractionStyles(linkSelection, nodeSelection, labelSelection, clusterSelection, nodes, links);
@@ -389,7 +392,7 @@ function renderBaseMap() {
     .attr("d", geoPath);
 }
 
-function renderTerritories(activeCodes, links, projectedByCode) {
+function renderTerritories(activeCodes, links, projectedByCode, nodes) {
   if (!worldGeo) return;
 
   const codesInConflict = new Set();
@@ -398,8 +401,9 @@ function renderTerritories(activeCodes, links, projectedByCode) {
     if (l.target.code) codesInConflict.add(l.target.code);
   });
 
-  // Build set of active country node ids for territory mapping
-  const activeNodeIds = new Set(lastRenderCache ? lastRenderCache.nodes.map(n => n.id) : []);
+  const heatmapMap = state.heatmapIndicator
+    ? buildHeatmapColorMap(nodes || [], links, state.heatmapIndicator)
+    : null;
 
   territoryLayer.selectAll("g.territory-copy")
     .data([-1, 0, 1])
@@ -416,6 +420,10 @@ function renderTerritories(activeCodes, links, projectedByCode) {
     .attr("d", geoPath)
     .attr("fill", (d) => {
       const a = numericToAlpha.get(String(parseInt(d.id, 10)));
+      if (heatmapMap && a) {
+        const col = heatmapMap.get(a);
+        if (col) return col;
+      }
       if (a && a === state.focusId)       return "rgba(96, 165, 250, 0.28)";
       if (a && codesInConflict.has(a))    return "rgba(255, 89, 94, 0.12)";
       if (a && activeCodes.has(a))        return "rgba(255, 209, 102, 0.08)";
@@ -455,6 +463,12 @@ function renderTerritories(activeCodes, links, projectedByCode) {
       if (alpha2) {
         const node = lastRenderCache && lastRenderCache.nodes.find(n => n.id === alpha2 || n.code === alpha2);
         if (node) {
+          if (state.compareMode) {
+            const ids = state.compareIds.filter(id => id !== node.id);
+            state.compareIds = [...ids.slice(-1), node.id];
+            window.dispatchEvent(new CustomEvent('compareUpdated'));
+            return;
+          }
           state.focusId = state.focusId === node.id ? null : node.id;
           state.infoId = node.id;
           renderGraph();
@@ -472,6 +486,77 @@ function highlightTerritory(code, on) {
   territoryLayer.selectAll("path")
     .filter(d => String(parseInt(d.id, 10)) === normNumericId)
     .classed("is-hovered", on);
+}
+
+function buildHeatmapColorMap(nodes, links, indicator) {
+  let valFn;
+  if (indicator === 'gdp') {
+    valFn = n => {
+      if (!n.gdp || n.gdp === 'N/A') return null;
+      const v = parseFloat(String(n.gdp).replace(/\s/g, '').replace(',', '.'));
+      return isNaN(v) ? null : v;
+    };
+  } else if (indicator === 'pop') {
+    valFn = n => {
+      if (!n.population || n.population === 'N/A') return null;
+      const v = parseFloat(String(n.population).replace(/\s/g, '').replace(',', '.'));
+      return isNaN(v) ? null : v;
+    };
+  } else if (indicator === 'conflict') {
+    const cnt = new Map();
+    links.filter(l => l.type === 'conflict' || l.type === 'rivalry').forEach(l => {
+      cnt.set(l.source.id, (cnt.get(l.source.id) || 0) + 1);
+      cnt.set(l.target.id, (cnt.get(l.target.id) || 0) + 1);
+    });
+    valFn = n => cnt.get(n.id) || 0;
+  }
+  if (!valFn) return null;
+
+  const entries = nodes.map(n => [n.id, valFn(n)]).filter(([, v]) => v !== null && v > 0);
+  if (!entries.length) return null;
+  const vals = entries.map(([, v]) => v);
+  const minV = Math.min(...vals), maxV = Math.max(...vals);
+  const range = maxV - minV || 1;
+  // YlOrRd-like stops: yellow → orange → red
+  const stops = ['#ffffb2','#fecc5c','#fd8d3c','#f03b20','#bd0026'];
+  function lerp(a, b, t) {
+    const ah = parseInt(a.slice(1,3),16), am = parseInt(a.slice(3,5),16), al = parseInt(a.slice(5,7),16);
+    const bh = parseInt(b.slice(1,3),16), bm = parseInt(b.slice(3,5),16), bl = parseInt(b.slice(5,7),16);
+    return `rgb(${Math.round(ah+(bh-ah)*t)},${Math.round(am+(bm-am)*t)},${Math.round(al+(bl-al)*t)})`;
+  }
+  function colorScale(v) {
+    const pct = (v - minV) / range;
+    const i = Math.min(Math.floor(pct * (stops.length - 1)), stops.length - 2);
+    const t = pct * (stops.length - 1) - i;
+    return lerp(stops[i], stops[i+1], t);
+  }
+
+  const colorMap = new Map(entries.map(([id, v]) => [id, colorScale(v)]));
+  window.dispatchEvent(new CustomEvent('heatmapComputed', { detail: { indicator, minV, maxV } }));
+  return colorMap;
+}
+
+function renderConflictBadges(nodes, links) {
+  if (!badgeLayer) return;
+  const conflictIds = new Set(
+    links.filter(l => l.type === 'conflict')
+      .flatMap(l => [l.source.id, l.target.id])
+  );
+  const badgeData = nodes.filter(n => conflictIds.has(n.id));
+  badgeLayer.selectAll("g.conflict-badge")
+    .data(badgeData, d => d.id)
+    .join(
+      enter => {
+        const g = enter.append("g").attr("class", "conflict-badge");
+        g.append("circle").attr("r", 5.5).attr("fill", "#ef4444")
+          .attr("stroke", "rgba(0,0,0,0.5)").attr("stroke-width", 1.5)
+          .attr("class", "conflict-pulse");
+        return g;
+      },
+      update => update,
+      exit => exit.remove()
+    )
+    .attr("transform", d => `translate(${d.x + 14}, ${d.y - 14})`);
 }
 
 function createArcPath(source, target) {

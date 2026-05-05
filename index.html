@@ -78,19 +78,40 @@
             </svg>
           </button>
           <div class="settings-popup" id="settingsPopup" hidden>
-            <div class="settings-popup-header">Paramètres</div>
+            <div class="settings-popup-header" data-i18n="settingsTitle">Paramètres</div>
             <div class="settings-item">
-              <span class="settings-item-label">Mode daltonien</span>
+              <span class="settings-item-label" data-i18n="colorblind">Mode daltonien</span>
               <div class="toggle-switch" id="colorblindToggle" role="switch" aria-checked="false"><div class="toggle-knob"></div></div>
             </div>
             <div class="settings-item">
-              <span class="settings-item-label">Mode clair</span>
+              <span class="settings-item-label" data-i18n="lightMode">Mode clair</span>
               <div class="toggle-switch" id="lightToggle" role="switch" aria-checked="false"><div class="toggle-knob"></div></div>
             </div>
+            <div class="settings-item">
+              <span class="settings-item-label" data-i18n="compareMode">Mode comparaison</span>
+              <div class="toggle-switch" id="compareToggle" role="switch" aria-checked="false"><div class="toggle-knob"></div></div>
+            </div>
+            <div class="settings-item">
+              <span class="settings-item-label" data-i18n="language">Langue</span>
+              <div class="lang-switch" id="langSwitch">
+                <button class="lang-btn active" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+              </div>
+            </div>
             <div class="settings-divider"></div>
-            <button class="settings-action-btn" id="exportPng">Exporter PNG</button>
-            <button class="settings-action-btn" id="exportSvg">Exporter SVG</button>
-            <button class="settings-action-btn" id="copyLink">Copier le lien</button>
+            <div class="settings-item settings-item--col">
+              <span class="settings-item-label" data-i18n="heatmapLabel">Heatmap géopolitique</span>
+              <select class="settings-select" id="heatmapSelect">
+                <option value="" data-i18n="heatmapOff">— Désactivé</option>
+                <option value="gdp" data-i18n="heatmapGdp">PIB</option>
+                <option value="pop" data-i18n="heatmapPop">Population</option>
+                <option value="conflict" data-i18n="heatmapConflict">Conflits</option>
+              </select>
+            </div>
+            <div class="settings-divider"></div>
+            <button class="settings-action-btn" id="exportPng" data-i18n="exportPng">Exporter PNG</button>
+            <button class="settings-action-btn" id="exportSvg" data-i18n="exportSvg">Exporter SVG</button>
+            <button class="settings-action-btn" id="copyLink" data-i18n="copyLink">Copier le lien</button>
           </div>
         </div>
 
@@ -137,7 +158,7 @@
             <!-- Nations section (open by default) -->
             <div class="ls-section">
               <button class="ls-section-btn" id="lsNationsBtn" aria-expanded="true">
-                <span>Nations</span>
+                <span data-i18n="nations">Nations</span>
                 <svg class="ls-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
@@ -152,7 +173,7 @@
             <!-- Scénarios section (collapsed by default) -->
             <div class="ls-section">
               <button class="ls-section-btn" id="lsScenariosBtn" aria-expanded="false">
-                <span>Scénarios</span>
+                <span data-i18n="scenarios">Scénarios</span>
                 <svg class="ls-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
@@ -177,6 +198,37 @@
 
         <!-- Right side panel (node / edge details) -->
         <div id="sidePanel" class="side-panel sp-hidden"></div>
+
+        <!-- Timeline bar -->
+        <div class="timeline-bar" id="timelineBar">
+          <span class="timeline-label" data-i18n="timelineLabel">Chronologie</span>
+          <span class="timeline-year" id="timelineYear">2026</span>
+          <input type="range" id="timelineSlider" min="1945" max="2026" value="2026" step="1" class="timeline-slider">
+          <span class="timeline-bound">1945</span>
+          <span class="timeline-bound">2026</span>
+        </div>
+
+        <!-- Comparison panel -->
+        <div class="compare-panel" id="comparePanel" hidden>
+          <button class="compare-close" id="compareClose" aria-label="Fermer">×</button>
+          <div class="compare-body" id="compareBody">
+            <div class="compare-card" id="compareCard0">
+              <div class="compare-empty" data-i18n="compareInstruction">Cliquez 2 pays à comparer</div>
+            </div>
+            <div class="compare-vs">VS</div>
+            <div class="compare-card" id="compareCard1"></div>
+          </div>
+        </div>
+
+        <!-- Heatmap legend -->
+        <div class="heatmap-legend" id="heatmapLegend" hidden>
+          <div class="heatmap-legend-title" id="heatmapTitle"></div>
+          <div class="heatmap-gradient"></div>
+          <div class="heatmap-scale">
+            <span id="heatmapMin">min</span>
+            <span id="heatmapMax">max</span>
+          </div>
+        </div>
 
       </div>
     </main>

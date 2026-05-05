@@ -2,6 +2,8 @@ import { initGraph, renderGraph, zoomToNode } from './render.js';
 import { loadData } from './data-loader.js';
 import { initSidePanel } from './side-panel/index.js';
 import { state } from './store.js';
+import { t, applyLang } from './i18n.js';
+import { getFlagUrl } from './utils.js';
 
 // ── ISO 3166-1 alpha-3 → alpha-2 ──
 const CCA3_TO_CCA2 = {
@@ -127,16 +129,16 @@ function renderScenariosList(scenarios) {
   if (!lsScenariosList || !scenarios.length) return;
 
   const tops   = scenarios.filter(s => !s.includes(' - '));
-  const groups = tops.map(t => ({
-    label: t,
+  const groups = tops.map(top => ({
+    label: top,
     children: scenarios
-      .filter(s => s.startsWith(t + ' - '))
-      .map(s => ({ label: s.replace(t + ' - ', ''), full: s }))
+      .filter(s => s.startsWith(top + ' - '))
+      .map(s => ({ label: s.replace(top + ' - ', ''), full: s }))
   }));
 
   const active = state.activeScenario;
   let html = `<div class="ls-scenario-item${!active ? ' ls-active' : ''}" data-scenario="">
-    <span class="ls-scenario-dot"></span><span>Toutes les relations</span>
+    <span class="ls-scenario-dot"></span><span>${t('allRelations')}</span>
   </div>`;
 
   for (const g of groups) {
@@ -160,6 +162,88 @@ function renderScenariosList(scenarios) {
       el.classList.add('ls-active');
     });
   });
+}
+
+// ── Comparison panel ──
+function renderCountryCard(nodeId, cardEl) {
+  if (!cardEl) return;
+  const node = state.nodes.find(n => n.id === nodeId);
+  if (!node) {
+    cardEl.innerHTML = `<div class="compare-empty">${t('compareInstruction')}</div>`;
+    return;
+  }
+  const flagSrc = node.code ? getFlagUrl(node.code) : '';
+  const rows = [
+    node.region   ? [t('region'),     node.region]   : null,
+    node.regime   ? [t('regime'),     node.regime]   : null,
+    node.population ? [t('population'), node.population] : null,
+    node.gdp      ? [t('gdp'),        node.gdp]      : null,
+  ].filter(Boolean);
+
+  cardEl.innerHTML = `
+    <div class="compare-card-header">
+      ${flagSrc ? `<img class="compare-flag" src="${flagSrc}" alt="" onerror="this.style.display='none'">` : ''}
+      <span class="compare-card-name">${node.name || node.id}</span>
+    </div>
+    ${rows.map(([label, val]) =>
+      `<div class="compare-attr"><span>${label}</span><span>${val}</span></div>`
+    ).join('')}
+  `;
+}
+
+function renderComparePanel() {
+  const panel = document.getElementById('comparePanel');
+  const card0 = document.getElementById('compareCard0');
+  const card1 = document.getElementById('compareCard1');
+  if (!panel) return;
+
+  if (!state.compareMode || state.compareIds.length === 0) {
+    panel.setAttribute('hidden', '');
+    return;
+  }
+
+  panel.removeAttribute('hidden');
+
+  if (state.compareIds[0]) {
+    renderCountryCard(state.compareIds[0], card0);
+  } else {
+    card0.innerHTML = `<div class="compare-empty">${t('compareInstruction')}</div>`;
+  }
+
+  if (state.compareIds[1]) {
+    renderCountryCard(state.compareIds[1], card1);
+  } else {
+    card1.innerHTML = '';
+  }
+}
+
+// ── Heatmap legend ──
+function updateHeatmapLegend({ indicator, minV, maxV }) {
+  const legend = document.getElementById('heatmapLegend');
+  const title  = document.getElementById('heatmapTitle');
+  const minEl  = document.getElementById('heatmapMin');
+  const maxEl  = document.getElementById('heatmapMax');
+  if (!legend) return;
+
+  if (!indicator) {
+    legend.setAttribute('hidden', '');
+    return;
+  }
+
+  legend.removeAttribute('hidden');
+
+  const labelMap = { gdp: t('heatmapGdp'), pop: t('heatmapPop'), conflict: t('heatmapConflict') };
+  if (title) title.textContent = labelMap[indicator] || indicator;
+
+  const fmt = (v) => {
+    if (indicator === 'conflict') return String(Math.round(v));
+    if (v >= 1e9) return (v / 1e9).toFixed(1) + 'B';
+    if (v >= 1e6) return (v / 1e6).toFixed(1) + 'M';
+    return v.toFixed(0);
+  };
+
+  if (minEl) minEl.textContent = fmt(minV);
+  if (maxEl) maxEl.textContent = fmt(maxV);
 }
 
 // ── Settings popup ──
@@ -191,6 +275,34 @@ function setupSettings() {
     const on = document.body.classList.toggle('light-mode');
     this.classList.toggle('active', on);
     this.setAttribute('aria-checked', String(on));
+  });
+
+  // Compare mode toggle
+  document.getElementById('compareToggle')?.addEventListener('click', function() {
+    state.compareMode = !state.compareMode;
+    state.compareIds  = [];
+    this.classList.toggle('active', state.compareMode);
+    this.setAttribute('aria-checked', String(state.compareMode));
+    document.body.classList.toggle('compare-mode-active', state.compareMode);
+    renderComparePanel();
+  });
+
+  // Language switch
+  document.getElementById('langSwitch')?.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.lang = btn.dataset.lang;
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === state.lang));
+      applyLang();
+    });
+  });
+
+  // Heatmap indicator
+  document.getElementById('heatmapSelect')?.addEventListener('change', function() {
+    state.heatmapIndicator = this.value || null;
+    renderGraph();
+    if (!state.heatmapIndicator) {
+      document.getElementById('heatmapLegend')?.setAttribute('hidden', '');
+    }
   });
 
   document.getElementById('exportSvg')?.addEventListener('click', () => {
@@ -230,14 +342,29 @@ function setupSettings() {
   document.getElementById('copyLink')?.addEventListener('click', async function() {
     await navigator.clipboard.writeText(window.location.href);
     const orig = this.textContent;
-    this.textContent = 'Copié !';
+    this.textContent = t('copied');
     setTimeout(() => { this.textContent = orig; }, 2000);
+  });
+}
+
+// ── Timeline slider ──
+function setupTimeline() {
+  const slider  = document.getElementById('timelineSlider');
+  const yearEl  = document.getElementById('timelineYear');
+  if (!slider) return;
+
+  slider.addEventListener('input', () => {
+    state.currentYear = Number(slider.value);
+    if (yearEl) yearEl.textContent = slider.value;
+    renderGraph();
   });
 }
 
 // ── Init ──
 async function init() {
   setupSettings();
+  setupTimeline();
+
   sidebarToggle?.addEventListener('click', openSidebar);
   lsClose?.addEventListener('click', closeSidebar);
   lsBackdrop?.addEventListener('click', closeSidebar);
@@ -255,6 +382,20 @@ async function init() {
       : [...allCountries];
     renderCountryList();
   });
+
+  // Close compare panel
+  document.getElementById('compareClose')?.addEventListener('click', () => {
+    state.compareMode = false;
+    state.compareIds  = [];
+    document.body.classList.remove('compare-mode-active');
+    document.getElementById('comparePanel')?.setAttribute('hidden', '');
+    const toggle = document.getElementById('compareToggle');
+    if (toggle) { toggle.classList.remove('active'); toggle.setAttribute('aria-checked', 'false'); }
+  });
+
+  // Events from render.js
+  window.addEventListener('compareUpdated', renderComparePanel);
+  window.addEventListener('heatmapComputed', (e) => updateHeatmapLegend(e.detail));
 
   initSidePanel({
     onCenter: (node) => zoomToNode(node.id),
@@ -282,6 +423,8 @@ async function init() {
     filteredCountries = [...allCountries];
     renderCountryList();
   }
+
+  applyLang();
 }
 
 document.addEventListener('DOMContentLoaded', init);

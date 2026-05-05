@@ -1,166 +1,63 @@
-// i18n.js — Internationalization module
-export const TRANSLATIONS = {
+import { state } from './store.js';
+
+const S = {
   fr: {
-    // App title & meta
-    appTitle: "Alliance Cartographer",
-    appSubtitle: "Vue d'ensemble géopolitique.",
-    appDescription: "Explorez les alliances, rivalités et bascules géopolitiques mondiales de 1945 à nos jours.",
-    enterBtn: "Commencer l'exploration →",
-
-    // Sidebar sections
-    scenarioTitle: "Scénario / Thématique",
-    allScenarios: "Tous (vue globale)",
-    searchTitle: "Recherche globale",
-    searchPlaceholder: "Taper un pays pour zoomer...",
-    timelineTitle: "Chronologie",
-    yearLabel: "Année observée",
-    filtersTitle: "Filtres",
-    legendTitle: "Légende",
-    influenceTitle: "Influence",
-    focusTitle: "Focus direct",
-    focusEmpty: "Cliquez sur un pays pour isoler ses relations.",
-    editorTitle: "Éditeur (Mode Admin)",
-    undoBtn: "Annuler (Ctrl+Z)",
-    sourceLabel: "Source",
-    targetLabel: "Cible",
-    typeLabel: "Type",
-    intensityLabel: "Intensité (1-5)",
-    startLabel: "Début",
-    endLabel: "Fin",
-    validateBtn: "Valider",
-
-    // Toolbar / Settings
-    settingsTitle: "Paramètres",
-    languageLabel: "Langue",
-    themeLabel: "Thème",
-    themeLight: "Clair",
-    themeDark: "Sombre",
-    daltonLabel: "Mode daltonien",
-    copyLink: "Copier le lien",
-    exportJson: "Exporter JSON",
-    exportPng: "Exporter PNG",
-    exportSvg: "Exporter SVG",
-    viewModeMap: "Carte",
-    viewModeNetwork: "Réseau",
-
-    // Info panel
-    codeLabel: "Code",
-    regionLabel: "Région",
-    regimeLabel: "Régime",
-    populationLabel: "Population",
-    gdpLabel: "PIB nominal",
-    powerLabel: "Indicateur de puissance",
-    unrecognizedBadge: "État non reconnu",
-    noCode: "Code non standard",
-    noData: "N/A",
-
-    // Relation types
-    alliance: "Alliance",
-    conflict: "Conflit",
-    rivalry: "Rivalité",
-    partnership: "Partenariat",
-    neutrality: "Neutralité",
-    tension: "Tension",
-    dependence: "Dépendance",
-
-    // Misc
-    allRelations: "Toutes les relations visibles",
-    linksCopied: "✓ Copié !",
-    errorLoad: "Erreur de chargement des données. Vérifiez world.json.",
-    closePanel: "Fermer",
-
-    // Shortcuts modal
-    shortcutsTitle: "Raccourcis clavier",
-    shortcutsClose: "Fermer",
-    shortcutT: "Basculer thème clair / sombre",
-    shortcutEsc: "Désélectionner le pays actif",
-    shortcutCtrlZ: "Annuler (mode édition)",
-    shortcutCtrlY: "Rétablir (mode édition)",
-    shortcutQuestion: "Afficher / masquer cette aide",
+    nations: 'Nations', scenarios: 'Scénarios',
+    searchPh: 'Rechercher un pays…',
+    settingsTitle: 'Paramètres', colorblind: 'Mode daltonien',
+    lightMode: 'Mode clair', language: 'Langue',
+    exportPng: 'Exporter PNG', exportSvg: 'Exporter SVG',
+    copyLink: 'Copier le lien', copied: 'Copié !',
+    allRelations: 'Toutes les relations',
+    heatmapLabel: 'Heatmap géopolitique',
+    heatmapOff: '— Désactivé', heatmapGdp: 'PIB',
+    heatmapPop: 'Population', heatmapConflict: 'Conflits',
+    compareMode: 'Mode comparaison',
+    compareInstruction: 'Cliquez 2 pays à comparer',
+    timelineLabel: 'Chronologie',
+    identity: 'Identité', data: 'Données',
+    isoCode: 'Code ISO', region: 'Région', regime: 'Régime',
+    type: 'Type', population: 'Population', gdp: 'PIB',
+    lon: 'Longitude', lat: 'Latitude',
+    center: 'Centrer', edit: 'Modifier', del: 'Supprimer',
+    relation: 'Relation', actors: 'Acteurs',
+    characteristics: 'Caractéristiques', intensity: 'Intensité',
+    start: 'Début', end: 'Fin', scenario: 'Scénario',
   },
   en: {
-    appTitle: "Alliance Cartographer",
-    appSubtitle: "Geopolitical overview.",
-    appDescription: "Explore alliances, rivalries and geopolitical shifts from 1945 to today.",
-    enterBtn: "Start Exploring →",
-
-    scenarioTitle: "Scenario / Theme",
-    allScenarios: "All (global view)",
-    searchTitle: "Global Search",
-    searchPlaceholder: "Type a country to zoom...",
-    timelineTitle: "Timeline",
-    yearLabel: "Year observed",
-    filtersTitle: "Filters",
-    legendTitle: "Legend",
-    influenceTitle: "Influence",
-    focusTitle: "Direct Focus",
-    focusEmpty: "Click on a country to isolate its relations.",
-    editorTitle: "Editor (Admin Mode)",
-    undoBtn: "Undo (Ctrl+Z)",
-    sourceLabel: "Source",
-    targetLabel: "Target",
-    typeLabel: "Type",
-    intensityLabel: "Intensity (1-5)",
-    startLabel: "Start",
-    endLabel: "End",
-    validateBtn: "Validate",
-
-    settingsTitle: "Settings",
-    languageLabel: "Language",
-    themeLabel: "Theme",
-    themeLight: "Light",
-    themeDark: "Dark",
-    daltonLabel: "Colorblind mode",
-    copyLink: "Copy link",
-    exportJson: "Export JSON",
-    exportPng: "Export PNG",
-    exportSvg: "Export SVG",
-    viewModeMap: "Map",
-    viewModeNetwork: "Network",
-
-    codeLabel: "Code",
-    regionLabel: "Region",
-    regimeLabel: "Regime",
-    populationLabel: "Population",
-    gdpLabel: "Nominal GDP",
-    powerLabel: "Power index",
-    unrecognizedBadge: "Unrecognized State",
-    noCode: "Non-standard code",
-    noData: "N/A",
-
-    alliance: "Alliance",
-    conflict: "Conflict",
-    rivalry: "Rivalry",
-    partnership: "Partnership",
-    neutrality: "Neutrality",
-    tension: "Tension",
-    dependence: "Dependence",
-
-    allRelations: "All relations visible",
-    linksCopied: "✓ Copied!",
-    errorLoad: "Failed to load data. Check world.json.",
-    closePanel: "Close",
-
-    // Shortcuts modal
-    shortcutsTitle: "Keyboard shortcuts",
-    shortcutsClose: "Close",
-    shortcutT: "Toggle light / dark theme",
-    shortcutEsc: "Deselect active country",
-    shortcutCtrlZ: "Undo (edit mode)",
-    shortcutCtrlY: "Redo (edit mode)",
-    shortcutQuestion: "Show / hide this help",
+    nations: 'Nations', scenarios: 'Scenarios',
+    searchPh: 'Search a country…',
+    settingsTitle: 'Settings', colorblind: 'Colorblind mode',
+    lightMode: 'Light mode', language: 'Language',
+    exportPng: 'Export PNG', exportSvg: 'Export SVG',
+    copyLink: 'Copy link', copied: 'Copied!',
+    allRelations: 'All relations',
+    heatmapLabel: 'Geopolitical heatmap',
+    heatmapOff: '— Disabled', heatmapGdp: 'GDP',
+    heatmapPop: 'Population', heatmapConflict: 'Conflicts',
+    compareMode: 'Comparison mode',
+    compareInstruction: 'Click 2 countries to compare',
+    timelineLabel: 'Timeline',
+    identity: 'Identity', data: 'Data',
+    isoCode: 'ISO Code', region: 'Region', regime: 'Regime',
+    type: 'Type', population: 'Population', gdp: 'GDP',
+    lon: 'Longitude', lat: 'Latitude',
+    center: 'Center', edit: 'Edit', del: 'Delete',
+    relation: 'Relation', actors: 'Actors',
+    characteristics: 'Characteristics', intensity: 'Intensity',
+    start: 'Start', end: 'End', scenario: 'Scenario',
   }
 };
 
-let currentLang = localStorage.getItem('ac-lang') || 'fr';
-
-export function getLang() { return currentLang; }
-
-export function setLang(lang) {
-  currentLang = lang;
-  localStorage.setItem('ac-lang', lang);
+export function t(key) {
+  return S[state.lang]?.[key] ?? S.fr[key] ?? key;
 }
 
-export function t(key) {
-  return TRANSLATIONS[currentLang]?.[key] ?? TRANSLATIONS['fr'][key] ?? key;
+export function applyLang() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    el.textContent = t(el.dataset.i18n);
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    el.placeholder = t(el.dataset.i18nPh);
+  });
 }
