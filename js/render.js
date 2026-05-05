@@ -16,10 +16,11 @@ const CLUSTER_COLORS = ["#ff595e", "#ffca3a", "#8ac926", "#1982c4", "#6a4c93", "
 
 // ISO numeric → alpha-2 lookup table (all UN members + territories)
 const ISO_NUMERIC_TO_ALPHA2 = {
+  "260":"TF",
   "4":"AF","8":"AL","12":"DZ","16":"AS","20":"AD","24":"AO","28":"AG","31":"AZ",
   "32":"AR","36":"AU","40":"AT","44":"BS","48":"BH","50":"BD","51":"AM","52":"BB",
   "56":"BE","60":"BM","64":"BT","68":"BO","70":"BA","72":"BW","76":"BR","84":"BZ",
-  "90":"SB","96":"BN","100":"BG","104":"MM","108":"BI","112":"BY","116":"KH",
+  "90":"SB","96":"BN","100":"BG","104":"MM","108":"BI","112":"BY","116":"KH","417":"KG",
   "120":"CM","124":"CA","132":"CV","136":"KY","140":"CF","144":"LK","148":"TD",
   "152":"CL","156":"CN","158":"TW","170":"CO","174":"KM","178":"CG","180":"CD",
   "188":"CR","191":"HR","192":"CU","196":"CY","203":"CZ","204":"BJ","208":"DK",
@@ -30,7 +31,7 @@ const ISO_NUMERIC_TO_ALPHA2 = {
   "328":"GY","332":"HT","340":"HN","344":"HK","348":"HU","352":"IS","356":"IN",
   "360":"ID","364":"IR","368":"IQ","372":"IE","376":"IL","380":"IT","384":"CI",
   "388":"JM","392":"JP","398":"KZ","400":"JO","404":"KE","408":"KP","410":"KR",
-  "414":"KW","418":"LA","422":"LB","426":"LS","428":"LV","430":"LR","434":"LY",
+  "414":"KW","417":"KG","418":"LA","422":"LB","426":"LS","428":"LV","430":"LR","434":"LY",
   "438":"LI","440":"LT","442":"LU","446":"MO","450":"MG","454":"MW","458":"MY",
   "462":"MV","466":"ML","470":"MT","478":"MR","480":"MU","484":"MX","492":"MC",
   "496":"MN","498":"MD","499":"ME","504":"MA","508":"MZ","512":"OM","516":"NA",
@@ -39,12 +40,12 @@ const ISO_NUMERIC_TO_ALPHA2 = {
   "585":"PW","586":"PK","591":"PA","598":"PG","600":"PY","604":"PE","608":"PH",
   "616":"PL","620":"PT","624":"GW","626":"TL","630":"PR","634":"QA","638":"RE",
   "642":"RO","643":"RU","646":"RW","659":"KN","662":"LC","670":"VC","674":"SM",
-  "678":"ST","682":"SA","686":"SN","690":"SC","694":"SL","702":"SG","703":"SK",
+  "678":"ST","682":"SA","686":"SN","688":"RS","690":"SC","694":"SL","702":"SG","703":"SK",
   "704":"VN","705":"SI","706":"SO","710":"ZA","716":"ZW","724":"ES","728":"SS",
   "729":"SD","732":"EH","740":"SR","748":"SZ","752":"SE","756":"CH","760":"SY",
   "762":"TJ","764":"TH","768":"TG","776":"TO","780":"TT","784":"AE","788":"TN",
   "792":"TR","795":"TM","798":"TV","800":"UG","804":"UA","818":"EG","826":"GB",
-  "834":"TZ","840":"US","858":"UY","860":"UZ","862":"VE","882":"WS","887":"YE",
+  "834":"TZ","840":"US","854":"BF","858":"UY","860":"UZ","862":"VE","882":"WS","887":"YE",
   "894":"ZM","383":"XK"
 };
 
@@ -108,8 +109,9 @@ export function renderGraph() {
     worldGeo.features.forEach(f => {
       const name = f.properties.name;
       if (!name) return;
-      const knownAlpha2 = ISO_NUMERIC_TO_ALPHA2[String(f.id)] || custom[name] || null;
-      const alpha2 = knownAlpha2 || String(f.id);
+      const normId = String(parseInt(f.id, 10));
+      const knownAlpha2 = ISO_NUMERIC_TO_ALPHA2[normId] || custom[name] || null;
+      const alpha2 = knownAlpha2 || normId;
       const nLow = name.toLowerCase();
       let node = state.nodes.find(n => n.id === alpha2 || n.code === alpha2 || (n.name && n.name.toLowerCase() === nLow) || (n.label && n.label.toLowerCase() === nLow));
       if (!node) {
@@ -118,7 +120,7 @@ export function renderGraph() {
         node = { id: alpha2, name: name, label: name, code: knownAlpha2, type: "country", region: "N/A", regime: "N/A", population: "N/A", gdp: "N/A", lon: centroid[0], lat: centroid[1] };
         state.nodes.push(node);
       }
-      numericToAlpha.set(String(f.id), node.id);
+      numericToAlpha.set(normId, node.id);
     });
   }
   const container = document.querySelector(".main");
@@ -229,17 +231,14 @@ export function renderGraph() {
           .style("cursor", "pointer")
           .style("opacity", 0);
 
-        g.append("circle")
-          .attr("r", 24)
-          .attr("fill", "rgba(255,255,255,0.06)")
-          .attr("stroke", "var(--node-stroke)")
-          .attr("stroke-width", 2);
-
-        // Dashed border for unrecognized states
-        g.filter(d => d.type === "unrecognized")
-          .select("circle")
-          .attr("stroke-dasharray", "4,2")
-          .attr("stroke", "rgba(255,200,50,0.8)");
+        // Circle only for text-fallback nodes (no ISO code)
+        g.filter((d) => !d.code || d.code.length !== 2)
+          .append("circle")
+          .attr("r", 20)
+          .attr("fill", "rgba(8,16,26,0.75)")
+          .attr("stroke", (d) => d.type === "unrecognized" ? "rgba(255,200,50,0.6)" : "none")
+          .attr("stroke-width", 1.5)
+          .attr("stroke-dasharray", (d) => d.type === "unrecognized" ? "4,2" : "0");
 
         // All countries with a 2-letter ISO code get their flag
         g.filter((d) => d.code && d.code.length === 2)
@@ -411,26 +410,29 @@ function renderTerritories(activeCodes, links, projectedByCode) {
     .data(worldGeo.features)
     .join("path")
     .attr("class", "map-country")
-    .classed("is-active", (d) => activeCodes.has(d.id))
-    .classed("is-conflict", (d) => codesInConflict.has(d.id))
+    .classed("is-active",   (d) => { const a = numericToAlpha.get(String(parseInt(d.id, 10))); return a && activeCodes.has(a); })
+    .classed("is-conflict", (d) => { const a = numericToAlpha.get(String(parseInt(d.id, 10))); return a && codesInConflict.has(a); })
+    .classed("is-focused",  (d) => { const a = numericToAlpha.get(String(parseInt(d.id, 10))); return a === state.focusId; })
     .attr("d", geoPath)
     .attr("fill", (d) => {
-      if (codesInConflict.has(d.id)) return "rgba(255, 89, 94, 0.12)";
-      if (activeCodes.has(d.id)) return "rgba(255, 209, 102, 0.08)";
+      const a = numericToAlpha.get(String(parseInt(d.id, 10)));
+      if (a && a === state.focusId)       return "rgba(96, 165, 250, 0.28)";
+      if (a && codesInConflict.has(a))    return "rgba(255, 89, 94, 0.12)";
+      if (a && activeCodes.has(a))        return "rgba(255, 209, 102, 0.08)";
       return "rgba(255,255,255,0.02)";
     })
     .style("cursor", "pointer")
     .on("mouseenter", function(event, d) {
-      const alpha2 = numericToAlpha.get(String(d.id));
+      const alpha2 = numericToAlpha.get(String(parseInt(d.id, 10)));
       if (alpha2) {
         const node = lastRenderCache && lastRenderCache.nodes.find(n => n.id === alpha2 || n.code === alpha2);
         if (node) {
           hoveredCountryId = node.id;
           d3.select(this).classed("is-hovered", true);
           nodeLayer.selectAll("g.country-node")
-            .filter(nd => nd.id === node.id)
+            .filter(nd => nd.id === node.id && nd.copyIndex === 0)
             .classed("is-hovered", true)
-            .style("opacity", 1); // Force show the icon on hover
+            .style("opacity", 1);
           const { linkSelection, nodeSelection, labelSelection, clusterSelection } = lastSelections || {};
           if (nodeSelection) updateInteractionStyles(linkSelection, nodeSelection, labelSelection, clusterSelection, lastRenderCache.nodes, lastRenderCache.links);
           window.dispatchEvent(new CustomEvent('tooltipShow', { detail: { node, links: lastRenderCache.links, event } }));
@@ -449,7 +451,7 @@ function renderTerritories(activeCodes, links, projectedByCode) {
       window.dispatchEvent(new CustomEvent('tooltipHide'));
     })
     .on("click", (event, d) => {
-      const alpha2 = numericToAlpha.get(String(d.id));
+      const alpha2 = numericToAlpha.get(String(parseInt(d.id, 10)));
       if (alpha2) {
         const node = lastRenderCache && lastRenderCache.nodes.find(n => n.id === alpha2 || n.code === alpha2);
         if (node) {
@@ -464,12 +466,11 @@ function renderTerritories(activeCodes, links, projectedByCode) {
 
 function highlightTerritory(code, on) {
   if (!code) return;
-  // find numeric id from alpha2
   const numericEntry = Object.entries(ISO_NUMERIC_TO_ALPHA2).find(([, v]) => v === code);
   if (!numericEntry) return;
-  const numericId = numericEntry[0];
-  territoryLayer.selectAll("g.territory-copy").selectAll("path")
-    .filter(d => String(d.id) === numericId)
+  const normNumericId = String(parseInt(numericEntry[0], 10));
+  territoryLayer.selectAll("path")
+    .filter(d => String(parseInt(d.id, 10)) === normNumericId)
     .classed("is-hovered", on);
 }
 
@@ -483,16 +484,13 @@ function createArcPath(source, target) {
 function applyZoomResponsiveStyles() {
   if (!state.transform) return;
   const k = state.transform.k;
-  const r = 22 / Math.sqrt(k);
+  const r = 24 / k;
   nodeLayer.selectAll("circle").attr("r", r);
   nodeLayer.selectAll("image")
     .attr("width", r * 1.9)
     .attr("height", r * 1.35)
     .attr("x", -r * 0.95)
     .attr("y", -r * 0.68);
-  labelLayer.selectAll("text")
-    .attr("font-size", `${11 / Math.sqrt(k)}px`)
-    .attr("dy", (r + 6));
 }
 
 function updateInteractionStyles(linkSel, nodeSel, labelSel, clusterSel, nodes, links) {
@@ -507,26 +505,26 @@ function updateInteractionStyles(linkSel, nodeSel, labelSel, clusterSel, nodes, 
     activeNodeIds.add(l.target.id);
   });
 
-  // Aucun scénario, aucun focus, aucun hover → drapeaux visibles en veille
+  labelSel.style("opacity", 0);
+
+  // Aucun scénario, aucun focus, aucun hover → tout masqué
   if (!state.activeScenario && !focus && !hover) {
-    nodeSel.style("opacity", (d) => d.copyIndex === 0 ? 0.72 : 0)
+    nodeSel.style("opacity", 0)
            .style("pointer-events", (d) => d.copyIndex === 0 ? "all" : "none")
            .classed("is-hovered", false);
-    labelSel.style("opacity", 0);
     linkSel.attr("opacity", 0);
     clusterSel.attr("opacity", 0);
     return;
   }
 
-  nodeSel.style("pointer-events", (d) => activeNodeIds.has(d.id) ? "all" : "none")
-         .classed("is-hovered", (d) => d.id === hover);
+  nodeSel.style("pointer-events", (d) => activeNodeIds.has(d.id) && d.copyIndex === 0 ? "all" : "none")
+         .classed("is-hovered", (d) => d.id === hover && d.copyIndex === 0);
 
   const activeId = hover || focus;
   if (!activeId) {
     // Scénario actif, pas de hover/focus
-    nodeSel.style("opacity", (d) => activeNodeIds.has(d.id) ? 1 : 0);
-    labelSel.style("opacity", (d) => activeNodeIds.has(d.id) ? 0.9 : 0);
-    linkSel.attr("opacity", 0.7);
+    nodeSel.style("opacity", (d) => activeNodeIds.has(d.id) && d.copyIndex === 0 ? 1 : 0);
+    linkSel.attr("opacity", (d) => d.copyIndex === 0 ? 0.7 : 0);
     clusterSel.attr("opacity", 0.38);
     return;
   }
@@ -539,9 +537,17 @@ function updateInteractionStyles(linkSel, nodeSel, labelSel, clusterSel, nodes, 
     directNeighbors.add(link.target.id);
   });
 
-  nodeSel.style("opacity", (d) => directNeighbors.has(d.id) ? 1 : (activeNodeIds.has(d.id) ? 0.12 : 0));
-  labelSel.style("opacity", (d) => directNeighbors.has(d.id) ? 1 : (activeNodeIds.has(d.id) ? 0.12 : 0));
-  linkSel.attr("opacity", (d) => activeLinks.has(d.id) ? 1 : (state.activeScenario ? 0.04 : 0));
+  nodeSel.style("opacity", (d) => {
+    if (d.copyIndex !== 0) return 0;
+    if (directNeighbors.has(d.id)) return 1;
+    if (activeNodeIds.has(d.id)) return 0.15;
+    return 0;
+  });
+  linkSel.attr("opacity", (d) => {
+    if (d.copyIndex !== 0) return 0;
+    if (activeLinks.has(d.id)) return 1;
+    return state.activeScenario ? 0.04 : 0;
+  });
 }
 
 export function updateMinimap() {
