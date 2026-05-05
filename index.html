@@ -23,6 +23,16 @@
     .map-country {
       stroke: #2a3f52;
       stroke-width: 0.5;
+      transition: fill 0.15s ease;
+    }
+    .map-country.is-hovered {
+      fill: rgba(148, 200, 255, 0.18) !important;
+      stroke: rgba(148, 200, 255, 0.5);
+    }
+    .map-country.is-focused {
+      fill: rgba(96, 165, 250, 0.28) !important;
+      stroke: rgba(96, 165, 250, 0.7);
+      stroke-width: 1;
     }
     .minimap-shell {
       position: absolute;
@@ -58,6 +68,31 @@
             <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
         </button>
+
+        <!-- Settings button (top-right) -->
+        <div class="settings-wrap" id="settingsWrap">
+          <button class="settings-btn" id="settingsBtn" aria-label="Paramètres">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+          </button>
+          <div class="settings-popup" id="settingsPopup" hidden>
+            <div class="settings-popup-header">Paramètres</div>
+            <div class="settings-item">
+              <span class="settings-item-label">Mode daltonien</span>
+              <div class="toggle-switch" id="colorblindToggle" role="switch" aria-checked="false"><div class="toggle-knob"></div></div>
+            </div>
+            <div class="settings-item">
+              <span class="settings-item-label">Mode clair</span>
+              <div class="toggle-switch" id="lightToggle" role="switch" aria-checked="false"><div class="toggle-knob"></div></div>
+            </div>
+            <div class="settings-divider"></div>
+            <button class="settings-action-btn" id="exportPng">Exporter PNG</button>
+            <button class="settings-action-btn" id="exportSvg">Exporter SVG</button>
+            <button class="settings-action-btn" id="copyLink">Copier le lien</button>
+          </div>
+        </div>
 
         <!-- Backdrop (closes sidebar on outside click) -->
         <div class="ls-backdrop" id="lsBackdrop" aria-hidden="true"></div>

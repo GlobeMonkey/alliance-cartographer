@@ -162,8 +162,82 @@ function renderScenariosList(scenarios) {
   });
 }
 
+// ── Settings popup ──
+function setupSettings() {
+  const settingsBtn   = document.getElementById('settingsBtn');
+  const settingsPopup = document.getElementById('settingsPopup');
+  if (!settingsBtn || !settingsPopup) return;
+
+  settingsBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    settingsPopup.hasAttribute('hidden')
+      ? settingsPopup.removeAttribute('hidden')
+      : settingsPopup.setAttribute('hidden', '');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!settingsPopup.contains(e.target) && e.target !== settingsBtn)
+      settingsPopup.setAttribute('hidden', '');
+  });
+
+  document.getElementById('colorblindToggle')?.addEventListener('click', function() {
+    state.colorblindMode = !state.colorblindMode;
+    this.classList.toggle('active', state.colorblindMode);
+    this.setAttribute('aria-checked', String(state.colorblindMode));
+    renderGraph();
+  });
+
+  document.getElementById('lightToggle')?.addEventListener('click', function() {
+    const on = document.body.classList.toggle('light-mode');
+    this.classList.toggle('active', on);
+    this.setAttribute('aria-checked', String(on));
+  });
+
+  document.getElementById('exportSvg')?.addEventListener('click', () => {
+    const svgEl = document.getElementById('graph');
+    const svgStr = '<?xml version="1.0" encoding="UTF-8"?>\n' + new XMLSerializer().serializeToString(svgEl);
+    Object.assign(document.createElement('a'), {
+      href: URL.createObjectURL(new Blob([svgStr], { type: 'image/svg+xml' })),
+      download: 'alliance-map.svg'
+    }).click();
+  });
+
+  document.getElementById('exportPng')?.addEventListener('click', () => {
+    const svgEl = document.getElementById('graph');
+    const [w, h] = [svgEl.clientWidth, svgEl.clientHeight];
+    const url = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(svgEl)], { type: 'image/svg+xml;charset=utf-8' }));
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      [canvas.width, canvas.height] = [w, h];
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#0d1117';
+      ctx.fillRect(0, 0, w, h);
+      try {
+        ctx.drawImage(img, 0, 0);
+        Object.assign(document.createElement('a'), {
+          href: canvas.toDataURL('image/png'),
+          download: 'alliance-map.png'
+        }).click();
+      } catch {
+        alert('Export PNG : images cross-origin bloquées. Utilisez Export SVG.');
+      }
+      URL.revokeObjectURL(url);
+    };
+    img.src = url;
+  });
+
+  document.getElementById('copyLink')?.addEventListener('click', async function() {
+    await navigator.clipboard.writeText(window.location.href);
+    const orig = this.textContent;
+    this.textContent = 'Copié !';
+    setTimeout(() => { this.textContent = orig; }, 2000);
+  });
+}
+
 // ── Init ──
 async function init() {
+  setupSettings();
   sidebarToggle?.addEventListener('click', openSidebar);
   lsClose?.addEventListener('click', closeSidebar);
   lsBackdrop?.addEventListener('click', closeSidebar);
