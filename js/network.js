@@ -143,7 +143,7 @@ export function renderNetwork() {
     .attr('href', d => getFlagUrl(d.code))
     .attr('x', -NODE_RADIUS + 2).attr('y', -NODE_RADIUS + 2)
     .attr('width', (NODE_RADIUS - 2) * 2).attr('height', (NODE_RADIUS - 2) * 2)
-    .attr('clip-path', d => `url(#clip-net-${d.id})`)
+    .style('clip-path', d => `url(#clip-net-${d.id})`)
     .attr('preserveAspectRatio', 'xMidYMid slice')
     .on('error', function(event, d) {
       d3.select(this).remove();
