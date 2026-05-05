@@ -1,5 +1,6 @@
-import { initGraph, renderGraph } from './render.js';
+import { initGraph, renderGraph, zoomToNode } from './render.js';
 import { loadData } from './data-loader.js';
+import { initSidePanel } from './side-panel/index.js';
 
 // ── ISO 3166-1 alpha-3 → alpha-2 ──
 const CCA3_TO_CCA2 = {
@@ -72,12 +73,17 @@ const fmt = {
 // ── Helpers ──
 const getFlagUrl = (cca3) => {
   const alpha2 = CCA3_TO_CCA2[cca3] || '';
-  return `https://flagcdn.com/w80/${alpha2.toLowerCase()}.png`;
+  return alpha2 ? `https://flagcdn.com/w80/${alpha2.toLowerCase()}.png` : '';
 };
 
 // ── Initialize App ──
 async function init() {
   setupEventListeners();
+
+  initSidePanel({
+    onCenter: (node) => zoomToNode(node.id),
+    onClose:  () => renderGraph(),
+  });
 
   // Init map immediately — does not block the country grid
   initGraph();

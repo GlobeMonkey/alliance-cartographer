@@ -90,12 +90,14 @@ export function renderGraph() {
     worldGeo.features.forEach(f => {
       const name = f.properties.name;
       if (!name) return;
-      const alpha2 = ISO_NUMERIC_TO_ALPHA2[String(f.id)] || custom[name] || String(f.id);
+      const knownAlpha2 = ISO_NUMERIC_TO_ALPHA2[String(f.id)] || custom[name] || null;
+      const alpha2 = knownAlpha2 || String(f.id);
       const nLow = name.toLowerCase();
       let node = state.nodes.find(n => n.id === alpha2 || n.code === alpha2 || (n.name && n.name.toLowerCase() === nLow) || (n.label && n.label.toLowerCase() === nLow));
       if (!node) {
         const centroid = d3.geoCentroid(f);
-        node = { id: alpha2, name: name, label: name, code: alpha2.length === 2 ? alpha2 : null, type: "country", region: "N/A", regime: "N/A", population: "N/A", gdp: "N/A", lon: centroid[0], lat: centroid[1] };
+        // code only set when alpha-2 comes from a verified lookup — avoids requesting flags for non-ISO string IDs
+        node = { id: alpha2, name: name, label: name, code: knownAlpha2, type: "country", region: "N/A", regime: "N/A", population: "N/A", gdp: "N/A", lon: centroid[0], lat: centroid[1] };
         state.nodes.push(node);
       }
       numericToAlpha.set(String(f.id), node.id);
@@ -163,7 +165,15 @@ export function renderGraph() {
     .attr("stroke-dasharray", (d) => RELATION_TYPES[d.type] ? RELATION_TYPES[d.type].dash : "0")
     .attr("stroke-linecap", "round")
     .attr("fill", "none")
-    .classed("is-conflict-active", (d) => d.type === "conflict" || d.type === "rivalry");
+    .classed("is-conflict-active", (d) => d.type === "conflict" || d.type === "rivalry")
+    .style("cursor", "pointer")
+    .on("click", (event, d) => {
+      if (d.copyIndex !== 0) return; // only handle primary copy
+      event.stopPropagation();
+      state.focusId = null;
+      state.infoId = null;
+      window.dispatchEvent(new CustomEvent('edgeSelected', { detail: d }));
+    });
 
   const clusterSelection = clusterLayer.selectAll("circle")
     .data(clusterData, d => d.memberIds.join("-"))
@@ -223,8 +233,9 @@ export function renderGraph() {
           .attr("clip-path", "inset(0 round 10px)")
           .style("filter", (d) => d.type === "unrecognized" ? "grayscale(0.5) opacity(0.75)" : null)
           .on("error", function(event, d) {
+            const parent = this.parentNode;
             d3.select(this).remove();
-            d3.select(this.parentNode).append("text")
+            d3.select(parent).append("text")
               .attr("text-anchor", "middle").attr("dy", 5).attr("font-size", 10)
               .attr("fill", "var(--text)")
               .text((d.name || d.id || "").slice(0, 3).toUpperCase());
@@ -468,9 +479,11 @@ function updateInteractionStyles(linkSel, nodeSel, labelSel, clusterSel, nodes, 
     activeNodeIds.add(l.target.id);
   });
 
-  // Si aucun scénario actif, aucun focus, aucun hover => tout cacher
+  // Aucun scénario, aucun focus, aucun hover → drapeaux visibles en veille
   if (!state.activeScenario && !focus && !hover) {
-    nodeSel.style("opacity", 0).style("pointer-events", "none").classed("is-hovered", false);
+    nodeSel.style("opacity", (d) => d.copyIndex === 0 ? 0.72 : 0)
+           .style("pointer-events", (d) => d.copyIndex === 0 ? "all" : "none")
+           .classed("is-hovered", false);
     labelSel.style("opacity", 0);
     linkSel.attr("opacity", 0);
     clusterSel.attr("opacity", 0);
