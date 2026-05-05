@@ -8,14 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/side-panel.css">
+  <link rel="stylesheet" href="./css/layout.css">
   <style>
-    .canvas-shell {
-      flex: 2;
-      min-height: 0;
-      position: relative;
-      overflow: hidden;
-      background: var(--bg, #0d1117);
-    }
     .canvas-shell svg#graph {
       display: block;
       width: 100%;
@@ -51,74 +45,105 @@
 </head>
 <body>
   <div class="app-layout">
-    <!-- Header -->
-    <header class="app-header">
-      <div class="header-brand">
-        <div class="brand-logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-          </svg>
-        </div>
-        <h1 class="brand-title">Alliance Cartographer</h1>
-      </div>
-      
-      <div class="header-search">
-        <div class="search-input-wrapper">
-          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input type="text" id="searchInput" class="search-input" placeholder="Rechercher un pays (ex: France, Japon...)">
-          <button id="clearSearch" class="clear-search" aria-label="Effacer la recherche" hidden>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <!-- Main Content -->
     <main class="app-main">
-      <!-- Cards Grid Section -->
-      <section class="countries-section">
-        <div class="section-header">
-          <h2 class="section-title">Nations (<span id="countriesCount">0</span>)</h2>
-        </div>
-        <div class="countries-grid" id="countriesGrid">
-          <!-- Loading State -->
-          <div class="loading-state">
-            <div class="spinner"></div>
-            <p>Chargement des données géopolitiques...</p>
-          </div>
-        </div>
-      </section>
 
-      <!-- Map Canvas -->
+      <!-- Full-screen map canvas -->
       <div class="canvas-shell main">
+
+        <!-- Sidebar toggle (top-left) -->
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <!-- Backdrop (closes sidebar on outside click) -->
+        <div class="ls-backdrop" id="lsBackdrop" aria-hidden="true"></div>
+
+        <!-- Left sidebar -->
+        <aside class="left-sidebar ls-hidden" id="leftSidebar" aria-hidden="true">
+
+          <div class="ls-header">
+            <div class="ls-brand">
+              <div class="ls-brand-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                </svg>
+              </div>
+              <span class="ls-brand-title">Alliance Cartographer</span>
+            </div>
+            <button class="ls-close" id="lsClose" aria-label="Fermer le menu">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Search -->
+          <div class="ls-search-wrap">
+            <input
+              type="text"
+              id="lsSearch"
+              class="ls-search"
+              placeholder="Rechercher un pays…"
+              autocomplete="off"
+              spellcheck="false"
+            >
+          </div>
+
+          <!-- Scrollable body -->
+          <div class="ls-body">
+
+            <!-- Nations section (open by default) -->
+            <div class="ls-section">
+              <button class="ls-section-btn" id="lsNationsBtn" aria-expanded="true">
+                <span>Nations</span>
+                <svg class="ls-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="ls-section-content" id="lsNationsContent">
+                <div id="lsCountryList">
+                  <div class="ls-empty">Chargement…</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Scénarios section (collapsed by default) -->
+            <div class="ls-section">
+              <button class="ls-section-btn" id="lsScenariosBtn" aria-expanded="false">
+                <span>Scénarios</span>
+                <svg class="ls-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="ls-section-content ls-collapsed" id="lsScenariosContent">
+                <div id="lsScenariosList">
+                  <div class="ls-empty">Chargement…</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
+        <!-- Map SVG -->
         <svg id="graph" width="100%" height="100%"></svg>
+
+        <!-- Minimap -->
         <div class="minimap-shell">
           <svg id="minimap" width="100%" height="100%"></svg>
         </div>
-        <!-- Map SidePanel: shown on node/edge click -->
-        <div id="sidePanel" class="side-panel sp-hidden"></div>
-      </div>
 
-      <!-- Side Detail Panel -->
-      <aside class="detail-panel hidden" id="detailPanel">
-        <button class="close-panel-btn" id="closePanelBtn" aria-label="Fermer le panneau">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-        
-        <div class="panel-content" id="panelContent">
-          <!-- The country details will be injected here via JS -->
-        </div>
-      </aside>
+        <!-- Right side panel (node / edge details) -->
+        <div id="sidePanel" class="side-panel sp-hidden"></div>
+
+      </div>
     </main>
   </div>
 
