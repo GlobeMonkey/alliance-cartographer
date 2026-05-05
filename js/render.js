@@ -74,8 +74,14 @@ export function initGraph() {
       // Infinite horizontal panning modulo
       if (worldWrapWidth && t.k) {
         const period = worldWrapWidth * t.k;
-        if (t.x > period / 2) t.x -= period;
-        else if (t.x < -period / 2) t.x += period;
+        let shift = 0;
+        if (t.x > period / 2) shift = -period;
+        else if (t.x < -period / 2) shift = period;
+
+        if (shift !== 0) {
+          t.x += shift;
+          if (svg && svg.node() && svg.node().__zoom) svg.node().__zoom.x += shift;
+        }
       }
       state.transform = t;
       mainLayer.attr("transform", t);
@@ -241,7 +247,7 @@ export function renderGraph() {
           .attr("x", -21).attr("y", -15)
           .attr("width", 42).attr("height", 30)
           .attr("preserveAspectRatio", "xMidYMid slice")
-          .attr("clip-path", "inset(0 round 10px)")
+          .style("clip-path", "inset(0 round 10px)")
           .style("filter", (d) => d.type === "unrecognized" ? "grayscale(0.5) opacity(0.75)" : null)
           .on("error", function(event, d) {
             const parent = this.parentNode;
@@ -371,7 +377,12 @@ function computeClusters(links) {
 
 function renderBaseMap() {
   if (!worldGeo) return;
-  mapLayer.selectAll("path")
+  mapLayer.selectAll("g.map-copy")
+    .data([-1, 0, 1])
+    .join("g")
+    .attr("class", "map-copy")
+    .attr("transform", d => `translate(${d * worldWrapWidth}, 0)`)
+    .selectAll("path")
     .data(worldGeo.features)
     .join("path")
     .attr("class", "map-land")
@@ -390,7 +401,12 @@ function renderTerritories(activeCodes, links, projectedByCode) {
   // Build set of active country node ids for territory mapping
   const activeNodeIds = new Set(lastRenderCache ? lastRenderCache.nodes.map(n => n.id) : []);
 
-  territoryLayer.selectAll("path")
+  territoryLayer.selectAll("g.territory-copy")
+    .data([-1, 0, 1])
+    .join("g")
+    .attr("class", "territory-copy")
+    .attr("transform", d => `translate(${d * worldWrapWidth}, 0)`)
+    .selectAll("path")
     .data(worldGeo.features)
     .join("path")
     .attr("class", "map-country")
