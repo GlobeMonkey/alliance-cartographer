@@ -1,0 +1,349 @@
+/* ── SIDE PANEL (Map interaction overlay) ── */
+.side-panel {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  bottom: 140px; /* above minimap */
+  width: 320px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: -2px 4px 32px rgba(0, 0, 0, 0.45);
+  z-index: 30;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.side-panel.sp-hidden {
+  transform: translateX(calc(100% + 32px));
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Header ── */
+.sp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-color);
+  gap: 8px;
+  flex-shrink: 0;
+  background: var(--bg-surface);
+}
+
+.sp-header-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.sp-flag {
+  width: 38px;
+  height: 26px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid var(--border-color);
+  flex-shrink: 0;
+  background: var(--bg-main);
+}
+
+.sp-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.sp-close-btn {
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.sp-close-btn:hover {
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+.sp-close-btn svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* ── Body (scrollable) ── */
+.sp-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ── Section ── */
+.sp-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sp-section-title {
+  font-size: 0.69rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 6px;
+}
+
+/* ── Attribute rows ── */
+.sp-attrs {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.sp-attr-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.sp-attr-label {
+  font-size: 0.77rem;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.sp-attr-value {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: right;
+  min-width: 0;
+  word-break: break-word;
+}
+
+/* ── Type badge ── */
+.sp-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 9px;
+  border-radius: 99px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  border: 1px solid currentColor;
+}
+
+.sp-badge--alliance    { color: #58a6ff; background: rgba(88, 166, 255, 0.12); }
+.sp-badge--partnership { color: #3fb950; background: rgba(63, 185, 80, 0.12); }
+.sp-badge--neutral     { color: #8b949e; background: rgba(139, 148, 158, 0.12); }
+.sp-badge--rivalry     { color: #f0883e; background: rgba(240, 136, 62, 0.12); }
+.sp-badge--conflict    { color: #f85149; background: rgba(248, 81, 73, 0.12); }
+
+/* ── Tag list ── */
+.sp-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.sp-tag {
+  background: var(--bg-surface-hover);
+  border: 1px solid var(--border-color);
+  padding: 2px 9px;
+  border-radius: 99px;
+  font-size: 0.7rem;
+  color: var(--text-primary);
+}
+
+/* ── Edge route (source → target) ── */
+.sp-edge-route {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 9px 11px;
+}
+
+.sp-edge-node {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  flex: 1;
+}
+
+.sp-edge-node-flag {
+  width: 26px;
+  height: 18px;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+  flex-shrink: 0;
+  background: var(--bg-main);
+}
+
+.sp-edge-node-name {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sp-edge-arrow {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  padding: 0 2px;
+}
+
+/* ── Intensity bar ── */
+.sp-intensity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.sp-intensity-track {
+  flex: 1;
+  height: 5px;
+  background: var(--bg-main);
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.sp-intensity-bar {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+
+.sp-intensity-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex-shrink: 0;
+  min-width: 26px;
+}
+
+/* ── Action buttons ── */
+.sp-actions {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  padding-top: 2px;
+}
+
+.sp-btn {
+  flex: 1;
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+  transition: var(--transition);
+  white-space: nowrap;
+  text-align: center;
+  min-width: 0;
+}
+
+.sp-btn:hover {
+  background: var(--bg-main);
+  border-color: var(--text-secondary);
+}
+
+.sp-btn--primary {
+  background: var(--accent-muted);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.sp-btn--primary:hover {
+  background: rgba(88, 166, 255, 0.25);
+}
+
+.sp-btn--danger {
+  background: rgba(248, 81, 73, 0.08);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.sp-btn--danger:hover {
+  background: rgba(248, 81, 73, 0.18);
+}
+
+/* ── Default state (nothing selected) ── */
+.sp-default {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+  padding: 40px 20px;
+  flex: 1;
+  color: var(--text-secondary);
+}
+
+.sp-default svg {
+  opacity: 0.35;
+}
+
+.sp-default p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* ── Responsive: mobile bottom sheet ── */
+@media (max-width: 900px) {
+  .side-panel {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 300px;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .side-panel.sp-hidden {
+    transform: translateY(100%);
+  }
+}
