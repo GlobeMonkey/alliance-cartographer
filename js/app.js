@@ -97,21 +97,43 @@ function toggleSection(btn, content) {
   content.classList.toggle('ls-collapsed', open);
 }
 
+// Build entries for unrecognized states from world.json (no cca3 lookup, use node id directly)
+function getUnrecognizedListEntries(filterText) {
+  const q = (filterText || '').toLowerCase().trim();
+  return state.nodes
+    .filter(n => n.type === 'unrecognized')
+    .filter(n => !q || (n.name || '').toLowerCase().includes(q) || (n.id || '').toLowerCase().includes(q))
+    .map(n => ({
+      id: n.id,                       // node id, used as alpha-2 in state
+      nom_officiel: n.name || n.label || n.id,
+      _unrecognized: true
+    }))
+    .sort((a, b) => (a.nom_officiel || '').localeCompare(b.nom_officiel || '', 'fr'));
+}
+
 // ── Country list ──
 function renderCountryList() {
   if (!lsCountryList) return;
-  if (!filteredCountries.length) {
+  const unrecogEntries = getUnrecognizedListEntries(lsSearch?.value);
+  // Drop countries.json entries whose alpha-2 is already covered by an unrecognized node
+  // (so the entry from world.json — proper French label, italic styling — wins)
+  const unrecogAlpha2 = new Set(unrecogEntries.map(e => e.id));
+  const standard = filteredCountries.filter(c => !unrecogAlpha2.has((CCA3_TO_CCA2[c.id] || '').toUpperCase()));
+  const all = [...standard, ...unrecogEntries];
+  if (!all.length) {
     lsCountryList.innerHTML = '<div class="ls-empty">Aucun résultat</div>';
     return;
   }
-  lsCountryList.innerHTML = filteredCountries.map(c => {
-    const url    = flagUrl(c.id);
-    const a2     = (CCA3_TO_CCA2[c.id] || '').toUpperCase();
+  lsCountryList.innerHTML = all.map(c => {
+    const isUnrecog = !!c._unrecognized;
+    const a2     = isUnrecog ? c.id : (CCA3_TO_CCA2[c.id] || '').toUpperCase();
+    const url    = isUnrecog ? getFlagUrl(c.id) : flagUrl(c.id);
     const active = a2 && a2 === activeAlpha2;
-    return `<div class="ls-country-item${active ? ' ls-active' : ''}" data-cca3="${c.id}" data-alpha2="${a2}">
-      ${url
-        ? `<img class="ls-flag" src="${url}" alt="" loading="lazy" onerror="this.style.display='none'">`
-        : '<div class="ls-flag-ph"></div>'}
+    const flag = url
+      ? `<img class="ls-flag" src="${url}" alt="" loading="lazy" onerror="this.style.display='none'">`
+      : '<div class="ls-flag-ph"></div>';
+    return `<div class="ls-country-item${active ? ' ls-active' : ''}${isUnrecog ? ' ls-unrecognized' : ''}" data-cca3="${c.id}" data-alpha2="${a2}">
+      ${flag}
       <span class="ls-country-name">${c.nom_officiel || c.id}</span>
     </div>`;
   }).join('');

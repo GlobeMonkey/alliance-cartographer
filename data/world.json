@@ -490,7 +490,7 @@
     },
     {
       "id": "IS",
-      "label": "IS",
+      "label": "Islande",
       "type": "country",
       "region": "Atlantique Nord",
       "regime": "Republique parlementaire",
@@ -498,7 +498,7 @@
       "gdp": "30 Md$",
       "lon": -21.9426,
       "lat": 64.1466,
-      "name": "IS"
+      "name": "Islande"
     },
     {
       "id": "LV",
@@ -526,7 +526,7 @@
     },
     {
       "id": "LU",
-      "label": "LU",
+      "label": "Luxembourg",
       "type": "country",
       "region": "Europe",
       "regime": "Monarchie constitutionnelle",
@@ -534,7 +534,7 @@
       "gdp": "90 Md$",
       "lon": 6.1319,
       "lat": 49.6116,
-      "name": "LU"
+      "name": "Luxembourg"
     },
     {
       "id": "ME",
@@ -622,7 +622,7 @@
     },
     {
       "id": "SI",
-      "label": "SI",
+      "label": "Slovénie",
       "type": "country",
       "region": "Europe centrale",
       "regime": "Republique parlementaire",
@@ -630,7 +630,7 @@
       "gdp": "70 Md$",
       "lon": 14.5058,
       "lat": 46.0569,
-      "name": "SI"
+      "name": "Slovénie"
     },
     {
       "id": "SE",
@@ -945,7 +945,8 @@
       "name": "Kosovo"
     },
     {
-      "id": "TRNC",
+      "id": "XNC",
+      "iso": null,
       "label": "Rep. turque de Chypre du Nord",
       "type": "unrecognized",
       "region": "Mediterranee",
@@ -979,6 +980,31 @@
       "lon": 41.026,
       "lat": 43,
       "name": "Abkhazie"
+    },
+    {
+      "id": "EH",
+      "label": "Sahara occidental",
+      "type": "unrecognized",
+      "region": "Afrique du Nord",
+      "regime": "Territoire contesté (revendiqué par le Maroc)",
+      "population": "0.58 M",
+      "gdp": "2.5 Md$",
+      "lon": -13.0,
+      "lat": 24.0,
+      "name": "Sahara occidental"
+    },
+    {
+      "id": "XRJ",
+      "iso": null,
+      "label": "Rojava / Kurdistan syrien",
+      "type": "unrecognized",
+      "region": "Moyen-Orient",
+      "regime": "Administration autonome (non reconnue)",
+      "population": "4 M",
+      "gdp": "N/A",
+      "lon": 40.3,
+      "lat": 37.0,
+      "name": "Rojava / Kurdistan syrien"
     }
   ],
   "edges": [

@@ -10,8 +10,18 @@ export function clamp(value, min, max) {
   return Math.max(min, Math.min(max, value));
 }
 
+// Local flag SVGs for territories without an official ISO 3166-1 code.
+// IDs follow the X-prefix convention (ISO-reserved private use range).
+const CUSTOM_FLAG_URLS = {
+  "XNC": "./flags/XNC.svg",   // Turkish Republic of Northern Cyprus
+  "XRJ": "./flags/XRJ.svg",   // Rojava / AANES
+};
+
 export function getFlagUrl(code) {
-  return code ? `https://flagcdn.com/w80/${code.toLowerCase()}.png` : "";
+  if (!code) return "";
+  const upper = String(code).toUpperCase();
+  if (CUSTOM_FLAG_URLS[upper]) return CUSTOM_FLAG_URLS[upper];
+  return `https://flagcdn.com/w80/${upper.toLowerCase()}.png`;
 }
 
 export function wrapNumber(value, size) {

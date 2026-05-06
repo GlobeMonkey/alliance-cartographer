@@ -34,6 +34,20 @@
       stroke: rgba(96, 165, 250, 0.7);
       stroke-width: 1;
     }
+    /* Annexed/de-facto controlled territories merge visually into parent state */
+    .map-land.is-unrecognized-border {
+      stroke: none;
+    }
+    .map-country.is-unrecognized-border {
+      stroke: none !important;
+    }
+    /* When selected, dotted border indicates non-recognized status */
+    .map-country.is-unrecognized-focused {
+      fill: rgba(96, 165, 250, 0.18) !important;
+      stroke: rgba(96, 165, 250, 0.85) !important;
+      stroke-width: 1.4 !important;
+      stroke-dasharray: 5 4 !important;
+    }
     .minimap-shell {
       position: absolute;
       bottom: 16px;
@@ -242,6 +256,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
-  <script src="./js/app.js" type="module"></script>
+  <script src="./js/app.js?v=2" type="module"></script>
 </body>
 </html>

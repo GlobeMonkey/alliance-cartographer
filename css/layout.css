@@ -264,6 +264,18 @@
   border-left-color: var(--accent);
 }
 
+.ls-country-item.ls-unrecognized .ls-country-name {
+  font-style: italic;
+  color: var(--text-secondary, #94a3b8);
+}
+
+.ls-country-item.ls-unrecognized .ls-flag,
+.ls-country-item.ls-unrecognized .ls-flag-ph {
+  border-style: dashed;
+  border-color: rgba(255, 200, 50, 0.55);
+  opacity: 0.85;
+}
+
 .ls-flag {
   width: 28px;
   height: 18px;

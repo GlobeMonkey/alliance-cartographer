@@ -20,8 +20,8 @@ const CLOSE_ICON = `
   </svg>`;
 
 export function renderNodeDetail(container, node, callbacks) {
-  const { onEdit, onDelete, onCenter, onClose } = callbacks || {};
-  const flagUrl = node.code ? getFlagUrl(node.code) : '';
+  const { onCenter, onClose } = callbacks || {};
+  const flagUrl = getFlagUrl(node.code || node.id);
 
   container.innerHTML = `
     <div class="sp-header">
@@ -76,8 +76,6 @@ export function renderNodeDetail(container, node, callbacks) {
       </div>
       <div class="sp-actions">
         <button class="sp-btn sp-btn--primary" data-action="center">Centrer</button>
-        <button class="sp-btn" data-action="edit">Modifier</button>
-        <button class="sp-btn sp-btn--danger" data-action="delete">Supprimer</button>
       </div>
     </div>
   `;
@@ -87,12 +85,4 @@ export function renderNodeDetail(container, node, callbacks) {
 
   container.querySelector('[data-action="center"]')
     ?.addEventListener('click', () => onCenter?.(node));
-
-  container.querySelector('[data-action="edit"]')
-    ?.addEventListener('click', () => onEdit?.(node));
-
-  container.querySelector('[data-action="delete"]')
-    ?.addEventListener('click', () => {
-      if (confirm(`Supprimer ${node.name || node.id} ?`)) onDelete?.(node);
-    });
 }

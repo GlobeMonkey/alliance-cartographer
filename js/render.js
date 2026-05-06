@@ -246,8 +246,13 @@ export function renderGraph() {
           .style("cursor", "pointer")
           .style("opacity", 0);
 
-        // Circle only for text-fallback nodes (no ISO code)
-        g.filter((d) => !d.code || d.code.length !== 2)
+        // A flag URL exists when either a 2-letter ISO code is set, or the id has
+        // a custom local SVG flag (X-prefix codes like XNC, XRJ).
+        const flagFor = (d) => getFlagUrl(d.code || d.id);
+        const hasFlag = (d) => !!flagFor(d);
+
+        // Circle + text fallback for nodes without any resolvable flag
+        g.filter((d) => !hasFlag(d))
           .append("circle")
           .attr("r", 20)
           .attr("fill", "rgba(8,16,26,0.75)")
@@ -255,10 +260,10 @@ export function renderGraph() {
           .attr("stroke-width", 1.5)
           .attr("stroke-dasharray", (d) => d.type === "unrecognized" ? "4,2" : "0");
 
-        // All countries with a 2-letter ISO code get their flag
-        g.filter((d) => d.code && d.code.length === 2)
+        // Flag image for nodes with a resolvable flag (ISO or custom)
+        g.filter(hasFlag)
           .append("image")
-          .attr("href", (d) => getFlagUrl(d.code))
+          .attr("href", flagFor)
           .attr("x", -21).attr("y", -15)
           .attr("width", 42).attr("height", 30)
           .attr("preserveAspectRatio", "xMidYMid slice")
@@ -273,8 +278,8 @@ export function renderGraph() {
               .text((d.name || d.id || "").slice(0, 3).toUpperCase());
           });
 
-        // Fallback text for entities without ISO code
-        g.filter((d) => !d.code || d.code.length !== 2)
+        // Fallback text for entities without a flag
+        g.filter((d) => !hasFlag(d))
           .append("text")
           .attr("text-anchor", "middle").attr("dy", 5).attr("font-size", 10)
           .attr("fill", "var(--text)")
@@ -398,6 +403,10 @@ function computeClusters(links) {
   return Array.from(groups.values()).filter((g) => g.length > 2);
 }
 
+// Territories visually merged into their parent state by default (annexed/de-facto controlled).
+// When focused, these show a dotted border to indicate their non-recognized status.
+const UNRECOGNIZED_TERRITORY_CODES = new Set(["EH"]);
+
 function renderBaseMap() {
   if (!worldGeo) return;
   mapLayer.selectAll("g.map-copy")
@@ -409,6 +418,11 @@ function renderBaseMap() {
     .data(worldGeo.features)
     .join("path")
     .attr("class", "map-land")
+    .classed("is-unrecognized-border", d => {
+      if (d.id == null) return false;
+      const a = numericToAlpha.get(String(parseInt(d.id, 10)));
+      return UNRECOGNIZED_TERRITORY_CODES.has(a) && a !== state.focusId;
+    })
     .attr("d", geoPath);
 }
 
@@ -437,9 +451,21 @@ function renderTerritories(activeCodes, links, projectedByCode, nodes) {
     .classed("is-active",   (d) => { const a = numericToAlpha.get(String(parseInt(d.id, 10))); return a && activeCodes.has(a); })
     .classed("is-conflict", (d) => { const a = numericToAlpha.get(String(parseInt(d.id, 10))); return a && codesInConflict.has(a); })
     .classed("is-focused",  (d) => { const a = numericToAlpha.get(String(parseInt(d.id, 10))); return a === state.focusId; })
+    .classed("is-unrecognized-border", (d) => {
+      if (d.id == null) return false;
+      const a = numericToAlpha.get(String(parseInt(d.id, 10)));
+      return UNRECOGNIZED_TERRITORY_CODES.has(a) && a !== state.focusId;
+    })
+    .classed("is-unrecognized-focused", (d) => {
+      if (d.id == null) return false;
+      const a = numericToAlpha.get(String(parseInt(d.id, 10)));
+      return UNRECOGNIZED_TERRITORY_CODES.has(a) && a === state.focusId;
+    })
     .attr("d", geoPath)
     .attr("fill", (d) => {
       const a = numericToAlpha.get(String(parseInt(d.id, 10)));
+      // Unrecognized territories are invisible (merged into surrounding country) unless focused
+      if (a && UNRECOGNIZED_TERRITORY_CODES.has(a) && a !== state.focusId) return "rgba(0,0,0,0)";
       if (heatmapMap && a) {
         const col = heatmapMap.get(a);
         if (col) return col;
