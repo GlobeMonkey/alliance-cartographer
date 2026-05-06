@@ -7,8 +7,9 @@ export let loadError = null;
 export async function loadData() {
   loadError = null;
   try {
+    const bust = `?v=${Date.now()}`;
     const [worldRes, topoRes] = await Promise.all([
-      fetch('./data/world.json'),
+      fetch(`./data/world.json${bust}`),
       fetch('./data/countries-110m.json')
     ]);
 
