@@ -1,10 +1,10 @@
-import { initGraph, renderGraph, zoomToNode, initAllianceLayer, setAllianceData, toggleAllianceVisibility, setAllyHighlights, clearAllyHighlights } from './render.js';
+import { initGraph, renderGraph, zoomToNode, initAllianceLayer, setAllianceData, toggleAllianceVisibility, setAllyHighlights, clearAllyHighlights, setRelationsData, showRelationArcs, toggleRelationType, highlightCountryRelations, clearRelationHighlights } from './render.js';
 import { loadData } from './data-loader.js';
 import { initSidePanel } from './side-panel/index.js';
 import { state } from './store.js';
 import { t, applyLang } from './i18n.js';
 import { getFlagUrl } from './utils.js';
-import { loadAlliances, getAlliancesByCountry } from './network.js';
+import { loadAlliances, getAlliancesByCountry, loadRelations, getRelationsByCountry } from './network.js';
 
 // ── ISO 3166-1 alpha-3 → alpha-2 ──
 const CCA3_TO_CCA2 = {
@@ -61,6 +61,7 @@ let allCountries    = [];
 let filteredCountries = [];
 let activeAlpha2    = null;
 let allianceData    = null;
+let relationsData   = null;
 
 // ── DOM refs ──
 const sidebarToggle     = document.getElementById('sidebarToggle');
@@ -286,6 +287,56 @@ function setupAlliancePanel(data) {
   panel.removeAttribute('hidden');
 }
 
+const REL_TYPES = [
+  { id: 'ally',    label: 'Allié',      emoji: '🤝' },
+  { id: 'partner', label: 'Partenaire', emoji: '🫱' },
+  { id: 'neutral', label: 'Neutre',     emoji: '➖' },
+  { id: 'rival',   label: 'Rival',      emoji: '⚡' },
+  { id: 'conflict',label: 'Conflit',    emoji: '⚔️' },
+];
+
+function setupRelationsPanel() {
+  const list = document.getElementById('alliancePanelList');
+  if (!list) return;
+
+  const divider = document.createElement('div');
+  divider.className = 'alliance-panel-divider';
+  list.appendChild(divider);
+
+  const title = document.createElement('div');
+  title.className = 'alliance-panel-title';
+  title.textContent = 'Relations diplomatiques';
+  list.appendChild(title);
+
+  for (const rt of REL_TYPES) {
+    const row = document.createElement('label');
+    row.className = 'alliance-checkbox-row';
+
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.dataset.reltype = rt.id;
+    cb.addEventListener('change', () => {
+      toggleRelationType(rt.id, cb.checked);
+    });
+
+    const emoji = document.createElement('span');
+    emoji.className = 'alliance-rel-emoji';
+    emoji.textContent = rt.emoji;
+
+    const lbl = document.createElement('span');
+    lbl.className = 'alliance-label';
+    lbl.textContent = rt.label;
+
+    row.append(cb, emoji, lbl);
+    list.appendChild(row);
+  }
+}
+
+function getCountryName(cca3) {
+  const c = allCountries.find(x => x.id === cca3);
+  return c ? (c.nom_officiel || cca3) : cca3;
+}
+
 function injectAllianceBadges(nodeId) {
   if (!allianceData || !nodeId) return;
   const cca3 = CCA2_TO_CCA3[nodeId];
@@ -312,6 +363,61 @@ function injectAllianceBadges(nodeId) {
       ).join('')}
     </div>`;
   spBody.appendChild(section);
+}
+
+function injectRelationBadges(nodeId) {
+  document.getElementById('sp-relation-section')?.remove();
+  if (!relationsData || !nodeId) return;
+  const cca3 = CCA2_TO_CCA3[nodeId];
+  if (!cca3) return;
+
+  const rels = getRelationsByCountry(cca3, relationsData);
+  if (!rels.length) return;
+
+  const spBody = document.querySelector('.sp-body');
+  if (!spBody) return;
+
+  const REL_EMOJI = { ally:'🤝', partner:'🫱', neutral:'➖', rival:'⚡', conflict:'⚔️' };
+  const REL_COLOR = {
+    ally:'#4a90d9', partner:'#27ae60', neutral:'#95a5a6',
+    rival:'#e67e22', conflict:'#e74c3c',
+  };
+
+  const section = document.createElement('div');
+  section.id = 'sp-relation-section';
+  section.className = 'sp-section';
+
+  const rows = rels.map(r => {
+    const cca2 = CCA3_TO_CCA2[r.partner] || '';
+    const name = getCountryName(r.partner);
+    const emoji = REL_EMOJI[r.type] || '➖';
+    const color = REL_COLOR[r.type] || '#95a5a6';
+    const flagSrc = cca2 ? `https://flagcdn.com/w20/${cca2.toLowerCase()}.png` : '';
+    const clickable = cca2 ? `data-cca2="${cca2}"` : '';
+    return `<div class="sp-rel-row${cca2 ? ' sp-rel-row--link' : ''}" ${clickable} style="--rel-color:${color}">
+      ${flagSrc ? `<img class="sp-rel-flag" src="${flagSrc}" alt="" onerror="this.style.display='none'" loading="lazy">` : ''}
+      <span class="sp-rel-emoji">${emoji}</span>
+      <span class="sp-rel-name">${name}</span>
+      <span class="sp-rel-badge" style="color:${color};border-color:${color}">${r.label}</span>
+    </div>`;
+  }).join('');
+
+  section.innerHTML = `<div class="sp-section-title">Relations clés</div>
+    <div class="sp-rel-list">${rows}</div>`;
+  spBody.appendChild(section);
+
+  section.querySelectorAll('.sp-rel-row--link').forEach(el => {
+    el.addEventListener('click', () => {
+      const cca2 = el.dataset.cca2;
+      if (!cca2) return;
+      activeAlpha2  = cca2;
+      state.focusId = cca2;
+      state.infoId  = cca2;
+      renderGraph();
+      zoomToNode(cca2);
+      window.dispatchEvent(new CustomEvent('stateUpdated'));
+    });
+  });
 }
 
 function highlightAllies(nodeId) {
@@ -493,16 +599,28 @@ async function init() {
   window.addEventListener('compareUpdated', renderComparePanel);
   window.addEventListener('heatmapComputed', (e) => updateHeatmapLegend(e.detail));
 
-  // Sync ally highlights + side-panel badges on every country select
-  window.addEventListener('stateUpdated', () => {
-    const id = state.infoId;
-    requestAnimationFrame(() => injectAllianceBadges(id));
-    highlightAllies(id);
-  });
-
+  // initSidePanel first so its stateUpdated listener fires BEFORE ours,
+  // ensuring the panel DOM is fully rendered when we inject badges.
   initSidePanel({
     onCenter: (node) => zoomToNode(node.id),
-    onClose:  () => { clearAllyHighlights(); document.getElementById('sp-alliance-section')?.remove(); renderGraph(); },
+    onClose:  () => {
+      clearAllyHighlights();
+      clearRelationHighlights();
+      document.getElementById('sp-alliance-section')?.remove();
+      document.getElementById('sp-relation-section')?.remove();
+      renderGraph();
+    },
+  });
+
+  // Sync highlights + side-panel badges on every country select
+  // Registered AFTER initSidePanel so the panel is already rendered when we append.
+  window.addEventListener('stateUpdated', () => {
+    const id = state.infoId;
+    const cca3 = id ? CCA2_TO_CCA3[id] : null;
+    injectAllianceBadges(id);
+    injectRelationBadges(id);
+    highlightAllies(id);
+    highlightCountryRelations(cca3 || null, relationsData);
   });
 
   initGraph();
@@ -522,12 +640,19 @@ async function init() {
     renderScenariosList(scenarios);
   }
 
-  // Lazy-load alliances after the map is rendered
+  // Lazy-load alliances then relations (non-blocking)
   loadAlliances().then(data => {
     if (!data) return;
     allianceData = data;
     setAllianceData(data);
     setupAlliancePanel(data);
+    // Relations are loaded after alliances so capitals dict is available
+    return loadRelations();
+  }).then(data => {
+    if (!data) return;
+    relationsData = data;
+    setRelationsData(data);
+    setupRelationsPanel();
   });
 
   if (rawCountries) {

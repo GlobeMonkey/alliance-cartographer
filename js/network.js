@@ -290,6 +290,43 @@ export function getAlliancesByCountry(cca3, allData) {
   return allData.alliances.filter(a => a.members.includes(cca3));
 }
 
+// ── Relations diplomatiques ──────────────────────────────────────────────────
+
+export async function loadRelations() {
+  try {
+    const r = await fetch('./data/relations.json');
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return await r.json();
+  } catch (e) {
+    console.error('Erreur relations.json:', e);
+    return null;
+  }
+}
+
+export function getRelationsByCountry(cca3, relData) {
+  if (!relData || !relData.relations) return [];
+  return relData.relations
+    .filter(r => r.source === cca3 || r.target === cca3)
+    .map(r => ({
+      partner: r.source === cca3 ? r.target : r.source,
+      type:     r.type,
+      strength: r.strength,
+      label:    r.label,
+      since:    r.since,
+      category: r.category,
+    }))
+    .sort((a, b) => Math.abs(b.strength) - Math.abs(a.strength))
+    .slice(0, 5);
+}
+
+export function getRelationBetween(cca3A, cca3B, relData) {
+  if (!relData || !relData.relations) return null;
+  return relData.relations.find(
+    r => (r.source === cca3A && r.target === cca3B) ||
+         (r.source === cca3B && r.target === cca3A)
+  ) || null;
+}
+
 export function highlightNodeInNetwork(nodeId) {
   if (!networkSvg) return;
   const nodeEls = networkSvg.selectAll('g.net-node');

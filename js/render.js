@@ -2,7 +2,7 @@ import { state, getColor, RELATION_TYPES, getVisibleGraph, getNeighborLinks } fr
 import { worldGeo } from './data-loader.js';
 import { getFlagUrl } from './utils.js';
 
-let svg, mainLayer, mapLayer, territoryLayer, allianceArcLayer, linkLayer, clusterLayer, nodeLayer, labelLayer, badgeLayer;
+let svg, mainLayer, mapLayer, territoryLayer, relationArcLayer, allianceArcLayer, linkLayer, clusterLayer, nodeLayer, labelLayer, badgeLayer;
 let minimapSvg, zoomBehavior, projection, geoPath;
 
 // ── Alliance layer state ─────────────────────────────────────────────────────
@@ -10,6 +10,13 @@ let _allianceData = null;
 let _visibleAllianceIds = new Set();
 let _allyHighlights = new Map(); // CCA2 → rgba color string
 let _cca2ToCca3 = {};
+
+// ── Relation layer state ─────────────────────────────────────────────────────
+let _relationsData = null;
+let _visibleRelationTypes = new Set(); // empty = all hidden
+let _highlightedCca3 = null;
+let _relationHighlights = new Map(); // CCA2 → rgba color string
+let _cca3ToCca2 = {}; // CCA3 → CCA2 (forward map)
 let graphWidth = 0, graphHeight = 0;
 let worldWrapWidth = 0;
 let lastRenderCache = null;
@@ -68,9 +75,12 @@ export function initGraph() {
   linkLayer = mainLayer.append("g").attr("class", "link-layer");
   clusterLayer = mainLayer.append("g").attr("class", "cluster-layer");
   nodeLayer = mainLayer.append("g").attr("class", "node-layer");
-  // Alliance arcs sit above territories but below node links
+  // Relation arcs sit above territories, alliance arcs above relation arcs
   allianceArcLayer = mainLayer.insert("g", ".link-layer")
     .attr("class", "alliance-arc-layer")
+    .style("pointer-events", "none");
+  relationArcLayer = mainLayer.insert("g", ".alliance-arc-layer")
+    .attr("class", "relation-arc-layer")
     .style("pointer-events", "none");
   badgeLayer = mainLayer.append("g").attr("class", "badge-layer").style("pointer-events", "none");
   labelLayer = mainLayer.append("g").attr("class", "label-layer");
@@ -434,6 +444,7 @@ function renderTerritories(activeCodes, links, projectedByCode, nodes) {
         const col = heatmapMap.get(a);
         if (col) return col;
       }
+      if (a && _relationHighlights.has(a)) return _relationHighlights.get(a);
       if (a && _allyHighlights.has(a))    return _allyHighlights.get(a);
       if (a && a === state.focusId)       return "rgba(96, 165, 250, 0.28)";
       if (a && codesInConflict.has(a))    return "rgba(255, 89, 94, 0.12)";
@@ -708,8 +719,9 @@ export function updateMinimap() {
 // ── Alliance arc layer ───────────────────────────────────────────────────────
 
 export function initAllianceLayer(cca3ToCca2) {
+  _cca3ToCca2 = cca3ToCca2 || {};
   _cca2ToCca3 = {};
-  for (const [cca3, cca2] of Object.entries(cca3ToCca2 || {})) {
+  for (const [cca3, cca2] of Object.entries(_cca3ToCca2)) {
     _cca2ToCca3[cca2] = cca3;
   }
 }
@@ -808,5 +820,127 @@ function updateAllianceArcHighlight() {
     const aid = d3.select(this).attr("data-alliance");
     d3.select(this).selectAll("path.alliance-arc")
       .attr("stroke-opacity", memberAllianceIds.has(aid) ? 0.85 : 0.05);
+  });
+}
+
+// ── Relation arc layer ───────────────────────────────────────────────────────
+
+const REL_STYLE = {
+  ally:    { color: "#4a90d9", dash: "0",   opacity: 0.70 },
+  partner: { color: "#27ae60", dash: "0",   opacity: 0.50 },
+  neutral: { color: "#95a5a6", dash: "2,4", opacity: 0.50 },
+  rival:   { color: "#e67e22", dash: "6,3", opacity: 0.90 },
+  conflict:{ color: "#e74c3c", dash: "3,2", opacity: 0.90 },
+};
+
+const REL_HIGHLIGHT_COLOR = {
+  ally:    "rgba(74,144,217,0.30)",
+  partner: "rgba(39,174,96,0.25)",
+  neutral: "rgba(149,165,166,0.15)",
+  rival:   "rgba(230,126,34,0.25)",
+  conflict:"rgba(231,76,60,0.30)",
+};
+
+export function showRelationArcs(enabled) {
+  if (!relationArcLayer) return;
+  relationArcLayer.style("display", enabled ? null : "none");
+}
+
+export function toggleRelationType(type, enabled) {
+  enabled ? _visibleRelationTypes.add(type) : _visibleRelationTypes.delete(type);
+  renderRelationArcs();
+}
+
+export function highlightCountryRelations(cca3, relData) {
+  _highlightedCca3 = cca3 || null;
+  _relationHighlights = new Map();
+
+  if (relData && cca3) {
+    for (const r of (relData.relations || [])) {
+      if (r.source !== cca3 && r.target !== cca3) continue;
+      const pCca3 = r.source === cca3 ? r.target : r.source;
+      const cca2  = _cca3ToCca2[pCca3];
+      if (cca2) _relationHighlights.set(cca2, REL_HIGHLIGHT_COLOR[r.type] || "rgba(149,165,166,0.15)");
+    }
+  }
+
+  _redrawTerritories();
+  _updateRelationArcHighlight();
+}
+
+export function clearRelationHighlights() {
+  _highlightedCca3 = null;
+  _relationHighlights = new Map();
+  _redrawTerritories();
+  _updateRelationArcHighlight();
+}
+
+export function setRelationsData(data) {
+  _relationsData = data;
+}
+
+function renderRelationArcs() {
+  if (!relationArcLayer) return;
+  relationArcLayer.selectAll("*").remove();
+  if (!_relationsData || !_visibleRelationTypes.size || !projection) return;
+
+  const capitals = _allianceData ? _allianceData.capitals : null;
+  if (!capitals) return;
+
+  const rels = (_relationsData.relations || []).filter(r => _visibleRelationTypes.has(r.type));
+
+  for (const r of rels) {
+    const sc = capitals[r.source];
+    const tc = capitals[r.target];
+    if (!sc || !tc) continue;
+    const ps = projection([sc.lng, sc.lat]);
+    const pt = projection([tc.lng, tc.lat]);
+    if (!ps || !pt) continue;
+
+    const dx = pt[0] - ps[0], dy = pt[1] - ps[1];
+    const dr = Math.sqrt(dx * dx + dy * dy) * 0.7;
+    const style = REL_STYLE[r.type] || REL_STYLE.neutral;
+    const sw = Math.max(0.5, Math.min(3, Math.abs(r.strength) * 2));
+
+    relationArcLayer.append("path")
+      .attr("class", `relation-arc relation-arc-${r.type}`)
+      .attr("data-source", r.source)
+      .attr("data-target", r.target)
+      .attr("d", `M${ps[0]},${ps[1]}A${dr},${dr} 0 0,1 ${pt[0]},${pt[1]}`)
+      .attr("stroke", style.color)
+      .attr("stroke-width", sw)
+      .attr("stroke-dasharray", style.dash)
+      .attr("stroke-opacity", style.opacity)
+      .attr("stroke-linecap", "round")
+      .attr("fill", "none");
+  }
+
+  _updateRelationArcHighlight();
+}
+
+function _updateRelationArcHighlight() {
+  if (!relationArcLayer) return;
+  if (!_highlightedCca3) {
+    relationArcLayer.selectAll("path.relation-arc").attr("stroke-opacity", d => {
+      // d is not bound — opacity from initial render is fine; reset by type
+      return null; // restore attribute set during render
+    });
+    // Re-apply per-type opacity instead of null (null removes attribute)
+    relationArcLayer.selectAll("path.relation-arc").each(function() {
+      const cls = [...this.classList].find(c => c.startsWith("relation-arc-") && c !== "relation-arc");
+      const type = cls ? cls.replace("relation-arc-", "") : "neutral";
+      d3.select(this).attr("stroke-opacity", (REL_STYLE[type] || REL_STYLE.neutral).opacity);
+    });
+    return;
+  }
+
+  relationArcLayer.selectAll("path.relation-arc").each(function() {
+    const src = this.dataset.source;
+    const tgt = this.dataset.target;
+    const active = src === _highlightedCca3 || tgt === _highlightedCca3;
+    const cls = [...this.classList].find(c => c.startsWith("relation-arc-") && c !== "relation-arc");
+    const type = cls ? cls.replace("relation-arc-", "") : "neutral";
+    const baseOp = (REL_STYLE[type] || REL_STYLE.neutral).opacity;
+    d3.select(this).attr("stroke-opacity", active ? baseOp : 0.04);
   });
 }
