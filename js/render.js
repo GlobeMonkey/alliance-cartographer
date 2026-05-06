@@ -113,6 +113,10 @@ export function renderGraph() {
   
   if (!hasAugmentedNodes && worldGeo) {
     hasAugmentedNodes = true;
+    // Seed lookup for custom string-id features (territories absent from the 110m TopoJSON).
+    // Belt-and-suspenders: also handled inside the worldGeo.features loop below.
+    numericToAlpha.set("XNC", "XNC");
+    numericToAlpha.set("XRJ", "XRJ");
     const custom = {
       "United States of America": "US", "United Kingdom": "GB", "France": "FR",
       "South Korea": "KR", "North Korea": "KP", "Russia": "RU", "China": "CN",
@@ -122,6 +126,12 @@ export function renderGraph() {
       "Czechia": "CZ", "Macedonia": "MK"
     };
     worldGeo.features.forEach(f => {
+      // Custom features with string ids (e.g. XNC, XRJ): map id → existing world.json node, skip auto-creation
+      if (f.id != null && !Number.isFinite(parseInt(f.id, 10))) {
+        const sid = String(f.id).toUpperCase();
+        numericToAlpha.set(sid, sid);
+        return;
+      }
       const name = f.properties.name;
       if (!name) return;
       const normId = String(parseInt(f.id, 10));
@@ -405,7 +415,18 @@ function computeClusters(links) {
 
 // Territories visually merged into their parent state by default (annexed/de-facto controlled).
 // When focused, these show a dotted border to indicate their non-recognized status.
-const UNRECOGNIZED_TERRITORY_CODES = new Set(["EH"]);
+// XNC and XK stay out of this set — they get standard styling.
+const UNRECOGNIZED_TERRITORY_CODES = new Set(["EH", "XRJ"]);
+
+// Resolve a TopoJSON / custom feature id to our internal alpha-2 (or X-prefix) code.
+// Numeric ids → ISO_NUMERIC_TO_ALPHA2 lookup. String ids (custom features like "XNC",
+// "XRJ") → numericToAlpha is seeded with these in the augmentation block.
+function resolveAlpha(featureId) {
+  if (featureId == null) return null;
+  const numeric = String(parseInt(featureId, 10));
+  if (!isNaN(parseInt(featureId, 10))) return numericToAlpha.get(numeric) || null;
+  return numericToAlpha.get(String(featureId)) || null; // ids string custom
+}
 
 function renderBaseMap() {
   if (!worldGeo) return;
@@ -419,9 +440,8 @@ function renderBaseMap() {
     .join("path")
     .attr("class", "map-land")
     .classed("is-unrecognized-border", d => {
-      if (d.id == null) return false;
-      const a = numericToAlpha.get(String(parseInt(d.id, 10)));
-      return UNRECOGNIZED_TERRITORY_CODES.has(a) && a !== state.focusId;
+      const a = resolveAlpha(d.id);
+      return a && UNRECOGNIZED_TERRITORY_CODES.has(a) && a !== state.focusId;
     })
     .attr("d", geoPath);
 }
@@ -448,22 +468,20 @@ function renderTerritories(activeCodes, links, projectedByCode, nodes) {
     .data(worldGeo.features)
     .join("path")
     .attr("class", "map-country")
-    .classed("is-active",   (d) => { const a = numericToAlpha.get(String(parseInt(d.id, 10))); return a && activeCodes.has(a); })
-    .classed("is-conflict", (d) => { const a = numericToAlpha.get(String(parseInt(d.id, 10))); return a && codesInConflict.has(a); })
-    .classed("is-focused",  (d) => { const a = numericToAlpha.get(String(parseInt(d.id, 10))); return a === state.focusId; })
+    .classed("is-active",   (d) => { const a = resolveAlpha(d.id); return a && activeCodes.has(a); })
+    .classed("is-conflict", (d) => { const a = resolveAlpha(d.id); return a && codesInConflict.has(a); })
+    .classed("is-focused",  (d) => { const a = resolveAlpha(d.id); return a === state.focusId; })
     .classed("is-unrecognized-border", (d) => {
-      if (d.id == null) return false;
-      const a = numericToAlpha.get(String(parseInt(d.id, 10)));
-      return UNRECOGNIZED_TERRITORY_CODES.has(a) && a !== state.focusId;
+      const a = resolveAlpha(d.id);
+      return a && UNRECOGNIZED_TERRITORY_CODES.has(a) && a !== state.focusId;
     })
     .classed("is-unrecognized-focused", (d) => {
-      if (d.id == null) return false;
-      const a = numericToAlpha.get(String(parseInt(d.id, 10)));
-      return UNRECOGNIZED_TERRITORY_CODES.has(a) && a === state.focusId;
+      const a = resolveAlpha(d.id);
+      return a && UNRECOGNIZED_TERRITORY_CODES.has(a) && a === state.focusId;
     })
     .attr("d", geoPath)
     .attr("fill", (d) => {
-      const a = numericToAlpha.get(String(parseInt(d.id, 10)));
+      const a = resolveAlpha(d.id);
       // Unrecognized territories are invisible (merged into surrounding country) unless focused
       if (a && UNRECOGNIZED_TERRITORY_CODES.has(a) && a !== state.focusId) return "rgba(0,0,0,0)";
       if (heatmapMap && a) {
@@ -479,7 +497,7 @@ function renderTerritories(activeCodes, links, projectedByCode, nodes) {
     })
     .style("cursor", "pointer")
     .on("mouseenter", function(event, d) {
-      const alpha2 = numericToAlpha.get(String(parseInt(d.id, 10)));
+      const alpha2 = resolveAlpha(d.id);
       if (alpha2) {
         const node = lastRenderCache && lastRenderCache.nodes.find(n => n.id === alpha2 || n.code === alpha2);
         if (node) {
@@ -507,7 +525,7 @@ function renderTerritories(activeCodes, links, projectedByCode, nodes) {
       window.dispatchEvent(new CustomEvent('tooltipHide'));
     })
     .on("click", (event, d) => {
-      const alpha2 = numericToAlpha.get(String(parseInt(d.id, 10)));
+      const alpha2 = resolveAlpha(d.id);
       if (alpha2) {
         const node = lastRenderCache && lastRenderCache.nodes.find(n => n.id === alpha2 || n.code === alpha2);
         if (node) {
@@ -528,11 +546,18 @@ function renderTerritories(activeCodes, links, projectedByCode, nodes) {
 
 function highlightTerritory(code, on) {
   if (!code) return;
+  // Numeric ISO match (standard countries)
   const numericEntry = Object.entries(ISO_NUMERIC_TO_ALPHA2).find(([, v]) => v === code);
-  if (!numericEntry) return;
-  const normNumericId = String(parseInt(numericEntry[0], 10));
+  if (numericEntry) {
+    const normNumericId = String(parseInt(numericEntry[0], 10));
+    territoryLayer.selectAll("path")
+      .filter(d => d.id != null && String(parseInt(d.id, 10)) === normNumericId)
+      .classed("is-hovered", on);
+    return;
+  }
+  // String id match (custom features like XNC, XRJ)
   territoryLayer.selectAll("path")
-    .filter(d => String(parseInt(d.id, 10)) === normNumericId)
+    .filter(d => typeof d.id === "string" && d.id.toUpperCase() === code.toUpperCase())
     .classed("is-hovered", on);
 }
 

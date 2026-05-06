@@ -934,8 +934,9 @@
     },
     {
       "id": "XK",
+      "iso": "XK",
       "label": "Kosovo",
-      "type": "unrecognized",
+      "type": "country",
       "region": "Europe",
       "regime": "Republique parlementaire (reconnaissance partielle)",
       "population": "1.8 M",
@@ -948,7 +949,7 @@
       "id": "XNC",
       "iso": null,
       "label": "Rep. turque de Chypre du Nord",
-      "type": "unrecognized",
+      "type": "country",
       "region": "Mediterranee",
       "regime": "Etat autoproclamé (reconnu uniquement par la Turquie)",
       "population": "0.4 M",
@@ -996,15 +997,15 @@
     {
       "id": "XRJ",
       "iso": null,
-      "label": "Rojava / Kurdistan syrien",
+      "label": "Rojava",
       "type": "unrecognized",
       "region": "Moyen-Orient",
       "regime": "Administration autonome (non reconnue)",
       "population": "4 M",
-      "gdp": "N/A",
-      "lon": 40.3,
-      "lat": 37.0,
-      "name": "Rojava / Kurdistan syrien"
+      "gdp": "~2 Md$",
+      "lon": 40.8,
+      "lat": 37.1,
+      "name": "Rojava"
     }
   ],
   "edges": [

@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "XNC",
+      "properties": { "name": "Chypre du Nord" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [32.27, 35.10],
+          [34.60, 35.10],
+          [34.60, 35.70],
+          [32.27, 35.70],
+          [32.27, 35.10]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "XRJ",
+      "properties": { "name": "Rojava" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [36.8, 36.5],
+          [42.4, 36.5],
+          [42.4, 37.3],
+          [36.8, 37.3],
+          [36.8, 36.5]
+        ]]
+      }
+    }
+  ]
+}
