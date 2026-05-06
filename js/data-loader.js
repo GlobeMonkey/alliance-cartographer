@@ -41,6 +41,23 @@ export async function loadData() {
 
     worldGeo = topojson.feature(topoData, topoData.objects.countries);
 
+    // Inject custom features for territories absent from the 110m TopoJSON
+    // (Chypre du Nord, Rojava). IDs follow the X-prefix convention.
+    try {
+      const customRes = await fetch('./data/custom-territories.json');
+      if (customRes.ok) {
+        const customGeo = await customRes.json();
+        if (customGeo && Array.isArray(customGeo.features)) {
+          worldGeo = {
+            ...worldGeo,
+            features: [...worldGeo.features, ...customGeo.features]
+          };
+        }
+      }
+    } catch (e) {
+      console.warn('custom-territories.json non disponible:', e);
+    }
+
     return worldData;
   } catch (error) {
     console.error("Erreur d'initialisation des données :", error);

@@ -9,7 +9,7 @@ const unrecognizedStates = [
     population: '5.4 M', gdp: '18 Md$', lon: 35.2137, lat: 31.9522
   },
   {
-    id: 'XK', label: 'Kosovo', type: 'unrecognized',
+    id: 'XK', iso: 'XK', label: 'Kosovo', type: 'country',
     region: 'Europe', regime: 'Republique parlementaire (reconnaissance partielle)',
     population: '1.8 M', gdp: '10 Md$', lon: 21.1655, lat: 42.6629
   },
@@ -19,9 +19,14 @@ const unrecognizedStates = [
     population: '23 M', gdp: '750 Md$', lon: 121.5654, lat: 25.0330
   },
   {
-    id: 'TRNC', label: 'Rep. turque de Chypre du Nord', type: 'unrecognized',
+    id: 'XNC', iso: null, label: 'Rep. turque de Chypre du Nord', type: 'country',
     region: 'Mediterranee', regime: 'Etat autoproclamé (reconnu uniquement par la Turquie)',
     population: '0.4 M', gdp: '6 Md$', lon: 33.3642, lat: 35.1856
+  },
+  {
+    id: 'XRJ', iso: null, label: 'Rojava', type: 'unrecognized',
+    region: 'Moyen-Orient', regime: 'Administration autonome (non reconnue)',
+    population: '4 M', gdp: '~2 Md$', lon: 40.8, lat: 37.1
   },
   {
     id: 'SO-LAND', label: 'Somaliland', type: 'unrecognized',
