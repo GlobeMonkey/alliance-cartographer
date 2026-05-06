@@ -10,9 +10,13 @@ export const state = {
   darkMode: true,
   colorblindMode: false,
   filterTypes: [],
-  transform: null, // Initialized later with d3.zoomIdentity
+  transform: null,
   sidebarOpen: false,
-  editMode: new URLSearchParams(window.location.search).get('edit') === 'true'
+  editMode: new URLSearchParams(window.location.search).get('edit') === 'true',
+  lang: 'fr',
+  compareMode: false,
+  compareIds: [],
+  heatmapIndicator: null,
 };
 
 export const DALTONIAN_COLORS = {

@@ -1,9 +1,9 @@
 /* ── SIDE PANEL (Map interaction overlay) ── */
 .side-panel {
   position: absolute;
-  top: 16px;
+  top: 66px;  /* clear settings button (14px + 38px + 14px gap) */
   right: 16px;
-  bottom: 140px; /* above minimap */
+  bottom: 140px;
   width: 320px;
   background: var(--bg-surface);
   border: 1px solid var(--border-color);

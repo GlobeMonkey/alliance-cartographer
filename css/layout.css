@@ -530,3 +530,428 @@ body.light-mode .map-country {
     transform: translateY(100%);
   }
 }
+
+/* ── Language switch ── */
+.lang-switch {
+  display: flex;
+  gap: 2px;
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: calc(var(--radius-sm) - 2px);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.lang-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ── Settings select ── */
+.settings-item--col {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.settings-select {
+  width: 100%;
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.settings-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* ── Timeline bar ── */
+.timeline-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 10px;
+  background: rgba(10, 14, 20, 0.92);
+  border-top: 1px solid var(--border-color);
+  z-index: 30;
+  backdrop-filter: blur(6px);
+}
+
+.timeline-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.timeline-year {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  width: 44px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.timeline-slider {
+  flex: 1;
+  height: 4px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.timeline-bound {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+/* ── Conflict badge animation ── */
+@keyframes conflictPulse {
+  0%, 100% { r: 5.5; opacity: 0.9; }
+  50% { r: 7; opacity: 0.6; }
+}
+
+.conflict-pulse {
+  animation: conflictPulse 1.8s ease-in-out infinite;
+}
+
+/* ── Comparison panel ── */
+.compare-panel {
+  position: absolute;
+  bottom: 46px;
+  left: 0;
+  right: 0;
+  background: rgba(10, 14, 20, 0.95);
+  border-top: 1px solid var(--border-color);
+  z-index: 32;
+  backdrop-filter: blur(8px);
+  padding: 12px 16px 14px;
+}
+
+.compare-panel[hidden] { display: none; }
+
+.compare-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compare-close:hover { color: var(--text-primary); background: var(--bg-surface-hover); }
+
+.compare-body {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.compare-card {
+  flex: 1;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.compare-empty {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  text-align: center;
+  margin: auto;
+}
+
+.compare-vs {
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.compare-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.compare-flag {
+  width: 32px;
+  height: 22px;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.compare-card-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.compare-attr {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  gap: 8px;
+}
+
+.compare-attr span:first-child { color: var(--text-secondary); flex-shrink: 0; }
+.compare-attr span:last-child { color: var(--text-primary); text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ── Heatmap legend ── */
+.heatmap-legend {
+  position: absolute;
+  bottom: 56px;
+  left: 14px;
+  width: 160px;
+  background: rgba(10, 14, 20, 0.88);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 8px 10px;
+  z-index: 30;
+  backdrop-filter: blur(6px);
+}
+
+.heatmap-legend[hidden] { display: none; }
+
+.heatmap-legend-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.heatmap-gradient {
+  height: 10px;
+  border-radius: 3px;
+  background: linear-gradient(to right, #ffffb2, #fecc5c, #fd8d3c, #f03b20, #bd0026);
+  margin-bottom: 4px;
+}
+
+.heatmap-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+}
+
+/* ── Minimap adjust for timeline ── */
+.minimap-shell {
+  bottom: 56px !important;
+}
+
+/* ── Compare mode cursor ── */
+body.compare-mode-active .map-country,
+body.compare-mode-active g.country-node {
+  cursor: crosshair !important;
+}
+
+/* ── Alliance toggle panel ── */
+.alliance-panel {
+  position: absolute;
+  top: 66px;
+  left: 14px;
+  z-index: 25;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 10px 13px 12px;
+  min-width: 170px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+  scrollbar-width: thin;
+}
+
+.alliance-panel-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.alliance-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 2px;
+  cursor: pointer;
+  user-select: none;
+  border-radius: var(--radius-sm);
+  transition: background 0.12s;
+}
+
+.alliance-checkbox-row:hover {
+  background: var(--bg-surface-hover);
+}
+
+.alliance-checkbox-row input[type="checkbox"] {
+  accent-color: var(--accent);
+  cursor: pointer;
+  flex-shrink: 0;
+  width: 13px;
+  height: 13px;
+}
+
+.alliance-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.alliance-label {
+  font-size: 0.79rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* ── Alliance badges in side panel ── */
+.sp-alliance-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.sp-alliance-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 99px;
+  font-size: 0.70rem;
+  font-weight: 600;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+/* ── Alliance panel divider (between alliances & relations) ── */
+.alliance-panel-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 10px -13px;
+}
+
+/* ── Relation type emoji in panel ── */
+.alliance-rel-emoji {
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  width: 16px;
+  text-align: center;
+}
+
+/* ── Relation rows in side panel ── */
+.sp-rel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sp-rel-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 6px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--rel-color, #95a5a6);
+  background: rgba(255,255,255,0.03);
+  min-height: 32px;
+}
+
+.sp-rel-row--link {
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.sp-rel-row--link:hover {
+  background: rgba(255,255,255,0.07);
+}
+
+.sp-rel-flag {
+  width: 20px;
+  height: 14px;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.sp-rel-emoji {
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.sp-rel-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sp-rel-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 99px;
+  border: 1px solid;
+  white-space: nowrap;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
