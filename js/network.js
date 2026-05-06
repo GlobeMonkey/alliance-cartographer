@@ -267,6 +267,29 @@ export function stopNetwork() {
   isRunning = false;
 }
 
+// ── Alliance data helpers ────────────────────────────────────────────────────
+
+export async function loadAlliances() {
+  try {
+    const r = await fetch('./data/alliances.json');
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return await r.json();
+  } catch (e) {
+    console.error('Erreur alliances.json:', e);
+    return null;
+  }
+}
+
+export function getLinksByCountry(cca3, allData) {
+  if (!allData || !allData.links) return [];
+  return allData.links.filter(l => l.source === cca3 || l.target === cca3);
+}
+
+export function getAlliancesByCountry(cca3, allData) {
+  if (!allData || !allData.alliances) return [];
+  return allData.alliances.filter(a => a.members.includes(cca3));
+}
+
 export function highlightNodeInNetwork(nodeId) {
   if (!networkSvg) return;
   const nodeEls = networkSvg.selectAll('g.net-node');

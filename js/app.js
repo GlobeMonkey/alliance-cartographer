@@ -1,9 +1,10 @@
-import { initGraph, renderGraph, zoomToNode } from './render.js';
+import { initGraph, renderGraph, zoomToNode, initAllianceLayer, setAllianceData, toggleAllianceVisibility, setAllyHighlights, clearAllyHighlights } from './render.js';
 import { loadData } from './data-loader.js';
 import { initSidePanel } from './side-panel/index.js';
 import { state } from './store.js';
 import { t, applyLang } from './i18n.js';
 import { getFlagUrl } from './utils.js';
+import { loadAlliances, getAlliancesByCountry } from './network.js';
 
 // ── ISO 3166-1 alpha-3 → alpha-2 ──
 const CCA3_TO_CCA2 = {
@@ -50,10 +51,16 @@ const flagUrl = (cca3) => {
   return a2 ? `https://flagcdn.com/w40/${a2.toLowerCase()}.png` : '';
 };
 
+// ── CCA2 ↔ CCA3 reverse map ──
+const CCA2_TO_CCA3 = Object.fromEntries(
+  Object.entries(CCA3_TO_CCA2).map(([k, v]) => [v, k])
+);
+
 // ── State ──
 let allCountries    = [];
 let filteredCountries = [];
 let activeAlpha2    = null;
+let allianceData    = null;
 
 // ── DOM refs ──
 const sidebarToggle     = document.getElementById('sidebarToggle');
@@ -246,6 +253,95 @@ function updateHeatmapLegend({ indicator, minV, maxV }) {
   if (maxEl) maxEl.textContent = fmt(maxV);
 }
 
+// ── Alliance panel ──
+function setupAlliancePanel(data) {
+  const panel = document.getElementById('alliancePanel');
+  const list  = document.getElementById('alliancePanelList');
+  if (!panel || !list) return;
+
+  list.innerHTML = '';
+  for (const a of data.alliances) {
+    const row = document.createElement('label');
+    row.className = 'alliance-checkbox-row';
+
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.dataset.id = a.id;
+    cb.addEventListener('change', () => {
+      toggleAllianceVisibility(a.id, cb.checked);
+    });
+
+    const dot = document.createElement('span');
+    dot.className = 'alliance-dot';
+    dot.style.background = a.color;
+
+    const lbl = document.createElement('span');
+    lbl.className = 'alliance-label';
+    lbl.textContent = a.label;
+
+    row.append(cb, dot, lbl);
+    list.appendChild(row);
+  }
+
+  panel.removeAttribute('hidden');
+}
+
+function injectAllianceBadges(nodeId) {
+  if (!allianceData || !nodeId) return;
+  const cca3 = CCA2_TO_CCA3[nodeId];
+  if (!cca3) return;
+
+  // Remove stale badge section
+  document.getElementById('sp-alliance-section')?.remove();
+
+  const alliances = getAlliancesByCountry(cca3, allianceData);
+  if (!alliances.length) return;
+
+  const spBody = document.querySelector('.sp-body');
+  if (!spBody) return;
+
+  const section = document.createElement('div');
+  section.id = 'sp-alliance-section';
+  section.className = 'sp-section';
+  section.innerHTML = `<div class="sp-section-title">Alliances</div>
+    <div class="sp-alliance-badges">
+      ${alliances.map(a =>
+        `<span class="sp-alliance-badge" style="border-color:${a.color};color:${a.color};background:${a.color}1a">
+          ${a.label}
+        </span>`
+      ).join('')}
+    </div>`;
+  spBody.appendChild(section);
+}
+
+function highlightAllies(nodeId) {
+  if (!allianceData || !nodeId) {
+    clearAllyHighlights();
+    return;
+  }
+  const cca3 = CCA2_TO_CCA3[nodeId];
+  if (!cca3) { clearAllyHighlights(); return; }
+
+  const alliances = getAlliancesByCountry(cca3, allianceData);
+  if (!alliances.length) { clearAllyHighlights(); return; }
+
+  // Gather all allied CCA2 codes with their alliance colour
+  const highlights = [];
+  for (const a of alliances) {
+    // hex → rgba for a subtle tint
+    const r = parseInt(a.color.slice(1,3),16);
+    const g = parseInt(a.color.slice(3,5),16);
+    const b = parseInt(a.color.slice(5,7),16);
+    const color = `rgba(${r},${g},${b},0.22)`;
+    for (const cca3m of a.members) {
+      if (cca3m === cca3) continue;
+      const cca2 = CCA3_TO_CCA2[cca3m];
+      if (cca2) highlights.push({ cca2, color });
+    }
+  }
+  setAllyHighlights(highlights);
+}
+
 // ── Settings popup ──
 function setupSettings() {
   const settingsBtn   = document.getElementById('settingsBtn');
@@ -397,12 +493,21 @@ async function init() {
   window.addEventListener('compareUpdated', renderComparePanel);
   window.addEventListener('heatmapComputed', (e) => updateHeatmapLegend(e.detail));
 
+  // Sync ally highlights + side-panel badges on every country select
+  window.addEventListener('stateUpdated', () => {
+    const id = state.infoId;
+    requestAnimationFrame(() => injectAllianceBadges(id));
+    highlightAllies(id);
+  });
+
   initSidePanel({
     onCenter: (node) => zoomToNode(node.id),
-    onClose:  () => renderGraph(),
+    onClose:  () => { clearAllyHighlights(); document.getElementById('sp-alliance-section')?.remove(); renderGraph(); },
   });
 
   initGraph();
+  // Pass CCA3→CCA2 map to render.js so it can resolve hover CCA3
+  initAllianceLayer(CCA3_TO_CCA2);
 
   const [worldData, rawCountries] = await Promise.all([
     loadData(),
@@ -416,6 +521,14 @@ async function init() {
     const scenarios = [...new Set(state.links.map(l => l.scenario).filter(Boolean))];
     renderScenariosList(scenarios);
   }
+
+  // Lazy-load alliances after the map is rendered
+  loadAlliances().then(data => {
+    if (!data) return;
+    allianceData = data;
+    setAllianceData(data);
+    setupAlliancePanel(data);
+  });
 
   if (rawCountries) {
     allCountries = rawCountries.sort((a, b) =>

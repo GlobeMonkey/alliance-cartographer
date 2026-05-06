@@ -2,8 +2,14 @@ import { state, getColor, RELATION_TYPES, getVisibleGraph, getNeighborLinks } fr
 import { worldGeo } from './data-loader.js';
 import { getFlagUrl } from './utils.js';
 
-let svg, mainLayer, mapLayer, territoryLayer, linkLayer, clusterLayer, nodeLayer, labelLayer, badgeLayer;
+let svg, mainLayer, mapLayer, territoryLayer, allianceArcLayer, linkLayer, clusterLayer, nodeLayer, labelLayer, badgeLayer;
 let minimapSvg, zoomBehavior, projection, geoPath;
+
+// ── Alliance layer state ─────────────────────────────────────────────────────
+let _allianceData = null;
+let _visibleAllianceIds = new Set();
+let _allyHighlights = new Map(); // CCA2 → rgba color string
+let _cca2ToCca3 = {};
 let graphWidth = 0, graphHeight = 0;
 let worldWrapWidth = 0;
 let lastRenderCache = null;
@@ -62,6 +68,10 @@ export function initGraph() {
   linkLayer = mainLayer.append("g").attr("class", "link-layer");
   clusterLayer = mainLayer.append("g").attr("class", "cluster-layer");
   nodeLayer = mainLayer.append("g").attr("class", "node-layer");
+  // Alliance arcs sit above territories but below node links
+  allianceArcLayer = mainLayer.insert("g", ".link-layer")
+    .attr("class", "alliance-arc-layer")
+    .style("pointer-events", "none");
   badgeLayer = mainLayer.append("g").attr("class", "badge-layer").style("pointer-events", "none");
   labelLayer = mainLayer.append("g").attr("class", "label-layer");
 
@@ -424,6 +434,7 @@ function renderTerritories(activeCodes, links, projectedByCode, nodes) {
         const col = heatmapMap.get(a);
         if (col) return col;
       }
+      if (a && _allyHighlights.has(a))    return _allyHighlights.get(a);
       if (a && a === state.focusId)       return "rgba(96, 165, 250, 0.28)";
       if (a && codesInConflict.has(a))    return "rgba(255, 89, 94, 0.12)";
       if (a && activeCodes.has(a))        return "rgba(255, 209, 102, 0.08)";
@@ -602,6 +613,7 @@ function updateInteractionStyles(linkSel, nodeSel, labelSel, clusterSel, nodes, 
     return;
   }
 
+  updateAllianceArcHighlight();
   nodeSel.style("pointer-events", (d) => activeNodeIds.has(d.id) && d.copyIndex === 0 ? "all" : "none")
          .classed("is-hovered", (d) => d.id === hover && d.copyIndex === 0);
 
@@ -691,4 +703,110 @@ export function updateMinimap() {
       }
     }
   }
+}
+
+// ── Alliance arc layer ───────────────────────────────────────────────────────
+
+export function initAllianceLayer(cca3ToCca2) {
+  _cca2ToCca3 = {};
+  for (const [cca3, cca2] of Object.entries(cca3ToCca2 || {})) {
+    _cca2ToCca3[cca2] = cca3;
+  }
+}
+
+export function setAllianceData(data) {
+  _allianceData = data;
+  renderAllianceArcs();
+}
+
+export function toggleAllianceVisibility(id, visible) {
+  visible ? _visibleAllianceIds.add(id) : _visibleAllianceIds.delete(id);
+  renderAllianceArcs();
+}
+
+export function setAllyHighlights(highlights) {
+  // highlights: Array of { cca2: string, color: string }
+  _allyHighlights = new Map(highlights.map(h => [h.cca2, h.color]));
+  _redrawTerritories();
+}
+
+export function clearAllyHighlights() {
+  _allyHighlights = new Map();
+  _redrawTerritories();
+}
+
+function _redrawTerritories() {
+  if (!lastRenderCache) return;
+  const { nodes, links, projectedByCode } = lastRenderCache;
+  renderTerritories(
+    new Set(nodes.map(n => n.code).filter(Boolean)),
+    links,
+    projectedByCode,
+    nodes
+  );
+}
+
+function renderAllianceArcs() {
+  if (!allianceArcLayer || !_allianceData) return;
+  allianceArcLayer.selectAll("*").remove();
+  if (!_visibleAllianceIds.size || !projection) return;
+
+  const { alliances, links: allLinks, capitals } = _allianceData;
+
+  for (const alliance of alliances) {
+    if (!_visibleAllianceIds.has(alliance.id)) continue;
+    const arcs = allLinks.filter(l => l.alliance === alliance.id);
+    if (!arcs.length) continue;
+
+    const g = allianceArcLayer.append("g")
+      .attr("class", `alliance-group alliance-group-${alliance.id}`)
+      .attr("data-alliance", alliance.id);
+
+    g.selectAll("path")
+      .data(arcs)
+      .join("path")
+      .attr("class", "alliance-arc")
+      .attr("d", d => {
+        const sc = capitals[d.source];
+        const tc = capitals[d.target];
+        if (!sc || !tc) return null;
+        const ps = projection([sc.lng, sc.lat]);
+        const pt = projection([tc.lng, tc.lat]);
+        if (!ps || !pt) return null;
+        const dx = pt[0] - ps[0], dy = pt[1] - ps[1];
+        const dr = Math.sqrt(dx * dx + dy * dy) * 0.7;
+        return `M${ps[0]},${ps[1]}A${dr},${dr} 0 0,1 ${pt[0]},${pt[1]}`;
+      })
+      .attr("stroke", alliance.color)
+      .attr("stroke-width", d => d.strength >= 1.0 ? 2 : d.strength >= 0.7 ? 1.5 : 1)
+      .attr("fill", "none")
+      .attr("stroke-opacity", 0.3)
+      .attr("stroke-linecap", "round");
+  }
+
+  updateAllianceArcHighlight();
+}
+
+function updateAllianceArcHighlight() {
+  if (!allianceArcLayer || !_allianceData) return;
+
+  const activeCca2 = hoveredCountryId || state.focusId;
+  const activeCca3 = activeCca2 ? _cca2ToCca3[activeCca2] : null;
+
+  if (!activeCca3) {
+    allianceArcLayer.selectAll("path.alliance-arc").attr("stroke-opacity", 0.3);
+    return;
+  }
+
+  const memberAllianceIds = new Set(
+    _allianceData.alliances
+      .filter(a => a.members.includes(activeCca3))
+      .map(a => a.id)
+  );
+
+  allianceArcLayer.selectAll("g.alliance-group").each(function() {
+    const aid = d3.select(this).attr("data-alliance");
+    d3.select(this).selectAll("path.alliance-arc")
+      .attr("stroke-opacity", memberAllianceIds.has(aid) ? 0.85 : 0.05);
+  });
 }
