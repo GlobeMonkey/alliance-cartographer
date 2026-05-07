@@ -4,17 +4,19 @@
   top: 66px;  /* clear settings button (14px + 38px + 14px gap) */
   right: 16px;
   bottom: 140px;
-  width: 320px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
+  width: 340px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-lg);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: -2px 4px 32px rgba(0, 0, 0, 0.45);
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.6), var(--shadow-glow);
   z-index: 30;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--t-slow) var(--ease),
+              opacity var(--t-slow) var(--ease);
 }
 
 .side-panel.sp-hidden {
@@ -28,35 +30,50 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 14px;
-  border-bottom: 1px solid var(--border-color);
-  gap: 8px;
+  padding: 18px 18px 16px;
+  gap: 12px;
   flex-shrink: 0;
-  background: var(--bg-surface);
+  position: relative;
+  /* Thin gradient accent bar at the bottom of the header */
+  border-bottom: 1px solid var(--border);
+  background:
+    linear-gradient(180deg, rgba(96,165,250,0.04) 0%, transparent 100%);
+}
+.sp-header::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--accent) 30%, var(--accent) 70%, transparent 100%);
+  opacity: 0.55;
+  pointer-events: none;
 }
 
 .sp-header-info {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
   min-width: 0;
   flex: 1;
 }
 
 .sp-flag {
-  width: 38px;
-  height: 26px;
+  width: 88px;
+  height: 58px;
   object-fit: cover;
-  border-radius: 3px;
-  border: 1px solid var(--border-color);
+  border-radius: 8px;
   flex-shrink: 0;
   background: var(--bg-main);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5), 0 0 0 1px var(--border-strong);
 }
 
 .sp-title {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.15;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -107,13 +124,23 @@
 }
 
 .sp-section-title {
-  font-size: 0.69rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.65rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: var(--text-secondary);
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 6px;
+  letter-spacing: 0.10em;
+  color: var(--text-dim);
+  padding-bottom: 0;
+  border-bottom: none;
+  margin-bottom: 4px;
+}
+.sp-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  margin-left: 10px;
 }
 
 /* ── Attribute rows ── */
@@ -128,21 +155,36 @@
   justify-content: space-between;
   align-items: baseline;
   gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition: border-color var(--t-fast) var(--ease),
+              box-shadow var(--t-fast) var(--ease);
+}
+.sp-attr-row:hover {
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-glow);
 }
 
 .sp-attr-label {
-  font-size: 0.77rem;
-  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
   flex-shrink: 0;
 }
 
 .sp-attr-value {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
   text-align: right;
   min-width: 0;
   word-break: break-word;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ── Type badge ── */
@@ -157,11 +199,11 @@
   border: 1px solid currentColor;
 }
 
-.sp-badge--alliance    { color: #58a6ff; background: rgba(88, 166, 255, 0.12); }
-.sp-badge--partnership { color: #3fb950; background: rgba(63, 185, 80, 0.12); }
-.sp-badge--neutral     { color: #8b949e; background: rgba(139, 148, 158, 0.12); }
-.sp-badge--rivalry     { color: #f0883e; background: rgba(240, 136, 62, 0.12); }
-.sp-badge--conflict    { color: #f85149; background: rgba(248, 81, 73, 0.12); }
+.sp-badge--alliance    { color: var(--accent);  background: rgba(96, 165, 250, 0.12); }
+.sp-badge--partnership { color: var(--success); background: rgba(52, 211, 153, 0.12); }
+.sp-badge--neutral     { color: var(--text-muted); background: rgba(100, 116, 139, 0.12); }
+.sp-badge--rivalry     { color: var(--conflict); background: rgba(251, 146, 60, 0.12); }
+.sp-badge--conflict    { color: var(--danger);   background: rgba(248, 113, 113, 0.12); }
 
 /* ── Tag list ── */
 .sp-tag-list {
@@ -259,26 +301,34 @@
 /* ── Action buttons ── */
 .sp-actions {
   display: flex;
-  gap: 7px;
+  gap: 8px;
   flex-wrap: wrap;
-  padding-top: 2px;
+  padding-top: 4px;
+  justify-content: flex-start;
 }
 
 .sp-btn {
-  flex: 1;
-  padding: 7px 10px;
-  border-radius: var(--radius-sm);
-  font-size: 0.8rem;
-  font-weight: 500;
-  font-family: inherit;
+  padding: 9px 18px;
+  border-radius: var(--r-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  letter-spacing: 0.02em;
   cursor: pointer;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border);
   background: var(--bg-surface-hover);
-  color: var(--text-primary);
-  transition: var(--transition);
+  color: var(--text);
+  transition: background var(--t-fast) var(--ease),
+              border-color var(--t-fast) var(--ease),
+              box-shadow var(--t-fast) var(--ease),
+              transform var(--t-fast) var(--ease);
   white-space: nowrap;
   text-align: center;
   min-width: 0;
+}
+
+.sp-btn:active {
+  transform: translateY(1px);
 }
 
 .sp-btn:hover {
@@ -293,17 +343,18 @@
 }
 
 .sp-btn--primary:hover {
-  background: rgba(88, 166, 255, 0.25);
+  background: rgba(96, 165, 250, 0.22);
+  box-shadow: var(--shadow-glow);
 }
 
 .sp-btn--danger {
-  background: rgba(248, 81, 73, 0.08);
+  background: rgba(248, 113, 113, 0.08);
   border-color: var(--danger);
   color: var(--danger);
 }
 
 .sp-btn--danger:hover {
-  background: rgba(248, 81, 73, 0.18);
+  background: rgba(248, 113, 113, 0.18);
 }
 
 /* ── Default state (nothing selected) ── */

@@ -5,6 +5,7 @@ import { state } from './store.js';
 import { t, applyLang } from './i18n.js';
 import { getFlagUrl } from './utils.js';
 import { loadAlliances, getAlliancesByCountry, loadRelations, getRelationsByCountry } from './network.js';
+import { setupTooltip } from './ui.js';
 
 // ── ISO 3166-1 alpha-3 → alpha-2 ──
 const CCA3_TO_CCA2 = {
@@ -82,6 +83,7 @@ function openSidebar() {
   leftSidebar.removeAttribute('aria-hidden');
   lsBackdrop.classList.add('ls-visible');
   sidebarToggle.setAttribute('aria-expanded', 'true');
+  document.body.classList.add('sidebar-open');
 }
 
 function closeSidebar() {
@@ -89,6 +91,7 @@ function closeSidebar() {
   leftSidebar.setAttribute('aria-hidden', 'true');
   lsBackdrop.classList.remove('ls-visible');
   sidebarToggle.setAttribute('aria-expanded', 'false');
+  document.body.classList.remove('sidebar-open');
 }
 
 function toggleSection(btn, content) {
@@ -111,6 +114,20 @@ function getUnrecognizedListEntries(filterText) {
     .sort((a, b) => (a.nom_officiel || '').localeCompare(b.nom_officiel || '', 'fr'));
 }
 
+// Inject a count badge into a section button (idempotent)
+function setSectionCount(btn, count) {
+  if (!btn) return;
+  let badge = btn.querySelector('.ls-section-count');
+  if (!badge) {
+    badge = document.createElement('span');
+    badge.className = 'ls-section-count';
+    // Place the badge before the chevron so the chevron stays at the far right
+    const chev = btn.querySelector('.ls-chevron');
+    if (chev) btn.insertBefore(badge, chev); else btn.appendChild(badge);
+  }
+  badge.textContent = String(count);
+}
+
 // ── Country list ──
 function renderCountryList() {
   if (!lsCountryList) return;
@@ -120,6 +137,7 @@ function renderCountryList() {
   const unrecogAlpha2 = new Set(unrecogEntries.map(e => e.id));
   const standard = filteredCountries.filter(c => !unrecogAlpha2.has((CCA3_TO_CCA2[c.id] || '').toUpperCase()));
   const all = [...standard, ...unrecogEntries];
+  setSectionCount(lsNationsBtn, all.length);
   if (!all.length) {
     lsCountryList.innerHTML = '<div class="ls-empty">Aucun résultat</div>';
     return;
@@ -157,6 +175,7 @@ function renderCountryList() {
 // ── Scenarios list ──
 function renderScenariosList(scenarios) {
   if (!lsScenariosList || !scenarios.length) return;
+  setSectionCount(lsScenariosBtn, scenarios.length);
 
   const tops   = scenarios.filter(s => !s.includes(' - '));
   const groups = tops.map(top => ({
@@ -588,6 +607,7 @@ function setupTimeline() {
 async function init() {
   setupSettings();
   setupTimeline();
+  setupTooltip();
 
   sidebarToggle?.addEventListener('click', openSidebar);
   lsClose?.addEventListener('click', closeSidebar);

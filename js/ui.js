@@ -286,12 +286,14 @@ export function renderInfoPanel() {
 
 export function setupTooltip() {
   const tooltip = d3.select("#tooltip");
+  if (tooltip.empty()) return;
   window.addEventListener('tooltipShow', (e) => {
     const { node, links, event } = e.detail;
     const nLinks = getNeighborLinks(node.id, links);
-    let html = `<strong>${node.name}</strong><br><span style="color:#aaa; font-size:11px;">${nLinks.length} relation(s) visible(s)</span>`;
-    tooltip.style("opacity", 1)
-      .html(html)
+    const html = `<div class="map-tooltip-name">${node.name}</div>
+      <div class="map-tooltip-meta">${nLinks.length} relation${nLinks.length === 1 ? '' : 's'} visible${nLinks.length === 1 ? '' : 's'}</div>`;
+    tooltip.html(html)
+      .classed("visible", true)
       .style("left", `${event.offsetX + 16}px`)
       .style("top", `${event.offsetY + 16}px`);
   });
@@ -301,6 +303,6 @@ export function setupTooltip() {
       .style("top", `${event.offsetY + 16}px`);
   });
   window.addEventListener('tooltipHide', () => {
-    tooltip.style("opacity", 0);
+    tooltip.classed("visible", false);
   });
 }

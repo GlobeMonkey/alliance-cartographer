@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alliance Cartographer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/side-panel.css">
   <link rel="stylesheet" href="./css/layout.css">
@@ -14,25 +15,28 @@
       display: block;
       width: 100%;
       height: 100%;
+      background: radial-gradient(ellipse at 50% 60%, #071524 0%, #030810 100%);
     }
     .map-land {
-      fill: #1e2d3d;
-      stroke: #2a3f52;
-      stroke-width: 0.5;
+      fill: #0a1628;
+      stroke: rgba(255,255,255,0.06);
+      stroke-width: 0.4px;
     }
     .map-country {
-      stroke: #2a3f52;
-      stroke-width: 0.5;
-      transition: fill 0.15s ease;
+      stroke: rgba(255,255,255,0.05);
+      stroke-width: 0.5px;
+      transition: fill 0.3s var(--ease);
     }
     .map-country.is-hovered {
-      fill: rgba(148, 200, 255, 0.18) !important;
-      stroke: rgba(148, 200, 255, 0.5);
+      fill: rgba(96, 165, 250, 0.12) !important;
+      stroke: rgba(96, 165, 250, 0.4) !important;
+      stroke-width: 1px !important;
     }
     .map-country.is-focused {
-      fill: rgba(96, 165, 250, 0.28) !important;
-      stroke: rgba(96, 165, 250, 0.7);
-      stroke-width: 1;
+      fill: rgba(96, 165, 250, 0.20) !important;
+      stroke: rgba(96, 165, 250, 0.8) !important;
+      stroke-width: 1.5px !important;
+      filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.3));
     }
     /* Annexed/de-facto controlled territories merge visually into parent state */
     .map-land.is-unrecognized-border {
@@ -44,9 +48,10 @@
     /* When selected, dotted yellow border indicates non-recognized status */
     .map-country.is-unrecognized-focused {
       fill: rgba(96, 165, 250, 0.20) !important;
-      stroke: rgba(255, 200, 50, 0.9) !important;
+      stroke: rgba(251, 191, 36, 0.9) !important;
       stroke-width: 1.5px !important;
       stroke-dasharray: 6, 3 !important;
+      filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.25));
     }
     .minimap-shell {
       position: absolute;
@@ -226,7 +231,11 @@
           <input type="range" id="timelineSlider" min="1945" max="2026" value="2026" step="1" class="timeline-slider">
           <span class="timeline-bound">1945</span>
           <span class="timeline-bound">2026</span>
+          <span class="live-badge" aria-label="Année courante">LIVE</span>
         </div>
+
+        <!-- Floating map tooltip -->
+        <div id="tooltip" class="map-tooltip" role="tooltip" aria-hidden="true"></div>
 
         <!-- Comparison panel -->
         <div class="compare-panel" id="comparePanel" hidden>
