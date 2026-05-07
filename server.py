@@ -11,7 +11,17 @@ class NoCacheHandler(http.server.SimpleHTTPRequestHandler):
     def log_message(self, format, *args):
         pass  # suppress request logs
 
+    def handle_one_request(self):
+        try:
+            super().handle_one_request()
+        except (ConnectionAbortedError, ConnectionResetError, BrokenPipeError):
+            pass  # client closed mid-transfer; not a real error
+
+class ThreadedTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
+    daemon_threads = True
+    allow_reuse_address = True
+
 if __name__ == "__main__":
     PORT = 8743
-    with socketserver.TCPServer(("", PORT), NoCacheHandler) as httpd:
+    with ThreadedTCPServer(("", PORT), NoCacheHandler) as httpd:
         httpd.serve_forever()

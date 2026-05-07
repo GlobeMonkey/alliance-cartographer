@@ -256,6 +256,17 @@ export function renderGraph() {
           .style("cursor", "pointer")
           .style("opacity", 0);
 
+        // Focus ring (animated dashed circle around the selected node).
+        // Always present, visibility toggled via .is-focused class on the group.
+        g.append("circle")
+          .attr("class", "focus-ring")
+          .attr("r", 26)
+          .attr("fill", "none")
+          .attr("stroke", "rgba(96,165,250,0.7)")
+          .attr("stroke-width", 1.5)
+          .attr("stroke-dasharray", "4,2")
+          .style("pointer-events", "none");
+
         // A flag URL exists when either a 2-letter ISO code is set, or the id has
         // a custom local SVG flag (X-prefix codes like XNC, XRJ).
         const flagFor = (d) => getFlagUrl(d.code || d.id);
@@ -277,8 +288,10 @@ export function renderGraph() {
           .attr("x", -21).attr("y", -15)
           .attr("width", 42).attr("height", 30)
           .attr("preserveAspectRatio", "xMidYMid slice")
-          .style("clip-path", "inset(0 round 10px)")
-          .style("filter", (d) => d.type === "unrecognized" ? "grayscale(0.5) opacity(0.75)" : null)
+          .style("clip-path", "inset(0 round 6px)")
+          .style("filter", (d) => d.type === "unrecognized"
+            ? "grayscale(0.5) opacity(0.75) drop-shadow(0 2px 6px rgba(0,0,0,0.6))"
+            : "drop-shadow(0 2px 6px rgba(0,0,0,0.6))")
           .on("error", function(event, d) {
             const parent = this.parentNode;
             d3.select(this).remove();
@@ -304,6 +317,7 @@ export function renderGraph() {
     )
     .attr("transform", (d) => `translate(${d.drawX}, ${d.drawY})`)
     .attr("aria-label", (d) => `Pays ${d.name || d.label}`)
+    .classed("is-focused-node", (d) => d.id === state.focusId)
     .on("click", (_, d) => {
       if (d.copyIndex !== 0) return;
       if (state.compareMode) {
